@@ -1,1 +1,94 @@
-{}
+{
+    "ejemplares": [
+      {
+        "id": 1,
+        "imagen": "",
+        "nombre": "Viking II Iz Omskoi Kreposti",
+        "raza": "Teckel Miniatura Pelo Corto",
+        "color": "Chocolate y fuego",
+        "sexo": "Macho"
+      },
+      {
+        "id": 2,
+        "imagen": "",
+        "nombre": "Alpheratz Veni Vidi Vici",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "color": "Negro y fuego",
+        "sexo": "Hembra"
+      },
+      {
+        "id": 3,
+        "imagen": "",
+        "nombre": "Forrest Fortuna Aiuvat de Brisas Del Arrayan",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "color": "Negro y fuego",
+        "sexo": "Hembra"
+      },
+      {
+        "id": 4,
+        "imagen": "",
+        "nombre": "Carmela de Brisas Del Arrayan",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "color": "Negro y fuego",
+        "sexo": "Hembra"
+      }
+    ],
+    "camadas": [
+      {
+        "id": 1,
+        "fechaNacimiento": "2023-05-15",
+        "padreId": 1,
+        "madreId": 2,
+        "cachorros": [1, 2, 3]
+      },
+      {
+        "id": 2,
+        "fechaNacimiento": "2023-06-10",
+        "padreId": 3,
+        "madreId": 4,
+        "cachorros": [4, 5]
+      }
+    ],
+    "cachorros": [
+      {
+        "id": 1,
+        "nombre": "Bruno",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "sexo": "Macho",
+        "padreId": 1,
+        "madreId": 2
+      },
+      {
+        "id": 2,
+        "nombre": "Daisy",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "sexo": "Hembra",
+        "padreId": 1,
+        "madreId": 2
+      },
+      {
+        "id": 3,
+        "nombre": "Rocky",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "sexo": "Macho",
+        "padreId": 1,
+        "madreId": 2
+      },
+      {
+        "id": 4,
+        "nombre": "Molly",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "sexo": "Hembra",
+        "padreId": 1,
+        "madreId": 3
+      },
+      {
+        "id": 5,
+        "nombre": "Charlie",
+        "raza": "Teckel Kaninchen Pelo Corto",
+        "sexo": "Macho",
+        "padreId": 1,
+        "madreId": 4
+      }
+    ]
+  }
