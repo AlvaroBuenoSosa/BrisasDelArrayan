@@ -1,0 +1,6 @@
+<div *ngIf="posts">
+    <div *ngFor="let post of posts.data">
+      <p>{{ post.message }}</p>
+      <small>{{ post.created_time }}</small>
+    </div>
+  </div>

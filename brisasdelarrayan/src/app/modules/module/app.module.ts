@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
 import { EjemplaresComponent } from '../../components/ejemplares/ejemplares.component';
 import { CachorrosComponent } from '../../components/cachorros/cachorros.component';
 import { CamadasComponent } from '../../components/camadas/camadas.component';
 import { AppComponent } from '../../app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { routes } from '../../app.routes';
+import { NovedadesComponent } from '../../components/novedades/novedades.component';
+import { CommonModule } from '@angular/common';
 
 NgModule({
   declarations: [
@@ -13,10 +13,11 @@ NgModule({
     CachorrosComponent,
     EjemplaresComponent,
     CamadasComponent,
-    EjemplaresComponent
+    NovedadesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    CommonModule
   ],
   bootstrap: [AppComponent]
 })

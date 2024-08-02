@@ -1,8 +1,8 @@
 import { CachorrosComponent } from './components/cachorros/cachorros.component';
 import { EjemplaresComponent } from './components/ejemplares/ejemplares.component';
 import { CamadasComponent } from './components/camadas/camadas.component';
-import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
+import { NovedadesComponent } from './components/novedades/novedades.component';
 
 
 export const routes: Routes = [
@@ -15,5 +15,5 @@ export const routes: Routes = [
       ]
     },
     { path: 'camadas', component: CamadasComponent },
-    { path: 'novedades', redirectTo: '/novedades', pathMatch: 'full' },
+    { path: 'novedades', component: NovedadesComponent },
   ];
