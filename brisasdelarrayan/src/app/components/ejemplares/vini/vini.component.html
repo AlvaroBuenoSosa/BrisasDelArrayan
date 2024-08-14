@@ -1,0 +1,9 @@
+<section class="vini-card">
+    <div *ngIf="ejemplar">
+     <h3>{{ ejemplar.nombre }}</h3>
+      <img src="{{ ejemplar.imagen }}" alt="{{ ejemplar.nombre }}">
+      <p>Raza: {{ ejemplar.raza }}</p>
+      <p>Color: {{ ejemplar.color }}</p>
+      <p>Sexo: {{ ejemplar.sexo }}</p>
+    </div>
+</section>

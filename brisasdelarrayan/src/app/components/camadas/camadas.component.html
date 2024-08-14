@@ -1,1 +1,11 @@
-<p>camadas works!</p>
+<section class="camada-card">
+    <div *ngFor="let camada of camadas" >
+        <h3>{{ camada.nombre }}</h3>
+        <img src="{{ camada.imagenPadre }}" alt="{{ camada.padreNombre }}" width="300" height="">
+        <p>Fecha: {{ camada.fechaNacimiento }}</p>
+        <p>Padre: {{ camada.padreNombre }}</p>
+        <p>Madre: {{ camada.madreNombre }}</p>
+        <p>Cachorros: {{ camada.cachorros }}</p>
+        <img src="{{ camada.imagenMadre }}" alt="{{ camada.madreNombre }}" width="300" height="">
+      </div>
+    </section>

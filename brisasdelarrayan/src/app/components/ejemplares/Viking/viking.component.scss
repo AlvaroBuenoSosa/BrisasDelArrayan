@@ -1,0 +1,72 @@
+.pedigree-container {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr); /* Ocho columnas iguales */
+    gap: 10px;
+    justify-items: center;
+    align-items: start;
+    margin: 20px;
+}
+
+.pedigree-box {
+    border: 2px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;
+    width: 220px; /* Ancho fijo */
+}
+
+.pedigree-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.pedigree-box p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+
+.pedigree-box b {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Posicionamiento de cada fila */
+
+/* Primera fila: generación más reciente */
+.pedigree-container > .generation-1 {
+    grid-column: span 8; /* Ocupa las 8 columnas completas */
+}
+
+/* Segunda fila: segunda generación */
+.pedigree-container > .generation-2 {
+    grid-column: span 4; /* Ocupa 4 columnas cada una */
+}
+
+/* Tercera fila: tercera generación */
+.pedigree-container > .generation-3 {
+    grid-column: span 2; /* Ocupa 2 columnas cada una */
+}
+
+/* Cuarta fila: cuarta generación */
+.pedigree-container > .generation-4 {
+    grid-column: span 1; /* Ocupa 1 columna cada una */
+}
+
+/* Colores de fondo para identificar líneas */
+.pedigree-box.red {
+    background-color: #FFDDDD;
+}
+
+.pedigree-box.blue {
+    background-color: #DDDDFF;
+}
+
+.pedigree-box.green {
+    background-color: #DDFFDD;
+}
+
+.pedigree-box.purple {
+    background-color: #EEDDFF;
+}

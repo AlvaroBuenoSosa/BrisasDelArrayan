@@ -1,1 +1,11 @@
-<p>cachorros works!</p>
+<section class="cachorro-card">
+    <div *ngFor="let cachorro of cachorros" >
+        <h3>{{ cachorro.nombre }}</h3>
+        <p>Raza: {{ cachorro.raza }}</p>
+        <p>Color: {{ cachorro.color }}</p>
+        <p>Sexo: {{ cachorro.sexo }}</p>
+        <p>Padre: {{ cachorro.padreNombre }}</p>
+        <p>Madre: {{ cachorro.madreNombre }}</p>
+        <p>Fecha de nacimiento: {{cachorro.fechaNacimiento}}</p>
+      </div>
+    </section>

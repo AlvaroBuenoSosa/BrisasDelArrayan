@@ -1,0 +1,145 @@
+<section class="viking-card">
+    <div *ngIf="ejemplar">
+     <h3>{{ ejemplar.nombre }}</h3>
+      <img src="{{ ejemplar.imagen }}" alt="{{ ejemplar.nombre }}">
+      <p>Raza: {{ ejemplar.raza }}</p>
+      <p>Color: {{ ejemplar.color }}</p>
+      <p>Sexo: {{ ejemplar.sexo }}</p>
+    </div>
+</section>
+
+<div class="pedigree-container">
+    <!-- Primera fila -->
+    <div class="pedigree-row">
+        <div class="pedigree-box">
+            <p>Lisego Nosa Nevsky</p>
+            <b>RUSJCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/bim_0.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/lisego-nosa-nevsky-nid/394635';">
+            <p>Chocolate & Tan Dapple</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Poprygunya strekoza iz Omskoi kreposti</p>
+            <b>RKFCH RUSCH RUSJCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/DSC03422%D0%B0%D0%B011.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/poprygunya-strekoza-iz-omskoi-kreposti-nid/10781';">
+            <p>Brown & Tan</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <!--<div class="pedigree-box">
+            <p>Criscross For The Defense ms</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/Criscross%20For%20The%20Defense%20ms.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/criscross-defense-ms-nid/13450';">
+            <p>Brown & Tan</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Criscross Meant To Be Msc</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/CRISCROSS%20MEANT%20TO%20BE%20MSC.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/criscross-meant-be-msc-nid/10767';">
+            <p>Brown & Tan</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Sunrise Add-Sim's Guardian MS</p>
+            <b>LUXJCH NJK NLCH</b>
+            <img src="http://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/Sunrise%20Add-Sim%27s%20Guardian%20MS.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/sunrise-add-sims-guardian-ms-nid/12320';">
+            <p>Red</p>
+            <p>Zwerg Dachshund kurzhaar</p>
+        </div>-->
+    </div>
+
+    <!-- Segunda fila -->
+    <div class="pedigree-row">
+        <div class="pedigree-box">
+            <p>Laurjosh's Sothern Exposure MS</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/Laurjosh's%20Sothern%20Exposure%20MS.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/laurjoshs-sothern-exposure-ms-nid/10770';">
+            <p>Red</p>
+            <p>Zwerg Dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Criscross Laurjosh Southern Song ms</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/Criscross%20For%20The%20Defense%20ms.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/criscross-defense-ms-nid/13450';">
+            <p>Black & Tan</p>
+            <p>Zwerg-dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Criscross Ides Of March</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/CRISCROSS%20IDES%20OF%20MARCH%20MS.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/criscross-ides-march-nid/13452';">
+            <p>Black & tan</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Laurjosh's Sothern Exposure MS</p>
+            <b>AMCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/Laurjosh's%20Sothern%20Exposure%20MS.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/laurjoshs-sothern-exposure-ms-nid/10770';">
+            <p>Red</p>
+            <p>Zwerg Dachshund kurzhaar</p>
+        </div>
+    </div>
+
+    <!-- Tercera fila -->
+    <div class="pedigree-row">
+        <div class="pedigree-box">
+            <p>Lisego Nosa Brogan Arish Cream</p>
+            <b>RUSCH RUSJCH FT-BL TR</b>
+            <img src="https://dachpedigrees.com/sites/default/files/3.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/lisego-nosa-brogan-arish-cream-nid/390772';">
+            <p>Chocolate & Tan Dapple</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Muhomor iz Omskoi Kreposti</p>
+            <b>INTCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/b3c5cf3777aa.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/muhomor-iz-omskoi-kreposti-nid/10365';">
+            <p>Brown & Tan</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Lisego Nosa Terrakota</p>
+            <b>BLRCH EECH RUSCH RUSJCH FT-FOX FT-BL TR</b>
+            <img src="https://dachpedigrees.com/sites/default/files/terra.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/lisego-nosa-terrakota-nid/301221';">
+            <p>Chocolate & Tan Dapple</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Makov Tsvet iz Omskoi Kreposti</p>
+            <b>INTCH(FCI) MOLCH RKFCH RUSCH RUSJCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/tsvet.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/lisego-nosa-terrakota-nid/301221';">
+            <p>Black & Tan</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+    </div>
+
+    <!-- Cuarta fila -->
+    <div class="pedigree-row">
+        <div class="pedigree-box">
+            <p>Muha Tsokotukha iz Omskoi Kreposti</p>
+            <b>INTCH(FCI) EUW RKFCH RUSCH RUSJCH</b>
+            <img src="https://dachpedigrees.com/sites/default/files/1_15.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/muha-tsokotukha-iz-omskoi-kreposti-nid/9572';">
+            <p>Black & Tan</p>
+            <p>Zwerg dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Lisego Nosa Fantastic</p>
+            <b>INTCH(FCI) WW EECH FINCH LTCH LVCH PLCH RKFCH RUSCH RUSJCH UKRCH FT-FOX FT-BL TR</b>
+            <img src="https://dachpedigrees.com/sites/default/files/lis-nosa-fantastic.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/lisego-nosa-fantastic-nid/31';">
+            <p>Black & Tan</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Nee Pup Dachshaus</p>
+            <img src="https://dachpedigrees.com/sites/default/files/nee.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/nee-pup-dachshaus-nid/301165';">
+            <p>Black & Tan</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+        <div class="pedigree-box">
+            <p>Maksimus iz Omskoi Kreposti</p>
+            <b>CH of Russia</b>
+            <img src="https://dachpedigrees.com/sites/default/files/imagecache/dog_small/Maksimus%20iz%20Omskoi%20Kreposti.jpg" onclick="window.location.href='https://dachpedigrees.com/dog/maksimus-iz-omskoi-kreposti-nid/10171';">
+            <p>Red</p>
+            <p>Kaninchen dachshund kurzhaar</p>
+        </div>
+    </div>
+</div>

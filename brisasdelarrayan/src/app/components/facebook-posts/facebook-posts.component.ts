@@ -21,7 +21,7 @@ export class FacebookPostsComponent implements OnInit, OnDestroy {
     this.posts = data;
     });
     this.loadPosts();
-    this.updateSubscription = interval(60000).subscribe(() => this.loadPosts()); // Actualiza cada minuto
+    this.updateSubscription = interval(60000).subscribe(() => this.loadPosts());
   }
 
   ngOnDestroy(): void {
