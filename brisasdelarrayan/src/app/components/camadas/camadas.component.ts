@@ -3,6 +3,7 @@ import { CamadasService } from '../../shared/services/camadas.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EjemplaresService } from '../../shared/services/ejemplares.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-camadas',
@@ -18,19 +19,28 @@ export class CamadasComponent implements OnInit{
   constructor(private camadasService: CamadasService, private ejemplaresService: EjemplaresService) { }
 
   ngOnInit(): void {
-    this.camadasService.getCamadas().subscribe(camadasData => {
-      this.camadas = camadasData;
-
-      this.ejemplaresService.getEjemplares().subscribe(ejemplaresData => {
-        this.ejemplares = ejemplaresData;
-
-        this.camadas.forEach(camadas => {
-          const padre = this.ejemplares.find(ejemplar => ejemplar.id === camadas.padreId);
-          const madre = this.ejemplares.find(ejemplar => ejemplar.id === camadas.madreId);
-          camadas.padreNombre = padre ? padre.nombre : 'Desconocido';
-          camadas.madreNombre = madre ? madre.nombre : 'Desconocido';
-        });
+    forkJoin({
+      camadas: this.camadasService.getCamadas(),
+      ejemplares: this.ejemplaresService.getEjemplares()
+    }).subscribe(({ camadas, ejemplares }) => {
+      this.camadas = camadas;
+      this.ejemplares = ejemplares;
+  
+      this.camadas.forEach(camada => {
+        const padre = this.ejemplares.find(ejemplar => ejemplar.id === camada.padreId);
+        const madre = this.ejemplares.find(ejemplar => ejemplar.id === camada.madreId);
+  
+        camada.padreNombre = padre ? padre.nombre : 'Desconocido';
+        camada.madreNombre = madre ? madre.nombre : 'Desconocido';
+  
+        if (!padre) {
+          console.error(`Padre no encontrado para camada ID ${camada.id} con padreId ${camada.padreId}`);
+        }
+        if (!madre) {
+          console.error(`Madre no encontrada para camada ID ${camada.id} con madreId ${camada.madreId}`);
+        }
       });
     });
   }
+  
 }

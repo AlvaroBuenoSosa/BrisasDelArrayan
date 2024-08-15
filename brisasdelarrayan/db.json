@@ -3,7 +3,7 @@
       {
         "id": 1,
         "imagen":"../img/Viking/principal.jpg",
-        "titles":"INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOGESP 2017, 2018, 2019",
+        "titles":"INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOG ESP 2017, 2018, 2019",
         "nombre": "Viking II Iz Omskoi Kreposti",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Chocolate y fuego",
@@ -59,16 +59,18 @@
       {
         "id": 1,
         "nombre": "Oliver X Macarena de Brisas Del Arrayan",
-        "titles":"INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOGESP 2017, 2018, 2019",
         "imagenPadre": "../img/Viking/principal.jpg",
         "imagenMadre": "../img/Fortuna/fortunaweb/20190703_190445.jpg",
         "fechaNacimiento": "2023-05-15",
-        "padreId": 1,
-        "madreId": 2,
+        "padreId": 5,
+        "madreId": 6,
         "cachorros": [1, 2, 3]
       },
       {
         "id": 2,
+        "nombre": "Oliver X Lizbeth Vikinga de Brisas Del Arrayan",
+        "imagenPadre": "../img/Viking/principal.jpg",
+        "imagenMadre": "../img/Fortuna/fortunaweb/20190703_190445.jpg",
         "fechaNacimiento": "2023-06-10",
         "padreId": 3,
         "madreId": 4,
