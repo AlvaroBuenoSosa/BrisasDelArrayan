@@ -2,6 +2,7 @@
 <div *ngFor="let ejemplar of ejemplares" >
     <img src="{{ ejemplar.imagen }}" alt="{{ ejemplar.nombre }}" width="300" height="225" (click)="goToEjemplar(ejemplar.nombre)">
     <h3>{{ ejemplar.nombre }}</h3>
+    <p>{{ ejemplar.titles }}</p>
     <p>Raza: {{ ejemplar.raza }}</p>
     <p>Color: {{ ejemplar.color }}</p>
     <p>Sexo: {{ ejemplar.sexo }}</p>

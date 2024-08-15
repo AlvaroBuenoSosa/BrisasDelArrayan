@@ -11,7 +11,6 @@ import { EjemplaresService } from '../../../shared/services/ejemplares.service';
   styleUrl: './viking.component.scss'
 })
 export class VikingComponent implements OnInit {
-[x: string]: any;
 
   ejemplar: any;
 

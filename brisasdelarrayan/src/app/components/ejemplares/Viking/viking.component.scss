@@ -1,72 +1,234 @@
-.pedigree-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr); /* Ocho columnas iguales */
-    gap: 10px;
-    justify-items: center;
-    align-items: start;
-    margin: 20px;
+a{
+    text-decoration:none;
 }
 
-.pedigree-box {
-    border: 2px solid #ccc;
-    padding: 10px;
-    text-align: center;
-    background-color: #f9f9f9;
-    width: 220px; /* Ancho fijo */
+.viking-card{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 20px;
 }
 
-.pedigree-box img {
-    width: 100%;
+.viking-text{
+    max-width: 100%;
+}
+
+.viking-image{
+    margin-left: 10px;
+}
+
+.viking-image img{
+    padding-top: 10px;
+    max-width: 80%;
     height: auto;
-    margin-bottom: 10px;
 }
 
-.pedigree-box p {
-    margin: 5px 0;
+.table{   
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 2px;
+}   
+
+.td{
+    display: table-cell;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+}
+
+.block-dogs-0{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
     font-size: 12px;
-}
-
-.pedigree-box b {
+    letter-spacing: 0.03em;
     display: block;
-    font-size: 14px;
-    margin-bottom: 5px;
+    position: relative;
+    margin: 6px 0;
+    padding: 2px;
+    background-color: #E7E7E7;
+    border: 1px solid #CBCBCB;
 }
 
-/* Posicionamiento de cada fila */
-
-/* Primera fila: generación más reciente */
-.pedigree-container > .generation-1 {
-    grid-column: span 8; /* Ocupa las 8 columnas completas */
+.block-inner{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 8px;
+    margin-top: 8px;
 }
 
-/* Segunda fila: segunda generación */
-.pedigree-container > .generation-2 {
-    grid-column: span 4; /* Ocupa 4 columnas cada una */
+.content{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    margin: 0;
+    padding: 0;
 }
 
-/* Tercera fila: tercera generación */
-.pedigree-container > .generation-3 {
-    grid-column: span 2; /* Ocupa 2 columnas cada una */
+.dogspedigree{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    width: 100%;
+    height: 80%;
 }
 
-/* Cuarta fila: cuarta generación */
-.pedigree-container > .generation-4 {
-    grid-column: span 1; /* Ocupa 1 columna cada una */
+.even{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    text-align: center;
+    border: solid #333333 1px;
+    width: 25%;
+    background-color: #FBFBFB;
+    padding: 3px;
 }
 
-/* Colores de fondo para identificar líneas */
-.pedigree-box.red {
-    background-color: #FFDDDD;
+.odd{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    text-align: center;
+    border: solid #333333 1px;
+    width: 25%;
+    padding: 3px;
 }
 
-.pedigree-box.blue {
-    background-color: #DDDDFF;
+
+.name{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
 }
 
-.pedigree-box.green {
-    background-color: #DDFFDD;
+.photo{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-.pedigree-box.purple {
-    background-color: #EEDDFF;
+
+.titles{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.name{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    font-size: x-small;
+}
+
+.femalethree{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255,100,100);
+    text-align: center;
+    border: solid #333333 1px;
+    width: 25%;
+}
+
+.maletwice{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(200,200,255);
+    text-align: center;
+    border: solid #333333 1px;
+    width: 25%;
+}
+
+.femaletwise{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255,200,200);
+    text-align: center;
+    border: solid #333333 1px;
+    width: 25%;
+}
+
+.femalefour{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    background-color: rgb(255,0,0);
+    padding: 10px 5px;
+    width: 50px;
+}
+
+.malethree{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    background-color: rgb(100,100,255);
+    padding: 10px 5px;
+    width: 50px;
+}
+
+.malefour{
+    color: #312829;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    border-collapse: collapse;
+    margin: 0;
+    background-color: rgb(0,0,255);
+    padding: 10px 5px;
+    width: 50px;
 }

@@ -3,6 +3,7 @@
       {
         "id": 1,
         "imagen":"../img/Viking/principal.jpg",
+        "titles":"INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOGESP 2017, 2018, 2019",
         "nombre": "Viking II Iz Omskoi Kreposti",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Chocolate y fuego",
@@ -11,6 +12,7 @@
       {
         "id": 2,
         "imagen": "../img/alpheratzvenividivici/web/principal.JPG",
+        "titles":"INTCH(FCI), ESCH, GIBCH, PORCH",
         "nombre": "Alpheratz Veni Vidi Vici",
         "raza": "Teckel Kaninchen Pelo Corto",
         "color": "Negro y fuego",
@@ -19,6 +21,7 @@
       {
         "id": 3,
         "imagen": "../img/Fortuna/fortunaweb/20190703_190445.jpg",
+        "titles":"ESCH, GIBCH, PORTCH, Grand Champion POR",
         "nombre": "Forrest Fortuna Aiuvat de Brisas Del Arrayan",
         "raza": "Teckel Kaninchen Pelo Corto",
         "color": "Negro y fuego",
@@ -27,6 +30,7 @@
       {
         "id": 4,
         "imagen": "../img/CARMELA/20221210_132804.jpg",
+        "titles":"GIBCH,WW BABIES ESJCH GIBJCH PORTJCH",
         "nombre": "Carmela de Brisas Del Arrayan",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Negro y fuego",
@@ -35,6 +39,7 @@
       {
         "id": 5,
         "imagen": "../img/CARMELA/20221210_132804.jpg",
+        "titles":"",
         "nombre": "Oliver",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Arlequin Chocolate",
@@ -43,6 +48,7 @@
       {
         "id": 6,
         "imagen": "../img/CARMELA/20221210_132804.jpg",
+        "titles":"GIBCH,PORCH,Grand Champion GIB",
         "nombre": "Macarena de Brisas Del Arrayan",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Negro y fuego",
@@ -53,6 +59,7 @@
       {
         "id": 1,
         "nombre": "Oliver X Macarena de Brisas Del Arrayan",
+        "titles":"INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOGESP 2017, 2018, 2019",
         "imagenPadre": "../img/Viking/principal.jpg",
         "imagenMadre": "../img/Fortuna/fortunaweb/20190703_190445.jpg",
         "fechaNacimiento": "2023-05-15",
