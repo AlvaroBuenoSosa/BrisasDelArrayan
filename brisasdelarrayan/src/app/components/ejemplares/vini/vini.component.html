@@ -1,9 +1,330 @@
 <section class="vini-card">
-    <div *ngIf="ejemplar">
-     <h3>{{ ejemplar.nombre }}</h3>
-      <img src="{{ ejemplar.imagen }}" alt="{{ ejemplar.nombre }}">
-      <p>Raza: {{ ejemplar.raza }}</p>
-      <p>Color: {{ ejemplar.color }}</p>
-      <p>Sexo: {{ ejemplar.sexo }}</p>
+  <div *ngIf="ejemplar" class="vini-text">
+    <h3>{{ ejemplar.nombre }}</h3>
+    <p><b>{{ejemplar.titles}}</b></p>
+    <p>Raza: {{ ejemplar.raza }}</p>
+    <p>Color: {{ ejemplar.color }}</p>
+    <p>Sexo: {{ ejemplar.sexo }}</p>
+  </div>
+  <div id="carouselExampleControls" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../img/venividivici/web/principal.JPG" class="d-block carousel-image" alt="{{ ejemplar.nombre }}">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/venividivici/web/01.JPG" class="d-block carousel-image" alt="{{ ejemplar.nombre }}">
+      </div>
+      <div class="carousel-item">
+        <img src="../img/venividivici/web/02.JPG" class="d-block carousel-image" alt="{{ ejemplar.nombre }}">
+      </div>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 </section>
+
+<div class="block-inner">
+
+
+  <div class="content">
+    <table class="dogspedigree">
+      <tr>
+        <td rowspan="8" class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/great-kapriz-alderaan-nid/395079">Great Kapriz Alderaan</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/great-kapriz-alderaan-nid/395079"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/12085157_10153679819439579_1928954728_o.jpg"></a></div>
+          <div class="titles"><b>GIBCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Kaninchen- dachshund (teckel)
+              kurzhaar</i> </div>
+        </td>
+        <td rowspan="4" class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-eros-nid/325244">Magik Rainbow Eros</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-eros-nid/325244"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/Magik%20Rainbow%20Eros.jpg"></a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td rowspan="2" class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/crisscross-downtown-brown-kts-nid/13017">Crisscross Downtown Brown KtS</a>
+          </div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/crisscross-downtown-brown-kts-nid/13017"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/CRISCROSS%20DOWNTOWN%20BROWN%20MS.jpg"></a></div>
+          <div class="titles"><b>INTCH, EUW</b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Kaninchen- dachshund (teckel)
+              kurzhaar</i> </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/criscross-smooth-malt-ms-nid/10766">CRISCROSS SMOOTH MALT MS</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/criscross-smooth-malt-ms-nid/10766"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/1_143.jpg"></a></div>
+          <div class="titles"><b>RKFCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> <br>Zwerg-dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/criscross-swiss-bliss-ms-nid/13023">Criscross Swiss Bliss MS</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/criscross-swiss-bliss-ms-nid/13023"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/bliss.jpg"></a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-happy-choice-nid/53844">Magik Rainbow Happy Choice</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-happy-choice-nid/53844"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/m.r.happy_choice-bog3_0.jpg"></a></div>
+          <div class="titles"><b>RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td class="malethree">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16">Magik Rainbow Ordinar</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/20180115_180951.png"></a></div>
+          <div class="titles"><b>INTCH, WW, EUW, HCH, LTCH, PLCH, PLJCH, RKFCH, RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-zhozephina-nid/10289">Magik Rainbow Zhozephina</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-zhozephina-nid/10289"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/Magik%20Rainbow%20G-JOZEPHINA.jpg"></a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/great-kapriz-roskosh-nid/395081">Great Kapriz Roskosh</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/great-kapriz-roskosh-nid/395081"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/377895_242531855818712_2122266633_n.jpg"></a></div>
+          <div class="titles"><b>RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td rowspan="2" class="malethree">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16">Magik Rainbow Ordinar</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/20180115_180951.png"></a></div>
+          <div class="titles"><b>INTCH, WW, EUW, HCH, LTCH, PLCH, PLJCH, RKFCH, RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td class="maletwice">
+          <div class="name"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-timofeychik-nid/17">Kaladium-Vizavi Timofeychik</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-timofeychik-nid/17"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/tima.jpg"></a></div>
+          <div class="titles"><b>INTCH, EUW, BLRCH, FINCH, RKFCH, ROMCH, RUSCH, RUSJCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Zwerg-dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="femaletwise">
+          <div class="name"><a href="/dog/magik-rainbow-harmony-nid/18">Magik Rainbow Harmony</a></div>
+          <div class="photo"><a href="/dog/magik-rainbow-harmony-nid/18"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/20180115_181127.png"></a></div>
+          <div class="titles"><b>AMCH, RUSCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-semiramida-nid/301396">Magik Rainbow Semiramida</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-semiramida-nid/301396"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/semiramida.jpg"></a></div>
+          <div class="titles"><b>RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/ohotnichyi-azart-haber-formula-uspeha-nid/301157">OHOTNICHYI AZART HABER
+              FORMULA USPEHA</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/ohotnichyi-azart-haber-formula-uspeha-nid/301157"><img width="150px"
+                border="0" src="https://dachpedigrees.com/sites/default/files/627.jpg"></a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/gran-pri-gloria-brown-nid/301398">Gran-Pri Gloria Brown</a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> brown&amp;tan, <br>Kaninchen- dachshund (teckel)
+              kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="8" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-andromeda-nid/474537">Magik Rainbow Andromeda</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-andromeda-nid/474537"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/Andormeda.PNG"></a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Kaninchen- dachshund (teckel)
+              kurzhaar</i> </div>
+        </td>
+        <td rowspan="4" class="malethree">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16">Magik Rainbow Ordinar</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-ordinar-nid/16"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/20180115_180951.png"></a></div>
+          <div class="titles"><b>INTCH, WW, EUW, HCH, LTCH, PLCH, PLJCH, RKFCH, RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td rowspan="2" class="maletwice">
+          <div class="name"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-timofeychik-nid/17">Kaladium-Vizavi Timofeychik</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-timofeychik-nid/17"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/tima.jpg"></a></div>
+          <div class="titles"><b>INTCH, EUW, BLRCH, FINCH, RKFCH, ROMCH, RUSCH, RUSJCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Zwerg-dachshund (teckel) kurzhaar</i> </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/ollf-amaize-kasper-fetis-nid/21">Ollf Amaize Kasper Fetis </a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/ollf-amaize-kasper-fetis-nid/21"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/Ollf%20Amaize%20KASPER%20FETIS.JPG"></a></div>
+          <div class="titles"><b>INTCH, BLRCH, RKFCH, RUSCH, RUSJCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-jacqueline-nid/22">Kaladium-Vizavi Jacqueline</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/kaladium-vizavi-jacqueline-nid/22"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/jaklin.jpg"></a></div>
+          <div class="titles"><b>INTCH(FCI), RUSCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Kaninchen- dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" class="femaletwise">
+          <div class="name"><a href="https://dachpedigrees.com/dog/magik-rainbow-harmony-nid/18">Magik Rainbow Harmony</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/magik-rainbow-harmony-nid/18"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/20180115_181127.png"></a></div>
+          <div class="titles"><b>AMCH, RUSCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/lisego-nosa-don-juan-nid/23">Lisego Nosa Don Juan</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/lisego-nosa-don-juan-nid/23"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/635556089.jpg"></a></div>
+          <div class="titles"><b>INTCH, WW, EUW, EUJW, BLRCH, RKFCH, RUSCH, VDHCH, FT-FOX, FT-BL. TR., RBT</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Kaninchen- dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/legenda-nid/24">Legenda</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/legenda-nid/24"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/legenda.jpg"></a></div>
+          <div class="titles"><b>RUSCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="4" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/formula-uspeha-orchidea-nid/10677">Formula Uspeha Orchidea</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/formula-uspeha-orchidea-nid/10677"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/orhidea14.jpg"></a></div>
+          <div class="titles"><b>EUW, RUSCH, RUSJCH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td rowspan="2" class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/nosferatu-del-gotha-nid/10680">Nosferatu del Gotha </a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/nosferatu-del-gotha-nid/10680"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/nosferatu3.jpg"></a></div>
+          <div class="titles"><b>INTCH, BLRCH, RKFCH, RUSCH, RUSJCH, UKRCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/bauchal%C2%B4s-magic-woodo-nid/10682">Bauchal´s Magic Woodo</a></div>
+          <div class="titles"><b>ITACH</b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/welwet-della-maga-nid/10683">Welwet della Maga </a></div>
+          <div class="titles"><b></b></div>
+          <div class="name" style="font-size: x-small;"> <i> black&amp;tan, <br>Zwerg-dachshund (teckel) kurzhaar</i>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td rowspan="2" class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/formula-uspeha-super-hit-nid/10681">Formula Uspeha Super Hit </a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/formula-uspeha-super-hit-nid/10681"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/superhit8.jpg"></a></div>
+          <div class="titles"><b>INTCH, BLRCH, RKFCH, RUSCH, FT-FOX</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Kaninchen- dachshund (teckel) kurzhaar</i> </div>
+        </td>
+        <td class="even">
+          <div class="name"><a href="https://dachpedigrees.com/dog/ercules-del-gotha-nid/9424">Ercules del Gotha</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/ercules-del-gotha-nid/9424"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/Ercules%20del%20Gotha.jpg"></a></div>
+          <div class="titles"><b>INTCH, BLRCH, GEOCH, RKFCH, RUSCH, UKRCH, FT-FOX, FT-BL. TR.</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Zwerg-dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="odd">
+          <div class="name"><a href="https://dachpedigrees.com/dog/formula-uspeha-greatest-hits-nid/10663">Formula Uspeha Greatest Hits</a></div>
+          <div class="photo"><a href="https://dachpedigrees.com/dog/formula-uspeha-greatest-hits-nid/10663"><img width="150px" border="0"
+                src="https://dachpedigrees.com/sites/default/files/FORMULA%20USPEHA%20GREATEST%20HIT3.jpg"></a></div>
+          <div class="titles"><b>INTCH, WW, WUT CH, BLRCH, EURCH, PLCH, RKFCH, ROMCH, RUSCH, SLOCH, UKRCH, FT-FOX,
+              FT-BL. TR.</b></div>
+          <div class="name" style="font-size: x-small;"> <i> red, <br>Zwerg-dachshund (teckel) kurzhaar</i> </div>
+        </td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tbody>
+        <tr class="odd">
+          <td style="width: 50px;" class="femaletwise"></td>
+          <td>Female present twice in 4 generation pedigree</td>
+        </tr>
+        <tr class="even">
+          <td style="width: 50px;" class="maletwice"></td>
+          <td>Male present twice in 4 generation pedigree</td>
+        </tr>
+        <tr class="odd">
+          <td style="width: 50px;" class="femalethree"></td>
+          <td>Female present three times in 4 generation pedigree</td>
+        </tr>
+        <tr class="even">
+          <td style="width: 50px;" class="malethree"></td>
+          <td>Male present three times in 4 generation pedigree</td>
+        </tr>
+        <tr class="odd">
+          <td style="width: 50px;" class="femalefour"></td>
+          <td>Female present four times in 4 generation pedigree</td>
+        </tr>
+        <tr class="even">
+          <td style="width: 50px;" class="malefour"></td>
+          <td>Male present four times in 4 generation pedigree</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

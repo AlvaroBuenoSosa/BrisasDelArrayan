@@ -1,6 +1,11 @@
 <section class="ejemplar-card">
-<div *ngFor="let ejemplar of ejemplares" >
-    <img src="{{ ejemplar.imagen }}" alt="{{ ejemplar.nombre }}" width="300" height="225" (click)="goToEjemplar(ejemplar.nombre)">
+  <div *ngFor="let ejemplar of ejemplares" >
+    <img 
+      class="ejemplar-image" 
+      [src]="ejemplar.imagen" 
+      [alt]="ejemplar.nombre" 
+      (click)="goToEjemplar(ejemplar.nombre)"
+    >
     <h3>{{ ejemplar.nombre }}</h3>
     <p><b>{{ ejemplar.titles }}</b></p>
     <p>Raza: {{ ejemplar.raza }}</p>

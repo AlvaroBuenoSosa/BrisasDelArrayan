@@ -9,15 +9,11 @@ import { ViniComponent } from './components/ejemplares/vini/vini.component';
 
 export const routes: Routes = [
   { path: 'ejemplares', component: EjemplaresComponent },
-  { path: 'ejemplares/:viking', component: VikingComponent },
-  { path: 'ejemplares/:vini', component: ViniComponent },
-  { 
-    path: 'cachorros', 
-    component: CachorrosComponent,
-    children: [
-      { path: ':nombre', component: CachorrosComponent }
-    ]
-  },
+  { path: 'ejemplares/Viking-II-Iz-Omskoi-Kreposti', component: VikingComponent },
+  { path: 'ejemplares/Veni-Vidi-Vici', component: ViniComponent }, 
+  { path: 'cachorros', component: CachorrosComponent, children: [
+    { path: ':nombre', component: CachorrosComponent }
+  ]},
   { path: 'camadas', component: CamadasComponent },
   { path: 'novedades', component: NovedadesComponent },
   { path: '', redirectTo: '/novedades', pathMatch: 'full' }
