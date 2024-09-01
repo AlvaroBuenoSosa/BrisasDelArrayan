@@ -7,6 +7,8 @@ import { VikingComponent } from './components/ejemplares/Viking/viking.component
 import { ViniComponent } from './components/ejemplares/vini/vini.component';
 import { FortunaComponent } from './components/ejemplares/fortuna/fortuna.component';
 import { CarmelaComponent } from './components/ejemplares/carmela/carmela.component';
+import { OliverComponent } from './components/ejemplares/oliver/oliver.component';
+import { MacarenaComponent } from './components/ejemplares/macarena/macarena.component';
 
 
 export const routes: Routes = [
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'ejemplares/Veni-Vidi-Vici', component: ViniComponent },
   { path: 'ejemplares/Forrest-Fortuna-Aiuvat-de-Brisas-Del-Arrayan', component: FortunaComponent },
   { path: 'ejemplares/Carmela-de-Brisas-Del-Arrayan', component: CarmelaComponent },
+  { path: 'ejemplares/Oliver', component: OliverComponent },
+  { path: 'ejemplares/Macarena-de-Brisas-Del-Arrayan', component: MacarenaComponent },
   { path: 'cachorros', component: CachorrosComponent, children: [
     { path: ':nombre', component: CachorrosComponent }
   ]},
