@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EjemplaresService } from '../../shared/services/ejemplares.service';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-camadas',
@@ -12,11 +13,16 @@ import { forkJoin } from 'rxjs';
   templateUrl: './camadas.component.html',
   styleUrl: './camadas.component.scss'
 })
-export class CamadasComponent implements OnInit{
+
+export class CamadasComponent implements OnInit {
   camadas: any[] = [];
   ejemplares: any[] = [];
 
-  constructor(private camadasService: CamadasService, private ejemplaresService: EjemplaresService) { }
+  constructor(
+    private camadasService: CamadasService, 
+    private ejemplaresService: EjemplaresService,
+    private router: Router // Inyecta el Router
+  ) { }
 
   ngOnInit(): void {
     forkJoin({
@@ -42,5 +48,8 @@ export class CamadasComponent implements OnInit{
       });
     });
   }
-  
+
+  navigateToCachorro(id: number): void {
+    this.router.navigate(['/detalle-cachorro', id]); // Navega al componente de detalles del cachorro
+  }
 }

@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CachorrosService } from '../../shared/services/cachorros.service';
 import { EjemplaresService } from '../../shared/services/ejemplares.service';
+import { CamadasService } from '../../shared/services/camadas.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cachorros',
@@ -11,16 +13,23 @@ import { EjemplaresService } from '../../shared/services/ejemplares.service';
   templateUrl: './cachorros.component.html',
   styleUrl: './cachorros.component.scss'
 })
-export class CachorrosComponent {
+export class CachorrosComponent implements OnInit{
+
   cachorros: any[] = [];
   ejemplares: any[] = [];
 
+
   constructor(
+    private route: ActivatedRoute,
     private cachorrosService: CachorrosService,
-    private ejemplaresService: EjemplaresService
+    private ejemplaresService: EjemplaresService,
+    private camadasService: CamadasService,
+    private router: Router,
+
   ) {}
 
   ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
     this.cachorrosService.getCachorros().subscribe(cachorrosData => {
       this.cachorros = cachorrosData;
 
@@ -35,5 +44,25 @@ export class CachorrosComponent {
         });
       });
     });
+    if (id) {
+      this.camadasService.getCachorroById(id).subscribe(cachorro => {
+        this.cachorros = cachorro;
+      }, error => {
+        console.error('Error fetching cachorro details:', error);
+      });
+    } else {
+      console.error('Cachorro ID is null');
+    }  
+    
   }
+
+  goToCachorro(nombre: string) {
+    const sanitizedNombre = this.sanitizeName(nombre);
+    this.router.navigate(['/cachorros', sanitizedNombre]);
+  }
+  
+  sanitizeName(nombre: string): string {
+    return nombre.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
+  }
+
 }

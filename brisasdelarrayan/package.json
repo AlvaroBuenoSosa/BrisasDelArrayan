@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "json-server": "json-server --host 192.168.1.219 -w db.json",
-    "Crear Componente": "ng g c components/ejemplares/Macarena",
+    "Crear Componente": "ng g c components/cachorros/cachorro5",
     "Crear Servicio": "ng g s shared/services/camadas"
   },
   "private": true,

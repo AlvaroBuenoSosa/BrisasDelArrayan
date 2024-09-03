@@ -17,6 +17,13 @@ export class CamadasService {
     );
   }
 
+  getCachorroById(id: string): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+  
   private handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.message);
     return throwError('Something went wrong; please try again later.');

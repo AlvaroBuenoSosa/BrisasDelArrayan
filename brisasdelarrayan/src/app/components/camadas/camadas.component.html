@@ -1,8 +1,8 @@
-<section class="camada-card">
-  <div *ngFor="let camada of camadas" class="camada-container">
+<section class="camada-card" *ngFor="let camada of camadas" (click)="navigateToCachorro(camada.id)">
+  <div class="camada-container">
     <img src="{{ camada.imagenPadre }}" alt="{{ camada.padreNombre }}" class="camada-img">
     
-    <div class="camada-info" >
+    <div class="camada-info">
       <h3>{{ camada.nombre }}</h3>
       <p>Fecha: {{ camada.fechaNacimiento }}</p>
       <p>Padre: {{ camada.padreNombre }}</p>

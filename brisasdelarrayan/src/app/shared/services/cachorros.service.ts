@@ -18,6 +18,10 @@ export class CachorrosService {
     );
   }
 
+  getCachorroById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
   private handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.message);
     return throwError('Something went wrong; please try again later.');

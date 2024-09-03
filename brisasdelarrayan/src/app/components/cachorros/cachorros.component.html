@@ -1,5 +1,11 @@
 <section class="cachorro-card">
     <div *ngFor="let cachorro of cachorros" >
+      <img 
+      class="cachorro-image" 
+      [src]="cachorro.imagen" 
+      [alt]="cachorro.nombre" 
+      (click)="goToCachorro(cachorro.nombre)"
+    >
         <h3>{{ cachorro.nombre }}</h3>
         <p>Raza: {{ cachorro.raza }}</p>
         <p>Color: {{ cachorro.color }}</p>
