@@ -13,7 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EjemplaresComponent implements OnInit {
   ejemplares: any[] = [];
-  selectedEjemplar: any;
+  selectedEjemplar: any = null;
 
   constructor(
     private ejemplaresService: EjemplaresService,
@@ -22,8 +22,9 @@ export class EjemplaresComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // Cargar todos los ejemplares desde el servicio
     this.ejemplaresService.getEjemplares().subscribe(data => {
-      this.ejemplares = data;
+      this.ejemplares = data; // Aquí 'data' es el array de ejemplares
 
       // Suscripción al cambio de parámetros en la ruta
       this.route.paramMap.subscribe(params => {
@@ -37,12 +38,16 @@ export class EjemplaresComponent implements OnInit {
     });
   }
 
-  goToEjemplar(nombre: string) {
-    const sanitizedNombre = this.sanitizeName(nombre);
-    this.router.navigate(['/ejemplares', sanitizedNombre]);
+  formatNombreParaUrl(nombre: string): string {
+    return nombre
+      .toLowerCase()            // Convertir a minúsculas
+      .replace(/\s+/g, '-')      // Reemplazar espacios por guiones
+      .replace(/[^a-z0-9\-]/g, ''); // Eliminar caracteres especiales
   }
   
-  sanitizeName(nombre: string): string {
-    return nombre.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
+  // Método para navegar al ejemplar seleccionado
+  verEjemplar(nombre: string): void {
+    const nombreFormateado = this.formatNombreParaUrl(nombre);
+    this.router.navigate(['/ejemplares', nombreFormateado]);
   }
 }
