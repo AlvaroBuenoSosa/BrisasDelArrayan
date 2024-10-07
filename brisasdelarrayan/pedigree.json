@@ -1,0 +1,277 @@
+{
+    "ejemplarespedigree": [
+        {
+            "id":101,
+            "name":"Lisego Nosa Nevsky",
+            "photo":"http://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/bim_0.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-nevsky-nid/394635",
+            "titles":"RUSJCH",
+            "color":"Chocolate & Tan Dapple",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar",
+            "fk_idejemplar":1
+        },
+        {
+            "id":102,
+            "name":"Poprygunya strekoza iz Omskoi kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/DSC03422%D0%B0%D0%B011.jpg",
+            "url":"https://www.dachpedigrees.com/dog/poprygunya-strekoza-iz-omskoi-kreposti-nid/10781",
+            "titles":"RKFCH, RUSCH, RUSJCH",
+            "color":"Brown & Tan",
+            "breed":"Kaninchen-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":103,
+            "name":"Criscross For The Defense ms",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/Criscross%20For%20The%20Defense%20ms.jpg",
+            "url":"https://www.dachpedigrees.com/dog/criscross-defense-ms-nid/13450",
+            "titles":"AMCH",
+            "color":"Brown & Tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        
+        {
+            "id":104,
+            "name":"Lisego Nosa Brogan Arish Cream",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/3.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-brogan-arish-cream-nid/390772",
+            "titles":"RUSCH, RUSJCH, FT-BL. TR.",
+            "color":"Chocolate & Tan Dapple",
+            "breed":"Kaninchen-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":105,
+            "name":"Muhomor iz Omskoi Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/b3c5cf3777aa.jpg",
+            "url":"https://www.dachpedigrees.com/dog/muhomor-iz-omskoi-kreposti-nid/10365",
+            "titles":"INTCH",
+            "color":"Brown & Tan,",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":106,
+            "name":"Makovoe Zernyshko iz Omskoj Kreposti",
+            "photo":"https://dachpedigrees.com/sites/default/files/mak2.jpg",
+            "url":"https://dachpedigrees.com/dog/makovoe-zernyshko-iz-omskoj-kreposti-nid/28",
+            "titles":"RKFCH, RUSJCH",
+            "color":"Brown & Tan,",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":107,
+            "name":"CRISCROSS MEANT TO BE MSC",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/CRISCROSS%20MEANT%20TO%20BE%20MSC.jpg",
+            "url":"https://www.dachpedigrees.com/dog/criscross-meant-be-msc-nid/10767",
+            "titles":"AMCH",
+            "color":"Chocolate & Tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":108,
+            "name":"Criscross Laurjosh Southern Song ms",
+            "photo":"",
+            "url":"https://www.dachpedigrees.com/dog/criscross-laurjosh-southern-song-ms-nid/13451",
+            "titles":"AMCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":105,
+            "name":"Muhomor iz Omskoi Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/b3c5cf3777aa.jpg",
+            "url":"https://www.dachpedigrees.com/dog/muhomor-iz-omskoi-kreposti-nid/10365",
+            "titles":"INTCH",
+            "color":"Brown & Tan,",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },      
+        {
+            "id":109,
+            "name":"Lisego Nosa Terrakota",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/terra.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-terrakota-nid/301221",
+            "titles":"BLRCH, EECH, RUSCH, RUSJCH, FT-FOX, FT-BL. TR.",
+            "color":"Chocolate & Tan Dapple",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":110,
+            "name":"Makov Tsvet iz Omskoj Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/tsvet.jpg",
+            "url":"https://www.dachpedigrees.com/dog/makov-tsvet-iz-omskoj-kreposti-nid/19",
+            "titles":"INTCH(FCI), MOLCH, RKFCH, RUSCH, RUSJCH",
+            "color":"Black & tan",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":111,
+            "name":"Muha Tsokotukha iz Omskoi Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/1_15.jpg",
+            "url":"https://www.dachpedigrees.com/dog/muha-tsokotukha-iz-omskoi-kreposti-nid/9572",
+            "titles":"INTCH(FCI), EUW, RKFCH, RUSCH, RUSJCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":112,
+            "name":"Lisego Nosa Fantastic",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/lis-nosa-fantastic.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-fantastic-nid/31",
+            "titles":"INTCH(FCI), WW, EECH, FINCH, LTCH, LVCH, PLCH, RKFCH, RUSCH, RUSJCH, UKRCH, FT-FOX, FT-BL. TR.",
+            "color":"Black & tan",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":111,
+            "name":"Muha Tsokotukha iz Omskoi Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/1_15.jpg",
+            "url":"https://www.dachpedigrees.com/dog/muha-tsokotukha-iz-omskoi-kreposti-nid/9572",
+            "titles":"INTCH(FCI), EUW, RKFCH, RUSCH, RUSJCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":113,
+            "name":"Sunrise Add-Sim's Guardian MS",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/Sunrise%20Add-Sim's%20Guardian%20MS.jpg",
+            "url":"https://www.dachpedigrees.com/dog/sunrise-add-sims-guardian-ms-nid/12320",
+            "titles":"LUXJCH, NJK, NLCH",
+            "color":"Red",
+            "breed":"Dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":114,
+            "name":"Laurjosh's Sothern Exposure MS",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/Laurjosh's%20Sothern%20Exposure%20MS.jpg",
+            "url":"https://www.dachpedigrees.com/dog/laurjoshs-sothern-exposure-ms-nid/10924",
+            "titles":"",
+            "color":"Red",
+            "breed":"Dachshund (teckel) rauhhaar"
+        },
+        {
+            "id":115,
+            "name":"Criscross Ides Of March",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/CRISCROSS%20IDES%20OF%20MARCH%20MS.jpg",
+            "url":"https://www.dachpedigrees.com/dog/criscross-ides-march-nid/13452",
+            "titles":"AMCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":116,
+            "name":"Laurjosh's Sothern Exposure MS",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/Laurjosh's%20Sothern%20Exposure%20MS.jpg",
+            "url":"https://www.dachpedigrees.com/dog/laurjoshs-sothern-exposure-ms-nid/10924",
+            "titles":"",
+            "color":"Red",
+            "breed":"Dachshund (teckel) rauhhaar"
+        },
+        {
+            "id":110,
+            "name":"Makov Tsvet iz Omskoj Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/tsvet.jpg",
+            "url":"https://www.dachpedigrees.com/dog/makov-tsvet-iz-omskoj-kreposti-nid/19",
+            "titles":"INTCH(FCI), MOLCH, RKFCH, RUSCH, RUSJCH",
+            "color":"Black & tan",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":111,
+            "name":"Muha Tsokotukha iz Omskoi Kreposti",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/1_15.jpg",
+            "url":"https://www.dachpedigrees.com/dog/muha-tsokotukha-iz-omskoi-kreposti-nid/9572",
+            "titles":"INTCH(FCI), EUW, RKFCH, RUSCH, RUSJCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":112,
+            "name":"Lisego Nosa Fantastic",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/lis-nosa-fantastic.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-fantastic-nid/31",
+            "titles":"INTCH(FCI), WW, EECH, FINCH, LTCH, LVCH, PLCH, RKFCH, RUSCH, RUSJCH, UKRCH, FT-FOX, FT-BL. TR.",
+            "color":"Black & tan",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":117,
+            "name":"Nee Pup Dachshaus",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/nee.jpg",
+            "url":"https://www.dachpedigrees.com/dog/nee-pup-dachshaus-nid/301165",
+            "titles":"",
+            "color":"Black & Tan Dapple",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":118,
+            "name":"Lisego Nosa ARTISHOK KUZYA",
+            "photo":"https://www.dachpedigrees.com/sites/default/files/%20%D0%BA%D1%83%D0%B7%D1%8F.jpg",
+            "url":"https://www.dachpedigrees.com/dog/lisego-nosa-artishok-kuzya-nid/27",
+            "titles":"INTCH(FCI), EECH, FINCH, LTCH, LVCH, RUSCH, FT-FOX, FT-BL. TR.",
+            "color":"Black & Tan Dapple",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":106,
+            "name":"Makovoe Zernyshko iz Omskoj Kreposti",
+            "photo":"https://dachpedigrees.com/sites/default/files/mak2.jpg",
+            "url":"https://dachpedigrees.com/dog/makovoe-zernyshko-iz-omskoj-kreposti-nid/28",
+            "titles":"RKFCH, RUSJCH",
+            "color":"Brown & Tan",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":119,
+            "name":"Lisego Nosa Bumerang",
+            "photo":"https://dachpedigrees.com/sites/default/files/1_12.jpg",
+            "url":"https://dachpedigrees.com/dog/lisego-nosa-bumerang-nid/9541",
+            "titles":"WW, EUW, BRACH, LUXCH, LVCH, PLCH, ROMCH, FT-FOX, FT-BL. TR.",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":120,
+            "name":"Monetka Zvonkaya iz Strani Grez",
+            "photo":"https://dachpedigrees.com/sites/default/files/monetka-zvonkaya-strany-grez.jpg",
+            "url":"https://dachpedigrees.com/dog/monetka-zvonkaya-iz-strani-grez-nid/9581",
+            "titles":"RKFCH, RUSCH, FT-FOX",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":121,
+            "name":"Lisego Nosa Don Juan",
+            "photo":"https://dachpedigrees.com/sites/default/files/635556089.jpg",
+            "url":"https://dachpedigrees.com/dog/lisego-nosa-don-juan-nid/23",
+            "titles":"INTCH, WW, EUW, EUJW, BLRCH, RKFCH, RUSCH, VDHCH, FT-FOX, FT-BL. TR., RBT",
+            "color":"Red",
+            "breed":"Kaninchen- dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":122,
+            "name":"Lisego Nosa Hitraya Kroha",
+            "photo":"https://dachpedigrees.com/sites/default/files/Lis_nosa_Hitray_Kroha.jpg",
+            "url":"https://dachpedigrees.com/dog/lisego-nosa-hitraya-kroha-nid/9380",
+            "titles":"RUSCH",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":119,
+            "name":"Lisego Nosa Bumerang",
+            "photo":"https://dachpedigrees.com/sites/default/files/1_12.jpg",
+            "url":"https://dachpedigrees.com/dog/lisego-nosa-bumerang-nid/9541",
+            "titles":"WW, EUW, BRACH, LUXCH, LVCH, PLCH, ROMCH, FT-FOX, FT-BL. TR.",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        },
+        {
+            "id":120,
+            "name":"Monetka Zvonkaya iz Strani Grez",
+            "photo":"https://dachpedigrees.com/sites/default/files/monetka-zvonkaya-strany-grez.jpg",
+            "url":"https://dachpedigrees.com/dog/monetka-zvonkaya-iz-strani-grez-nid/9581",
+            "titles":"RKFCH, RUSCH, FT-FOX",
+            "color":"Black & tan",
+            "breed":"Zwerg-dachshund (teckel) kurzhaar"
+        }
+            
+    ]
+}

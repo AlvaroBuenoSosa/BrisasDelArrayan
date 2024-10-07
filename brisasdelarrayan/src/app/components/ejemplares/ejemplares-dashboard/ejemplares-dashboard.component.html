@@ -1,8 +1,10 @@
-<div *ngIf="selectedEjemplar" class="">
-    <img [src]="selectedEjemplar.imagen" [alt]="selectedEjemplar.nombre">
-    <h1>{{ selectedEjemplar.nombre }}</h1>
-    <p><b>{{ selectedEjemplar.titles }}</b></p>
-    <p>Raza: {{ selectedEjemplar.raza }}</p>
-    <p>Color: {{ selectedEjemplar.color }}</p>
-    <p>Sexo: {{ selectedEjemplar.sexo }}</p>
-  </div>
+<div *ngIf="selectedEjemplar" class="ejemplar-card">
+    <div class="ejemplar-text">
+        <h1>{{ selectedEjemplar.nombre }}</h1>
+        <p><b>{{ selectedEjemplar.titles }}</b></p>
+        <p>Raza: {{ selectedEjemplar.raza }}</p>
+        <p>Color: {{ selectedEjemplar.color }}</p>
+        <p>Sexo: {{ selectedEjemplar.sexo }}</p>
+    </div>
+        <img [src]="selectedEjemplar.imagen" [alt]="selectedEjemplar.nombre" class="carousel-image">
+</div>

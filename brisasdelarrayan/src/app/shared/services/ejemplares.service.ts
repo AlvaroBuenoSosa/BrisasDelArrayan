@@ -8,6 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 export class EjemplaresService {
   private apiUrl= "http://192.168.1.219:3000/ejemplares";
+  private URL="http://192.168.1.219:3000/ejemplarespedigree";
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +25,11 @@ export class EjemplaresService {
   private handleError(error: HttpErrorResponse) {
     console.error('An error occurred:', error.message);
     return throwError('Something went wrong; please try again later.');
+  }
+
+  getEjemplaresPedigree(): Observable<any[]> {
+    return this.http.get<any[]>(this.URL).pipe(
+      catchError(this.handleError)
+    );
   }
 }

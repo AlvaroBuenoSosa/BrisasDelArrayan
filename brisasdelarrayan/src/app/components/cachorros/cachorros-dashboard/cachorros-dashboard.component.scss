@@ -18,23 +18,21 @@ a{
     width: 800px;
 }
 
-.cachorro4-card{
+.cachorro-card{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding-top: 20px;
 }
 
-.cachorro4-text{
+.cachorro-text{
     max-width: 100%;
 }
 
-.cachorro4-image{
-    margin-left: 10px;
-}
-
-.cachorro4-image img{
+.cachorro-image{
     padding-top: 10px;
     max-width: 80%;
     height: auto;
+    margin-left: 10px;
+    margin: 20;
 }

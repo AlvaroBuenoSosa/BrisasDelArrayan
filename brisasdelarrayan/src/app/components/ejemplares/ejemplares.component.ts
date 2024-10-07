@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './ejemplares.component.html',
-  styleUrls: ['./ejemplares.component.scss'] // Cambié styleUrl por styleUrls para corregir el error de nombre de propiedad
+  styleUrls: ['./ejemplares.component.scss']
 })
 export class EjemplaresComponent implements OnInit {
   ejemplares: any[] = [];

@@ -18,25 +18,23 @@ a{
     width: 800px;
 }
 
-.carmela-card{
+.ejemplar-card{
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     padding-top: 20px;
 }
 
-.carmela-text{
+.ejemplar-text{
     max-width: 100%;
 }
 
-.carmela-image{
-    margin-left: 10px;
-}
-
-.fortuna-image img{
+.ejemplar-image{
     padding-top: 10px;
     max-width: 80%;
     height: auto;
+    margin-left: 10px;
+    margin: 20;
 }
 
 .table{   

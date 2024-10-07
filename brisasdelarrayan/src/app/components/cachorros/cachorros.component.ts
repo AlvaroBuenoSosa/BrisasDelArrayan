@@ -16,53 +16,63 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CachorrosComponent implements OnInit{
 
   cachorros: any[] = [];
-  ejemplares: any[] = [];
-
+  ejemplares: any[] = []; // Lista de ejemplares (padres y madres)
+  selectedCachorro: any = null;
 
   constructor(
-    private route: ActivatedRoute,
     private cachorrosService: CachorrosService,
-    private ejemplaresService: EjemplaresService,
-    private camadasService: CamadasService,
+    private ejemplaresService: EjemplaresService, // Servicio para ejemplares
     private router: Router,
-
-  ) {}
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
+    // Cargar los cachorros
     this.cachorrosService.getCachorros().subscribe(cachorrosData => {
       this.cachorros = cachorrosData;
 
+      // Cargar los ejemplares (padres y madres)
       this.ejemplaresService.getEjemplares().subscribe(ejemplaresData => {
         this.ejemplares = ejemplaresData;
 
-        this.cachorros.forEach(cachorro => {
-          const padre = this.ejemplares.find(ejemplar => ejemplar.id === cachorro.padreId);
-          const madre = this.ejemplares.find(ejemplar => ejemplar.id === cachorro.madreId);
-          cachorro.padreNombre = padre ? padre.nombre : 'Desconocido';
-          cachorro.madreNombre = madre ? madre.nombre : 'Desconocido';
+        // Asociar padres y madres a los cachorros
+        this.cachorros = this.cachorros.map(cachorro => this.completarPadreYMadre(cachorro));
+
+        // Suscripción al cambio de parámetros en la ruta
+        this.route.paramMap.subscribe(params => {
+          const nombreFormateado = params.get('nombre');
+          if (nombreFormateado) {
+            // Buscar el cachorro por el nombre formateado
+            this.selectedCachorro = this.cachorros.find(e => 
+              this.formatNombreParaUrl(e.nombre) === nombreFormateado
+            );
+          }
         });
       });
     });
-    if (id) {
-      this.camadasService.getCachorroById(id).subscribe(cachorro => {
-        this.cachorros = cachorro;
-      }, error => {
-        console.error('Error fetching cachorro details:', error);
-      });
-    } else {
-      console.error('Cachorro ID is null');
-    }  
-    
   }
 
-  goToCachorro(nombre: string) {
-    const sanitizedNombre = this.sanitizeName(nombre);
-    this.router.navigate(['/cachorros', sanitizedNombre]);
-  }
-  
-  sanitizeName(nombre: string): string {
-    return nombre.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '');
+  completarPadreYMadre(cachorro: any): any {
+    // Buscar el nombre del padre
+    const padre = this.ejemplares.find(e => e.id === cachorro.padreId);
+    const madre = this.ejemplares.find(e => e.id === cachorro.madreId);
+
+    // Asignar los nombres si se encuentran
+    cachorro.padreNombre = padre ? padre.nombre : 'Desconocido';
+    cachorro.madreNombre = madre ? madre.nombre : 'Desconocido';
+
+    return cachorro;
   }
 
+  goToCachorro(nombre: string): void {
+    const nombreFormateado = this.formatNombreParaUrl(nombre);
+    this.router.navigate(['/cachorros', nombreFormateado]);
+  }
+
+  formatNombreParaUrl(nombre: string): string {
+    return nombre
+      .toLowerCase()            // Convertir a minúsculas
+      .replace(/\s+/g, '-')      // Reemplazar espacios por guiones
+      .replace(/[^a-z0-9\-]/g, ''); // Eliminar caracteres especiales
+  }
 }
