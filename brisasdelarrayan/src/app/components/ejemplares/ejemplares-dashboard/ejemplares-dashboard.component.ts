@@ -8,11 +8,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './ejemplares-dashboard.component.html',
-  styleUrl: './ejemplares-dashboard.component.scss'
+  styleUrls: ['./ejemplares-dashboard.component.scss']
 })
 export class EjemplaresDashboardComponent implements OnInit {
-  ejemplares: any[] = [];
-  selectedEjemplar: any = null;
+  ejemplares: any[] = []; // Todos los ejemplares
+  selectedEjemplar: any = null; // Ejemplar seleccionado por el nombre en la URL
+  ejemplaresPedigree: any[] = []; // Ejemplares cuyo fk_idejemplar coincide con el id del ejemplar seleccionado
 
   constructor(
     private route: ActivatedRoute,
@@ -21,23 +22,41 @@ export class EjemplaresDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     // Cargar todos los ejemplares desde el servicio
+    this.loadEjemplares();
+  }
+
+  // Método para cargar todos los ejemplares
+  loadEjemplares(): void {
     this.ejemplaresService.getEjemplares().subscribe(data => {
       this.ejemplares = data;
-  
+
       // Suscripción al cambio de parámetros en la ruta
       this.route.paramMap.subscribe(params => {
         const nombreFormateado = params.get('nombre');
         if (nombreFormateado) {
           // Buscar el ejemplar por el nombre formateado
-          this.selectedEjemplar = this.ejemplares.find(e => 
+          this.selectedEjemplar = this.ejemplares.find(e =>
             this.formatNombreParaUrl(e.nombre) === nombreFormateado
           );
+
+          // Si se encuentra el ejemplar, cargar los ejemplares con pedigree
+          if (this.selectedEjemplar) {
+            this.loadEjemplaresPedigree(this.selectedEjemplar.id);
+          }
         }
       });
     });
   }
-  
-  // Método para formatear el nombre del ejemplar de manera similar
+
+  // Método para cargar los ejemplares cuyo fk_idejemplar coincide con el id del ejemplar seleccionado
+  loadEjemplaresPedigree(idEjemplarSeleccionado: number): void {
+    this.ejemplaresService.getEjemplaresPedigree().subscribe(data => {
+      // Filtrar todos los ejemplares cuyo fk_idejemplar coincide con el id del ejemplar seleccionado
+      this.ejemplaresPedigree = data.filter(e => e.fk_idejemplar === idEjemplarSeleccionado);
+    });
+  }
+
+  // Método para formatear el nombre del ejemplar de manera similar al de la URL
   formatNombreParaUrl(nombre: string): string {
     return nombre
       .toLowerCase()

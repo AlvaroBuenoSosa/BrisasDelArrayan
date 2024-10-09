@@ -8,3 +8,13 @@
     </div>
         <img [src]="selectedEjemplar.imagen" [alt]="selectedEjemplar.nombre" class="carousel-image">
 </div>
+
+<div *ngFor="let ejemplar of ejemplaresPedigree">
+      <p>{{ ejemplar.name }} </p>
+      <a [href]="ejemplar.url" target="_blank">
+        <img [src]="ejemplar.photo" [alt]="ejemplar.photo">
+      </a>
+      <p><b>{{ejemplar.titles}}</b></p>
+      <p>{{ejemplar.color}}</p>
+      <p>{{ejemplar.breed}}</p>
+</div>
