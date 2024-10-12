@@ -7,7 +7,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class CamadasService {
 
-  private apiUrl= "http://192.168.1.219:3000/camadas";
+  private apiUrl= "http://192.168.42.14:3000/camadas";
 
   constructor(private http: HttpClient) { }
 

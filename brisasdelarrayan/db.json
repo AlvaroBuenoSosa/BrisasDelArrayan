@@ -731,6 +731,306 @@
   "color":"red",
   "breed":"Zwerg-dachshund (teckel) kurzhaar",
   "fk_idejemplar":2
+},
+{
+  "id":147,
+  "name":"Maximiliam de Campos Del Sur",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/DSC_0385.jpg",
+  "url":"https://www.dachpedigrees.com/dog/maximiliam-de-campos-del-sur-nid/474626",
+  "titles":"INTCH(FCI), ESCH, GIBCH",
+  "color":"Black & tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":148,
+  "name":"La Chocolatina de Brisas Del Arrayan",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/principal_0.jpg",
+  "url":"https://www.dachpedigrees.com/dog/la-chocolatina-de-brisas-del-arrayan-nid/476120",
+  "titles":"INTCH(FCI), ESCH, GIBCH",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":149,
+  "name":"De valdeliendo el cid campeador",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/45931_1271990460227_4512335_n.jpg",
+  "url":"https://www.dachpedigrees.com/dog/de-valdeliendo-el-cid-campeador-nid/474932",
+  "titles":"",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":149,
+  "name":"Jara de Viñaswald",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/Sin%20t%C3%ADtulo.png",
+  "url":"https://www.dachpedigrees.com/dog/jara-de-vinaswald-nid/474931",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":150,
+  "name":"Chelines Fulgencio Garcia",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/caca02).jpg",
+  "url":"https://www.dachpedigrees.com/dog/chelines-fulgencio-garcia-nid/474708",
+  "titles":"INTCH, INTCH(FCI), ESCH, GIBCH, PORCH",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":151,
+  "name":"Eva de la buleria",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/GetAttachment.jpg",
+  "url":"https://www.dachpedigrees.com/dog/eva-de-la-buleria-nid/476121",
+  "titles":"",
+  "color":"Red",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":152,
+  "name":"Chelines Black Trufo",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/chelines-black-trufo-nid/474933",
+  "titles":"",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":153,
+  "name":"Rincon de iguña cuba",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/abuela.jpg",
+  "url":"https://www.dachpedigrees.com/dog/rincon-de-iguna-cuba-nid/474934",
+  "titles":"WUT CH, PORCH",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":154,
+  "name":"Ursus vom Dinkelgrund",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/ursus-vom-dinkelgrund-nid/474936",
+  "titles":"ESCH",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":155,
+  "name":"Ursula de Viñaswald",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/ursula-de-vinaswald-nid/474937",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":156,
+  "name":"Chelines Black Tentation",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/foton.png",
+  "url":"https://www.dachpedigrees.com/dog/chelines-black-tentation-nid/474707",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":158,
+  "name":"Chelines La Chocolatina",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/chelines-la-chocolatina-nid/474706",
+  "titles":"",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":150,
+  "name":"Chelines Fulgencio Garcia",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/caca02).jpg",
+  "url":"https://www.dachpedigrees.com/dog/chelines-fulgencio-garcia-nid/474708",
+  "titles":"INTCH, INTCH(FCI), ESCH, GIBCH, PORCH",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":159,
+  "name":"Patita de Golage",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/principal.jpg",
+  "url":"https://www.dachpedigrees.com/dog/patita-de-golage-nid/474629",
+  "titles":"",
+  "color":"Red",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":160,
+  "name":"Duchwood's No Bull",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/Captura%20de%20pantalla%202024-08-26%20095446.png",
+  "url":"https://www.dachpedigrees.com/dog/duchwoods-no-bull-nid/474630",
+  "titles":"ESCH, RUSCH",
+  "color":"Black & Tan",
+  "breed":"Zwerg-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":161,
+  "name":"Shemby Chelines Trufa",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/Captura%20de%20pantalla%202024-08-26%20095452.png",
+  "url":"https://www.dachpedigrees.com/dog/shemby-chelines-trufa-nid/476126",
+  "titles":"ESCH",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":162,
+  "name":"Shemby Chelines Cacao",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/shemby-chelines-cacao-nid/476410",
+  "titles":"",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":163,
+  "name":"Lupi de Golage",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/lupi-de-golage-nid/476411",
+  "titles":"",
+  "color":"Red",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":164,
+  "name":"Denis vom Dinkelgrund",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/denis-vom-dinkelgrund-nid/17510",
+  "titles":"",
+  "color":"Red",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":165,
+  "name":"Milli vom Dinkelgrund",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/milli-vom-dinkelgrund-nid/476413",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":166,
+  "name":"Strike de Golage",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/strike-de-golage-nid/476414",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":167,
+  "name":"Engels Xelestinee",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/engels-xelestinee-nid/476415",
+  "titles":"ESCH",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":160,
+  "name":"Duchwood's No Bull",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/Captura%20de%20pantalla%202024-08-26%20095446.png",
+  "url":"https://www.dachpedigrees.com/dog/duchwoods-no-bull-nid/474630",
+  "titles":"ESCH, RUSCH",
+  "color":"Black & Tan",
+  "breed":"Zwerg-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":161,
+  "name":"Shemby Chelines Trufa",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/Captura%20de%20pantalla%202024-08-26%20095452.png",
+  "url":"https://www.dachpedigrees.com/dog/shemby-chelines-trufa-nid/476126",
+  "titles":"ESCH",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":168,
+  "name":"Donnadoon Distant Dreams",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/donnadoon-distant-dreams-nid/476416",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":169,
+  "name":"Berta la Gallada",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/berta-la-gallada-nid/476407",
+  "titles":"ESCH",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":156,
+  "name":"Chelines Black Tentation",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/foton.png",
+  "url":"https://www.dachpedigrees.com/dog/chelines-black-tentation-nid/474707",
+  "titles":"",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":158,
+  "name":"Chelines La Chocolatina",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/chelines-la-chocolatina-nid/474706",
+  "titles":"",
+  "color":"Brown & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":170,
+  "name":"Dream Dog Pro-Euro",
+  "photo":"http://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/diriger.jpg",
+  "url":"https://www.dachpedigrees.com/dog/dream-dog-pro-euro-nid/396070",
+  "titles":"ESCH",
+  "color":"Black & Tan",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
+},
+{
+  "id":171,
+  "name":"Steffi de Golage",
+  "photo":"",
+  "url":"https://www.dachpedigrees.com/dog/steffi-de-golage-nid/474628",
+  "titles":"",
+  "color":"",
+  "breed":"Kaninchen-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":3
 }
           
   ]
