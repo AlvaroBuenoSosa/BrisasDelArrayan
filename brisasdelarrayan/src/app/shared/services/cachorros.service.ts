@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 export class CachorrosService {
 
 
-  private apiUrl= "http://192.168.42.14:3000/cachorros";
+  private apiUrl= "http://192.168.1.219:3000/cachorros";
 
   constructor(private http: HttpClient) { }
 

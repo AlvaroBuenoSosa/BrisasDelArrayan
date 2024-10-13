@@ -24,8 +24,8 @@ export interface EjemplarPedigree {
   providedIn: 'root'
 })
 export class EjemplaresService {
-  private apiUrl = 'http://192.168.42.14:3000/ejemplares';
-  private apiUrlPedigree = 'http://192.168.42.14:3000/ejemplarespedigree';
+  private apiUrl = 'http://192.168.1.219:3000/ejemplares';
+  private apiUrlPedigree = 'http://192.168.1.219:3000/ejemplarespedigree';
 
   constructor(private http: HttpClient) { }
 
