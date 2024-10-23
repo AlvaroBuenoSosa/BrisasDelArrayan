@@ -52,7 +52,9 @@
         "nombre": "Macarena de Brisas Del Arrayan",
         "raza": "Teckel Miniatura Pelo Corto",
         "color": "Negro y fuego",
-        "sexo": "Hembra"
+        "sexo": "Hembra",
+        "madreId": 2,
+        "padreId":1
       }
     ],
     "camadas": [
@@ -1031,7 +1033,18 @@
   "color":"",
   "breed":"Kaninchen-dachshund (teckel) kurzhaar",
   "fk_idejemplar":3
-}
-          
+},
+{
+  "id":172,
+  "name":"Viking II Iz Omskoi Kreposti",
+  "photo":"https://www.dachpedigrees.com/sites/default/files/14563509_1192666710795841_149620617476791136_n.jpg",
+  "url":"https://www.dachpedigrees.com/dog/viking-ii-iz-omskoi-kreposti-nid/423224",
+  "titles":"INTCH(FCI), ESCH, GIBCH, PORCH",
+  "color":"brown & tan",
+  "breed":"Zwerg-dachshund (teckel) kurzhaar",
+  "fk_idejemplar":4,
+  "padreId":101,
+  "madreId":102
+}         
   ]
   }

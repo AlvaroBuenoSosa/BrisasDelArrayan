@@ -1,20 +1,27 @@
 <div *ngIf="selectedEjemplar" class="ejemplar-card">
-    <div class="ejemplar-text">
-        <h1>{{ selectedEjemplar.nombre }}</h1>
-        <p><b>{{ selectedEjemplar.titles }}</b></p>
-        <p>Raza: {{ selectedEjemplar.raza }}</p>
-        <p>Color: {{ selectedEjemplar.color }}</p>
-        <p>Sexo: {{ selectedEjemplar.sexo }}</p>
-    </div>
-        <img [src]="selectedEjemplar.imagen" [alt]="selectedEjemplar.nombre" class="carousel-image">
+  <div class="ejemplar-text">
+    <h1>{{ selectedEjemplar.nombre }}</h1>
+    <p><b>{{ selectedEjemplar.titles }}</b></p>
+    <p>Raza: {{ selectedEjemplar.raza }}</p>
+    <p>Color: {{ selectedEjemplar.color }}</p>
+    <p>Sexo: {{ selectedEjemplar.sexo }}</p>
+  </div>
+  <img [src]="selectedEjemplar.imagen" [alt]="selectedEjemplar.nombre" class="carousel-image">
 </div>
 
-<div *ngFor="let ejemplar of ejemplaresPedigree">
-      <p>{{ ejemplar.name }} </p>
-      <a [href]="ejemplar.url" target="_blank">
-        <img [src]="ejemplar.photo" [alt]="ejemplar.photo">
-      </a>
-      <p><b>{{ejemplar.titles}}</b></p>
-      <p>{{ejemplar.color}}</p>
-      <p>{{ejemplar.breed}}</p>
+<!-- Resaltamos los ejemplares cuyo madreId o padreId coincide con el id de algún ejemplar de la lista -->
+<div *ngFor="let ejemplar of ejemplaresPedigree" 
+     [ngClass]="{'ejemplar-seleccionado': esSeleccionado(ejemplar)}" 
+     class="ejemplar-pedigree-card">
+  <div class="ejemplar-info">
+    <p>{{ ejemplar.name }} </p>
+    <a [href]="ejemplar.url" target="_blank">
+      <img [src]="ejemplar.photo" [alt]="ejemplar.name" class="ejemplar-image">
+    </a>
+    <p><b>{{ ejemplar.titles }}</b></p>
+    <p>Color: {{ ejemplar.color }}</p>
+    <p>Raza: {{ ejemplar.breed }}</p>
+  </div>
 </div>
+
+
