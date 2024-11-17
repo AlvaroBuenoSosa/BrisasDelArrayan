@@ -63,14 +63,5 @@ export class EjemplaresDashboardComponent implements OnInit {
       .replace(/\s+/g, '-')
       .replace(/[^a-z0-9\-]/g, '');
   }
-
-  // Método para verificar si un ejemplar debe ser resaltado según madreId o padreId
-  esSeleccionado(ejemplar: any): boolean {
-    // Busca si el ejemplar tiene un padre o madre cuyo id coincida con otro ejemplar
-    const madreCoincide = this.ejemplares.some(e => e.id === ejemplar.madreId);
-    const padreCoincide = this.ejemplares.some(e => e.id === ejemplar.padreId);
-    
-    return madreCoincide || padreCoincide;
-  }
 }
 

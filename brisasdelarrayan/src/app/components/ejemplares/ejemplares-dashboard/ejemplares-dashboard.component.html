@@ -11,7 +11,6 @@
 
 <!-- Resaltamos los ejemplares cuyo madreId o padreId coincide con el id de algún ejemplar de la lista -->
 <div *ngFor="let ejemplar of ejemplaresPedigree" 
-     [ngClass]="{'ejemplar-seleccionado': esSeleccionado(ejemplar)}" 
      class="ejemplar-pedigree-card">
   <div class="ejemplar-info">
     <p>{{ ejemplar.name }} </p>

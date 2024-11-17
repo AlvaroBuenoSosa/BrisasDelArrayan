@@ -1042,9 +1042,7 @@
   "titles":"INTCH(FCI), ESCH, GIBCH, PORCH",
   "color":"brown & tan",
   "breed":"Zwerg-dachshund (teckel) kurzhaar",
-  "fk_idejemplar":4,
-  "padreId":101,
-  "madreId":102
+  "fk_idejemplar":4
 }         
   ]
-  }
+}

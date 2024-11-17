@@ -3,21 +3,27 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
 
 
-// Define interfaces para tus datos
-export interface Ejemplar {
+interface Ejemplar {
   id: number;
+  imagen: string;
+  titles: string;
   nombre: string;
-  edad: number;
   raza: string;
-  // Otros campos que tengas
+  color: string;
+  sexo: string;
+  madreId: number;
+  padreId: number;
 }
 
-export interface EjemplarPedigree {
-  nombre: string;
+interface EjemplarPedigree {
   id: number;
+  name: string;
+  photo: string;
+  url: string;
+  titles: string;
+  color: string;
+  breed: string;
   fk_idejemplar: number;
-  pedigree: string;
-  // Otros campos que tengas
 }
 
 @Injectable({
