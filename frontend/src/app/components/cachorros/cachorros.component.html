@@ -1,0 +1,17 @@
+<section class="cachorro-card">
+  <div *ngFor="let cachorro of cachorros">
+    <h3>{{ cachorro.nombre }}</h3>
+    <img 
+      class="cachorro-image" 
+      [src]="cachorro.photo" 
+      [alt]="cachorro.nombre" 
+      (click)="goToCachorro(cachorro.nombre)"
+    >
+    <p>Raza: {{ cachorro.raza }}</p>
+    <p>Color: {{ cachorro.color }}</p>
+    <p>Sexo: {{ cachorro.sexo }}</p>
+    <p>Padre: {{ cachorro.padreNombre }}</p>
+    <p>Madre: {{ cachorro.madreNombre }}</p> 
+    <p>Fecha de nacimiento: {{ cachorro.fechaNacimiento }}</p>
+  </div>
+</section>

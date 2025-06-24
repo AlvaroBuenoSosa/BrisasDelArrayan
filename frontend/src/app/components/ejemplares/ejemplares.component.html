@@ -1,0 +1,19 @@
+<section class="ejemplar-card">
+  <div *ngFor="let ejemplar of ejemplares" >
+    <img 
+      class="ejemplar-image" 
+      [src]="ejemplar.photo?.[0]"
+      [alt]="ejemplar.name" 
+      (click)="verEjemplar(ejemplar.name)"
+    >
+    <h3>{{ ejemplar.name }}</h3>
+    <p><b>{{ ejemplar.titles }}</b></p>
+    <p>Raza: {{ ejemplar.breed }}</p>
+    <p>Color: {{ ejemplar.color }}</p>
+    <p>Sexo: {{ ejemplar.sexo }}</p>
+  </div>
+</section>
+
+  
+  
+  

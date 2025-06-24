@@ -1,0 +1,65 @@
+/* Colores base para repetir */
+$male-color: #d0eaff;
+$female-color: #fce4ec;
+
+/* Repetición masculina */
+.maletwice {
+  background-color: lighten($male-color, 5%);
+  border: 2px solid #3498db;
+}
+
+.malethree {
+  background-color: lighten($male-color, 15%);
+  border: 2px solid #2980b9;
+}
+
+.malefour {
+  background-color: lighten($male-color, 25%);
+  border: 2px solid #1c638d;
+}
+
+/* Repetición femenina */
+.femaletwise {
+  background-color: lighten($female-color, 5%);
+  border: 2px solid #e91e63;
+}
+
+.femalethree {
+  background-color: lighten($female-color, 15%);
+  border: 2px solid #c2185b;
+}
+
+.femalefour {
+  background-color: lighten($female-color, 25%);
+  border: 2px solid #880e4f;
+}
+
+/* Estilo general para la tabla */
+#pedigreeTable {
+  padding: 16px;
+  overflow-x: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.name {
+  font-weight: bold;
+}
+
+.titles {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+
+
+
+
+
+

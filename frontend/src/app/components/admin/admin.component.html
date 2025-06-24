@@ -1,0 +1,298 @@
+<h2>Agregar Nuevo Recurso</h2>
+
+<form (ngSubmit)="agregarRecurso()" #recursoForm="ngForm">
+  <!-- Tipo de recurso -->
+  <label for="tipo">Tipo de recurso:</label>
+  <select
+    id="tipo"
+    [(ngModel)]="tipoRecurso"
+    name="tipo"
+    (change)="nuevoRecurso = crearNuevoRecurso()"
+    required
+  >
+    <option value="ejemplares">Ejemplar</option>
+    <option value="camadas">Camada</option>
+    <option value="cachorros">Cachorro</option>
+    <option value="ejemplarespedigree">Ejemplar Pedigree</option>
+  </select>
+
+  <!-- ID asignado automáticamente -->
+  <div>
+    <strong>ID asignado:</strong> {{ nuevoRecurso.id !== null ? nuevoRecurso.id : 'Pendiente' }}
+  </div>
+
+  <!-- Campos para camadas -->
+  <div *ngIf="tipoRecurso === 'camadas'">
+    <label for="nombreCamada">Nombre de la camada:</label>
+    <input
+      type="text"
+      id="nombreCamada"
+      name="nombreCamada"
+      [(ngModel)]="nuevoRecurso.nombre"
+      required
+    />
+
+    <label for="fechaNacimientoCamada">Fecha de nacimiento:</label>
+    <input
+      type="date"
+      id="fechaNacimientoCamada"
+      name="fechaNacimientoCamada"
+      [(ngModel)]="nuevoRecurso.fechaNacimiento"
+      required
+    />
+
+    <label for="imagenPadre">Imagen del Padre:</label>
+    <input
+      type="file"
+      id="imagenPadre"
+      name="imagenPadre"
+      (change)="onPadreImageSelected($event)"
+      accept="image/*"
+    />
+    <div *ngIf="nuevoRecurso.imagenPadre">
+      <img
+        [src]="nuevoRecurso.imagenPadre"
+        alt="Imagen Padre"
+        style="max-width: 200px; margin: 5px;"
+      />
+    </div>
+
+    <label for="imagenMadre">Imagen de la Madre:</label>
+    <input
+      type="file"
+      id="imagenMadre"
+      name="imagenMadre"
+      (change)="onMadreImageSelected($event)"
+      accept="image/*"
+    />
+    <div *ngIf="nuevoRecurso.imagenMadre">
+      <img
+        [src]="nuevoRecurso.imagenMadre"
+        alt="Imagen Madre"
+        style="max-width: 200px; margin: 5px;"
+      />
+    </div>
+
+    <!-- Padre y Madre nombres -->
+    <label for="padreNombreCamada">Nombre del Padre:</label>
+    <input
+      type="text"
+      id="padreNombreCamada"
+      name="padreNombreCamada"
+      [(ngModel)]="nuevoRecurso.padreNombre"
+    />
+
+    <label for="madreNombreCamada">Nombre de la Madre:</label>
+    <input
+      type="text"
+      id="madreNombreCamada"
+      name="madreNombreCamada"
+      [(ngModel)]="nuevoRecurso.madreNombre"
+    />
+
+    <div>
+      <strong>Padre ID:</strong>
+      {{ nuevoRecurso.padreId !== null ? nuevoRecurso.padreId : 'No encontrado' }}
+    </div>
+    <div>
+      <strong>Madre ID:</strong>
+      {{ nuevoRecurso.madreId !== null ? nuevoRecurso.madreId : 'No encontrado' }}
+    </div>
+  </div>
+
+  <!-- Campos para cachorros -->
+  <div *ngIf="tipoRecurso === 'cachorros'">
+    <label for="nombreCachorro">Nombre:</label>
+    <input
+      type="text"
+      id="nombreCachorro"
+      name="nombreCachorro"
+      [(ngModel)]="nuevoRecurso.nombre"
+      required
+    />
+
+    <label for="razaCachorro">Raza:</label>
+    <input
+      type="text"
+      id="razaCachorro"
+      name="razaCachorro"
+      [(ngModel)]="nuevoRecurso.raza"
+      required
+    />
+
+    <label for="colorCachorro">Color:</label>
+    <input
+      type="text"
+      id="colorCachorro"
+      name="colorCachorro"
+      [(ngModel)]="nuevoRecurso.color"
+    />
+
+    <label for="sexoCachorro">Sexo:</label>
+    <select
+      id="sexoCachorro"
+      name="sexoCachorro"
+      [(ngModel)]="nuevoRecurso.sexo"
+    >
+      <option value="Macho">Macho</option>
+      <option value="Hembra">Hembra</option>
+    </select>
+
+    <label for="fechaNacimientoCachorro">Fecha de Nacimiento:</label>
+    <input
+      type="date"
+      id="fechaNacimientoCachorro"
+      name="fechaNacimientoCachorro"
+      [(ngModel)]="nuevoRecurso.fechaNacimiento"
+      required
+    />
+
+    <label for="photoCachorro">Foto:</label>
+    <input
+      type="file"
+      id="photoCachorro"
+      name="photoCachorro"
+      (change)="onSingleFileSelected($event)"
+      accept="image/*"
+    />
+    <div *ngIf="nuevoRecurso.photo">
+      <p>Previsualización:</p>
+      <img
+        [src]="nuevoRecurso.photo"
+        alt="Preview Cachorro"
+        style="max-width: 200px; max-height: 150px; margin: 5px;"
+      />
+    </div>
+
+    <label for="padreNombreCachorro">Nombre del Padre:</label>
+    <input
+      type="text"
+      id="padreNombreCachorro"
+      name="padreNombreCachorro"
+      [(ngModel)]="nuevoRecurso.padreNombre"
+    />
+
+    <label for="madreNombreCachorro">Nombre de la Madre:</label>
+    <input
+      type="text"
+      id="madreNombreCachorro"
+      name="madreNombreCachorro"
+      [(ngModel)]="nuevoRecurso.madreNombre"
+    />
+
+    <label for="camadaIdCachorro">ID de la Camada:</label>
+    <input
+      type="number"
+      id="camadaIdCachorro"
+      name="camadaIdCachorro"
+      [(ngModel)]="nuevoRecurso.camadaId"
+    />
+
+    <div>
+      <strong>Padre ID:</strong>
+      {{ nuevoRecurso.padreId !== null ? nuevoRecurso.padreId : 'No encontrado' }}
+    </div>
+    <div>
+      <strong>Madre ID:</strong>
+      {{ nuevoRecurso.madreId !== null ? nuevoRecurso.madreId : 'No encontrado' }}
+    </div>
+  </div>
+
+  <!-- Campos para ejemplares y ejemplarespedigree -->
+  <div *ngIf="tipoRecurso === 'ejemplares' || tipoRecurso === 'ejemplarespedigree'">
+    <label for="titles">Títulos:</label>
+    <input
+      type="text"
+      id="titles"
+      name="titles"
+      [(ngModel)]="nuevoRecurso.titles"
+    />
+
+    <label for="nameEjemplar">Nombre:</label>
+    <input
+      type="text"
+      id="nameEjemplar"
+      name="nameEjemplar"
+      [(ngModel)]="nuevoRecurso.name"
+      required
+    />
+
+    <label for="breedEjemplar">Raza:</label>
+    <input
+      type="text"
+      id="breedEjemplar"
+      name="breedEjemplar"
+      [(ngModel)]="nuevoRecurso.breed"
+    />
+
+    <label for="colorEjemplar">Color:</label>
+    <input
+      type="text"
+      id="colorEjemplar"
+      name="colorEjemplar"
+      [(ngModel)]="nuevoRecurso.color"
+    />
+
+    <label for="sexoEjemplar">Sexo:</label>
+    <select
+      id="sexoEjemplar"
+      name="sexoEjemplar"
+      [(ngModel)]="nuevoRecurso.sexo"
+    >
+      <option value="Macho">Macho</option>
+      <option value="Hembra">Hembra</option>
+    </select>
+
+    <label for="photoEjemplar">Foto(s):</label>
+    <input
+      type="file"
+      id="photoEjemplar"
+      name="photoEjemplar"
+      (change)="onFileSelected($event)"
+      multiple
+      accept="image/*"
+    />
+
+    <div *ngIf="imagePreviews.length > 0">
+      <p>Previsualización:</p>
+      <img
+        *ngFor="let preview of imagePreviews"
+        [src]="preview"
+        alt="Preview"
+        style="max-width: 200px; max-height: 150px; margin: 5px;"
+      />
+    </div>
+
+    <label for="padreNombreEjemplar">Nombre del Padre:</label>
+    <input
+      type="text"
+      id="padreNombreEjemplar"
+      name="padreNombreEjemplar"
+      [(ngModel)]="nuevoRecurso.padreNombre"
+    />
+
+    <label for="madreNombreEjemplar">Nombre de la Madre:</label>
+    <input
+      type="text"
+      id="madreNombreEjemplar"
+      name="madreNombreEjemplar"
+      [(ngModel)]="nuevoRecurso.madreNombre"
+    />
+
+    <div>
+      <strong>Padre ID:</strong>
+      {{ nuevoRecurso.padreId !== null ? nuevoRecurso.padreId : 'No encontrado' }}
+    </div>
+    <div>
+      <strong>Madre ID:</strong>
+      {{ nuevoRecurso.madreId !== null ? nuevoRecurso.madreId : 'No encontrado' }}
+    </div>
+  </div>
+
+  <!-- Botón de envío -->
+  <button type="submit">Agregar</button>
+</form>
+
+
+
+

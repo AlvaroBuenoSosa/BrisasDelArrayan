@@ -1,0 +1,14 @@
+<div *ngIf="selectedCachorro" class="cachorro-card">
+    <div class="cachorro-text">
+      <h1>{{ selectedCachorro.nombre }}</h1>
+      <p>Raza: {{ selectedCachorro.raza }}</p>
+      <p>Color: {{ selectedCachorro.color }}</p>
+      <p>Sexo: {{ selectedCachorro.sexo }}</p>
+      <p>Fecha de Nacimiento: {{ selectedCachorro.fechaNacimiento }}</p>
+    </div>
+    <div>
+    <img [src]="selectedCachorro.photo" [alt]="selectedCachorro.nombre" class="carousel-image">
+    </div>
+  </div>
+  
+<div id="pedigreeTable"></div>

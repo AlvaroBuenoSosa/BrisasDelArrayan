@@ -1,0 +1,25 @@
+.ejemplar-card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    padding: 50px;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center; /* Centrar el texto */
+    border-radius: 5px;
+}
+
+.item {
+    text-align: center; /* Centrar el texto */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+.ejemplar-image{
+    display: block;
+    margin: 0 auto 10px;
+    width:300px;
+    height:225px;
+  }
+  

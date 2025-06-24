@@ -1,0 +1,38 @@
+.ejemplar-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: wrap; /* Opcional para responsividad */
+    padding-top: 20px;
+}
+
+/* Texto a la izquierda */
+.ejemplar-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+}
+
+/* Imagen/carrusel a la derecha */
+.ejemplar-image {
+    flex: 1;
+    max-width: 50%;
+    padding-top: 10px;
+
+}
+
+/* Carrusel con imágenes bien escaladas */
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+

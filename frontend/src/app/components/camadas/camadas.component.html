@@ -1,0 +1,14 @@
+<section class="camada-card" *ngFor="let camada of camadas" (click)="filtrarCachorros(camada.id)" style="cursor: pointer;">
+  <div class="camada-container">
+    <img [src]="camada.imagenPadre" [alt]="camada.padreNombre" class="camada-img" />
+    
+    <div class="camada-info">
+      <h3>{{ camada.nombre }}</h3>
+      <p>Fecha: {{ camada.fechaNacimiento }}</p>
+      <p>Padre: {{ camada.padreNombre }}</p>
+      <p>Madre: {{ camada.madreNombre }}</p>
+    </div>
+    
+    <img [src]="camada.imagenMadre" [alt]="camada.madreNombre" class="camada-img" />
+  </div>
+</section>
