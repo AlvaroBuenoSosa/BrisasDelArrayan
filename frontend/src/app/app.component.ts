@@ -1,23 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';  // Asegúrate de importar RouterModule
-import { CommonModule } from '@angular/common';  // Asegúrate de importar CommonModule
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+// Importa Angular Material Dialog y el componente del login dialog
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogComponent } from '../app/components/login-dialog/login-dialog.component';  // ajusta ruta si hace falta
 
 @Component({
   selector: 'app-root',
-  standalone: true,  // Componente independiente
-  imports: [CommonModule, RouterModule],  // Importa CommonModule y RouterModule
-  template: `
-    <nav>
-      <a [routerLink]="['/ejemplares']">Ejemplares</a>
-      <a [routerLink]="['/cachorros']">Cachorros</a>
-      <a [routerLink]="['/camadas']">Camadas</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `,  // Aquí se cargan las rutas
+  standalone: true,
+  imports: [CommonModule, RouterModule, MatDialogModule],
+  templateUrl: './app.component.html',  // añade esta línea
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title(title: any) {
-    throw new Error('Method not implemented.');
+  constructor(private dialog: MatDialog) {}
+
+  abrirLoginModal() {
+    this.dialog.open(LoginDialogComponent, {
+      width: '300px',
+      disableClose: true
+    });
   }
 }
+

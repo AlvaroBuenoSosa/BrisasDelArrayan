@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
@@ -11,16 +11,34 @@ import { firstValueFrom } from 'rxjs';
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   tipoRecurso: string = 'ejemplares';
   imagePreviews: string[] = [];
-
   nuevoRecurso: any = this.crearNuevoRecurso();
 
   padreNoEncontrado: boolean = false;
   madreNoEncontrada: boolean = false;
 
+  nombresEjemplares: string[] = [];
+
   constructor(private adminService: AdminService) {}
+
+  ngOnInit(): void {
+    this.cargarNombresEjemplares();
+  }
+
+  async cargarNombresEjemplares() {
+    try {
+      const data: any = await firstValueFrom(this.adminService.getAll());
+      const ejemplares = [...(data.ejemplares || []), ...(data.ejemplarespedigree || [])];
+      this.nombresEjemplares = ejemplares
+        .map((e: any) => e.name || e.nombre)
+        .filter(Boolean)
+        .sort((a: string, b: string) => a.localeCompare(b));  // ORDEN ALFABÉTICO
+    } catch (error) {
+      console.error('Error al cargar nombres de ejemplares:', error);
+    }
+  }
 
   crearNuevoRecurso() {
     if (this.tipoRecurso === 'camadas') {
@@ -75,7 +93,6 @@ export class AdminComponent {
       const data: any = await firstValueFrom(this.adminService.getAll());
       if (!data) return null;
 
-      // Combinar listas para buscar en todos tipos
       const lista = [
         ...(data.ejemplares || []),
         ...(data.ejemplarespedigree || []),
@@ -115,7 +132,6 @@ export class AdminComponent {
     });
   }
 
-  // Carga imagen para cachorros (solo 1)
   onSingleFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
@@ -152,7 +168,6 @@ export class AdminComponent {
       const data: any = await firstValueFrom(this.adminService.getAll());
       if (!data) return null;
 
-      // Crear lista única con todos los IDs existentes en todos los tipos
       const lista = [
         ...(data.ejemplares || []),
         ...(data.ejemplarespedigree || []),
@@ -193,13 +208,12 @@ export class AdminComponent {
         alert('El campo "nombre" es obligatorio para cachorros.');
         return;
       }
-      // Buscar padre y madre IDs
+
       const padreId = await this.buscarIdPorNombre(this.nuevoRecurso.padreNombre);
       const madreId = await this.buscarIdPorNombre(this.nuevoRecurso.madreNombre);
       this.nuevoRecurso.padreId = padreId;
       this.nuevoRecurso.madreId = madreId;
 
-      // Validar camadaId
       if (!this.nuevoRecurso.camadaId) {
         alert('Completa el campo "ID de la camada".');
         return;
@@ -231,3 +245,5 @@ export class AdminComponent {
     });
   }
 }
+
+

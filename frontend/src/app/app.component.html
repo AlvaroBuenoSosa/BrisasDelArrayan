@@ -1,2 +1,25 @@
+<div class="header">
+  <div class="logo-wrapper">
+    <img class="logo" src="../logo.png" alt="Logo Teckels Brisas del Arrayán" />
+  </div>
+  <ul class="social">
+    <li><a href="https://www.instagram.com/brisasdelarrayan/"><img src="../icons/instagram.png" alt="Instagram" /></a></li>
+    <li><a href="https://www.facebook.com/brisasdelarrayan?locale=es_ES%2F"><img src="../icons/facebook.png" alt="Facebook" /></a></li>
+    <li><a href="mailto:brisasdelarrayan@hotmail.com"><img src="../icons/gmail.png" alt="Correo" /></a></li>
+    <li>
+      <button (click)="abrirLoginModal()" class="btn-icon" style="background:none; border:none; cursor:pointer;">
+        <img src="../icons/engranaje.png" alt="Engranaje" />
+      </button>
+    </li>
+  </ul>
+</div>
+
+<nav>
+  <a [routerLink]="['/ejemplares']">Ejemplares</a>
+  <a [routerLink]="['/cachorros']">Cachorros</a>
+  <a [routerLink]="['/camadas']">Camadas</a>
+</nav>
 
 <router-outlet></router-outlet>
+
+
