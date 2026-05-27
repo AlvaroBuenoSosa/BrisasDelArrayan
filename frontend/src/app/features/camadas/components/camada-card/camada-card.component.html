@@ -1,0 +1,50 @@
+<article
+  class="camada-card"
+  (click)="onSelect()">
+
+  <!-- PADRE -->
+
+  <div class="parent-image">
+
+    <img
+      [src]="camada.imagenPadre"
+      [alt]="camada.padreNombre">
+
+  </div>
+
+  <!-- INFO -->
+
+  <div class="camada-content">
+
+    <h2>
+      {{ camada.nombre }}
+    </h2>
+
+    <p>
+      <strong>Fecha:</strong>
+      {{ camada.fechaNacimiento }}
+    </p>
+
+    <p>
+      <strong>Padre:</strong>
+      {{ camada.padreNombre }}
+    </p>
+
+    <p>
+      <strong>Madre:</strong>
+      {{ camada.madreNombre }}
+    </p>
+
+  </div>
+
+  <!-- MADRE -->
+
+  <div class="parent-image">
+
+    <img
+      [src]="camada.imagenMadre"
+      [alt]="camada.madreNombre">
+
+  </div>
+
+</article>

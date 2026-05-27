@@ -1,0 +1,8 @@
+<section class="cachorros-grid">
+
+  <app-cachorro-card
+    *ngFor="let cachorro of (cachorros$ | async)"
+    [cachorro]="cachorro">
+  </app-cachorro-card>
+
+</section>

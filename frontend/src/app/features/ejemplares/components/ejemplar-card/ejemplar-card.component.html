@@ -1,0 +1,28 @@
+<article
+  class="card"
+  (click)="goToDetail()">
+
+  <img
+    class="image"
+    [src]="getPhoto()"
+    [alt]="ejemplar.name">
+
+  <h2 class="name">
+    {{ ejemplar.name }}
+  </h2>
+
+  <p class="titles">
+    {{ ejemplar.titles }}
+  </p>
+
+  <div class="meta">
+
+    <span>{{ ejemplar.breed }}</span>
+
+    <span>{{ ejemplar.color }}</span>
+
+    <span>{{ ejemplar.sexo }}</span>
+
+  </div>
+
+</article>

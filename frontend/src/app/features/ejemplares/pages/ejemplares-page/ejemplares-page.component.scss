@@ -1,0 +1,41 @@
+.ejemplares-page {
+
+  padding: 48px 32px;
+}
+
+.page-header {
+
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+.page-header h1 {
+
+  font-size: 3rem;
+
+  margin-bottom: 12px;
+}
+
+.page-header p {
+
+  opacity: .8;
+}
+
+.ejemplares-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 32px;
+}
+
+.state-message {
+
+  text-align: center;
+
+  padding: 48px 0;
+}
+  

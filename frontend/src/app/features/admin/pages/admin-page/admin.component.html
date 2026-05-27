@@ -1,0 +1,219 @@
+<section class="admin-container">
+
+  <div class="admin-card">
+
+    <h1>Panel de Administración</h1>
+
+    <!-- RESOURCE TYPE -->
+
+    <div class="form-group">
+
+      <label>Tipo de recurso</label>
+
+      <select
+        [(ngModel)]="resourceType"
+        name="resourceType"
+        (change)="resetForm()">
+
+        <option value="ejemplares">
+          Ejemplares
+        </option>
+
+        <option value="ejemplarespedigree">
+          Pedigree
+        </option>
+
+        <option value="cachorros">
+          Cachorros
+        </option>
+
+        <option value="camadas">
+          Camadas
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- FORM -->
+
+    <form (ngSubmit)="submit()">
+
+      <!-- EJEMPLARES -->
+
+      <ng-container
+        *ngIf="
+          resourceType === 'ejemplares'
+          || resourceType === 'ejemplarespedigree'
+        ">
+
+        <div class="form-group">
+          <label>Nombre</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.name"
+            name="name">
+        </div>
+
+        <div class="form-group">
+          <label>Títulos</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.titles"
+            name="titles">
+        </div>
+
+        <div class="form-group">
+          <label>Raza</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.breed"
+            name="breed">
+        </div>
+
+        <div class="form-group">
+          <label>Color</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.color"
+            name="color">
+        </div>
+
+        <div class="form-group">
+          <label>Sexo</label>
+
+          <select
+            [(ngModel)]="nuevoRecurso.sexo"
+            name="sexo">
+
+            <option value="Macho">
+              Macho
+            </option>
+
+            <option value="Hembra">
+              Hembra
+            </option>
+
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Fotos</label>
+
+          <input
+            type="file"
+            multiple
+            accept="image/*"
+            (change)="onMultipleFilesSelected($event)">
+        </div>
+
+      </ng-container>
+
+      <!-- CACHORROS -->
+
+      <ng-container *ngIf="resourceType === 'cachorros'">
+
+        <div class="form-group">
+          <label>Nombre</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.nombre"
+            name="nombre">
+        </div>
+
+      </ng-container>
+
+      <!-- CAMADAS -->
+
+      <ng-container *ngIf="resourceType === 'camadas'">
+
+        <div class="form-group">
+          <label>Nombre</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.nombre"
+            name="camadaNombre">
+        </div>
+
+      </ng-container>
+
+      <!-- PARENTS -->
+
+      <div class="form-group">
+
+        <label>Padre</label>
+
+        <select
+          [(ngModel)]="nuevoRecurso.padreNombre"
+          name="padreNombre">
+
+          <option
+            *ngFor="let nombre of nombresEjemplares"
+            [value]="nombre">
+
+            {{ nombre }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Madre</label>
+
+        <select
+          [(ngModel)]="nuevoRecurso.madreNombre"
+          name="madreNombre">
+
+          <option
+            *ngFor="let nombre of nombresEjemplares"
+            [value]="nombre">
+
+            {{ nombre }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+      <!-- PREVIEWS -->
+
+      <div
+        class="preview-grid"
+        *ngIf="imagePreviews.length">
+
+        <img
+          *ngFor="let image of imagePreviews"
+          [src]="image">
+
+      </div>
+
+      <!-- SUBMIT -->
+
+      <button
+        class="submit-btn"
+        type="submit"
+        [disabled]="loading">
+
+        {{ loading ? 'Guardando...' : 'Guardar' }}
+
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+
+
+

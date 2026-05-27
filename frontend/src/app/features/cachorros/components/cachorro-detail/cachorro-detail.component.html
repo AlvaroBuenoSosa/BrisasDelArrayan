@@ -1,0 +1,29 @@
+<section class="detail-container">
+
+  <div class="info">
+
+    <h1>{{ cachorro.nombre }}</h1>
+
+    <p><strong>Raza:</strong> {{ cachorro.raza }}</p>
+
+    <p><strong>Color:</strong> {{ cachorro.color }}</p>
+
+    <p><strong>Sexo:</strong> {{ cachorro.sexo }}</p>
+
+    <p><strong>Nacimiento:</strong> {{ cachorro.fechaNacimiento }}</p>
+
+  </div>
+
+  <div class="image-container">
+
+    <img
+      [src]="cachorro.photo"
+      [alt]="cachorro.nombre">
+
+  </div>
+
+</section>
+
+<app-pedigree
+  [ejemplarId]="cachorro.id">
+</app-pedigree>

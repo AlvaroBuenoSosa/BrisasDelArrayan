@@ -1,0 +1,39 @@
+.camadas-page {
+  width: 100%;
+
+  padding: 48px 32px;
+}
+
+.page-header {
+  text-align: center;
+
+  margin-bottom: 48px;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+
+  margin-bottom: 12px;
+}
+
+.page-header p {
+  font-size: 1.1rem;
+
+  opacity: .8;
+}
+
+.camadas-grid {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+.state-message {
+  text-align: center;
+
+  padding: 48px 0;
+
+  font-size: 1.1rem;
+}

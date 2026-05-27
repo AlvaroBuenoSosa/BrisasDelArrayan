@@ -1,13 +1,15 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
 import { provideRouter } from '@angular/router';
-import { appRoutes } from './app/app.routes'; // Ruta corregida
 import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
+import { AppComponent } from './app/app.component';
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
-    provideRouter(appRoutes), // Configuración de rutas
-    provideHttpClient(),      // Cliente HTTP
-  ],
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimations()
+  ]
 }).catch(err => console.error(err));
-

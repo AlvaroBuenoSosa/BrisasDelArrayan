@@ -1,0 +1,26 @@
+<article
+  class="card"
+  [routerLink]="['/cachorros', formatNombre(cachorro.nombre)]">
+
+  <img
+    class="card-image"
+    [src]="cachorro.photo"
+    [alt]="cachorro.nombre">
+
+  <div class="card-content">
+
+    <h2>{{ cachorro.nombre }}</h2>
+
+    <p><strong>Raza:</strong> {{ cachorro.raza }}</p>
+
+    <p><strong>Color:</strong> {{ cachorro.color }}</p>
+
+    <p><strong>Sexo:</strong> {{ cachorro.sexo }}</p>
+
+    <p><strong>Padre:</strong> {{ cachorro.padreNombre }}</p>
+
+    <p><strong>Madre:</strong> {{ cachorro.madreNombre }}</p>
+
+  </div>
+
+</article>

@@ -1,0 +1,39 @@
+<section
+  *ngIf="ejemplar$ | async as ejemplar"
+  class="detail-layout">
+
+  <div class="info">
+
+    <h1>{{ ejemplar.name }}</h1>
+
+    <p class="titles">
+      {{ ejemplar.titles }}
+    </p>
+
+    <p>
+      <strong>Raza:</strong>
+      {{ ejemplar.breed }}
+    </p>
+
+    <p>
+      <strong>Color:</strong>
+      {{ ejemplar.color }}
+    </p>
+
+    <p>
+      <strong>Sexo:</strong>
+      {{ ejemplar.sexo }}
+    </p>
+
+  </div>
+
+  <app-ejemplar-carousel
+    [photos]="ejemplar.photo">
+  </app-ejemplar-carousel>
+
+</section>
+
+<app-pedigree
+  *ngIf="ejemplar$ | async as ejemplar"
+  [ejemplarId]="ejemplar.id">
+</app-pedigree>

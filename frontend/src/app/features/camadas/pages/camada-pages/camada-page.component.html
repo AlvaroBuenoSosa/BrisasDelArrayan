@@ -1,0 +1,41 @@
+<section class="camadas-page">
+
+  <header class="page-header">
+
+    <h1>
+      Camadas
+    </h1>
+
+    <p>
+      Conoce nuestras camadas disponibles
+    </p>
+
+  </header>
+
+  <div
+    *ngIf="loading"
+    class="state-message">
+
+    Cargando camadas...
+
+  </div>
+
+  <div
+    *ngIf="!loading && !camadas.length"
+    class="state-message">
+
+    No hay camadas disponibles.
+
+  </div>
+
+  <div class="camadas-grid">
+
+    <app-camada-card
+      *ngFor="let camada of camadas"
+      [camada]="camada"
+      (selected)="openCamada($event)">
+    </app-camada-card>
+
+  </div>
+
+</section>
