@@ -14,9 +14,12 @@ const errorMiddleware = require('./middlewares/error.middleware');
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.CLIENT_URL
-}));
+app.use(cors(
+  [
+    'http://localhost:4200',
+    'https://brisasdelarrayan.netlify.app'
+  ]
+));
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
