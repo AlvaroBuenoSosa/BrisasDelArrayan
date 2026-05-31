@@ -31,8 +31,17 @@ function getByParents(req, res) {
   res.json(data);
 }
 
+function create(req, res) {
+
+  const cachorro =
+    service.createCachorro(req.body);
+
+  res.status(201).json(cachorro);
+}
+
 module.exports = {
   getAll,
   getById,
-  getByParents
+  getByParents,
+  create
 };

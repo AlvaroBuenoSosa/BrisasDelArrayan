@@ -46,6 +46,7 @@ export class AdminComponent implements OnInit {
   */
 
   resetForm(): void {
+
     this.imagePreviews = [];
 
     switch (this.resourceType) {
@@ -129,7 +130,9 @@ export class AdminComponent implements OnInit {
   |--------------------------------------------------------------------------
   */
 
-  async onMultipleFilesSelected(event: Event): Promise<void> {
+  async onMultipleFilesSelected(
+    event: Event
+  ): Promise<void> {
 
     const input = event.target as HTMLInputElement;
 
@@ -155,12 +158,16 @@ export class AdminComponent implements OnInit {
 
     if (!input.files?.length) return;
 
-    const preview = await this.readFile(input.files[0]);
+    const preview = await this.readFile(
+      input.files[0]
+    );
 
     this.nuevoRecurso[field] = preview;
   }
 
-  private readFile(file: File): Promise<string> {
+  private readFile(
+    file: File
+  ): Promise<string> {
 
     return new Promise((resolve, reject) => {
 
@@ -184,10 +191,14 @@ export class AdminComponent implements OnInit {
   async resolveParentIds(): Promise<void> {
 
     this.nuevoRecurso.padreId =
-      await this.findIdByName(this.nuevoRecurso.padreNombre);
+      await this.findIdByName(
+        this.nuevoRecurso.padreNombre
+      );
 
     this.nuevoRecurso.madreId =
-      await this.findIdByName(this.nuevoRecurso.madreNombre);
+      await this.findIdByName(
+        this.nuevoRecurso.madreNombre
+      );
   }
 
   async findIdByName(
@@ -211,7 +222,8 @@ export class AdminComponent implements OnInit {
       const encontrado = lista.find(
         (item: any) =>
           (item.name || item.nombre)
-            ?.toLowerCase() === nombre.toLowerCase()
+            ?.toLowerCase() ===
+          nombre.toLowerCase()
       );
 
       return encontrado?.id || null;
@@ -240,7 +252,9 @@ export class AdminComponent implements OnInit {
       ...(data.camadas || [])
     ];
 
-    const usedIds = allItems.map((i: any) => i.id);
+    const usedIds = allItems.map(
+      (i: any) => i.id
+    );
 
     let id = 10;
 
@@ -250,6 +264,44 @@ export class AdminComponent implements OnInit {
 
     return id;
   }
+
+  /*
+  |--------------------------------------------------------------------------
+  | IMÁGENES PADRES
+  |--------------------------------------------------------------------------
+  */
+
+async cargarImagenesPadres(): Promise<void> {
+
+  const data: any = await firstValueFrom(
+    this.adminService.getAll()
+  );
+
+  const perros = [
+    ...(data.ejemplares || []),
+    ...(data.ejemplarespedigree || [])
+  ];
+
+  const padre = perros.find(
+    (p: any) =>
+      p.id === this.nuevoRecurso.padreId
+  );
+
+  const madre = perros.find(
+    (p: any) =>
+      p.id === this.nuevoRecurso.madreId
+  );
+
+  this.nuevoRecurso.imagenPadre =
+    padre?.photo?.[0]
+      ?.replace('../img/', '/assets/img/')
+      || '';
+
+  this.nuevoRecurso.imagenMadre =
+    madre?.photo?.[0]
+      ?.replace('../img/', '/assets/img/')
+      || '';
+}
 
   /*
   |--------------------------------------------------------------------------
@@ -268,6 +320,12 @@ export class AdminComponent implements OnInit {
 
       await this.resolveParentIds();
 
+      if (
+        this.resourceType === 'camadas'
+      ) {
+        await this.cargarImagenesPadres();
+      }
+
       this.adminService
         .agregarRecurso(
           this.resourceType,
@@ -277,7 +335,9 @@ export class AdminComponent implements OnInit {
 
           next: () => {
 
-            alert('Recurso agregado correctamente');
+            alert(
+              'Recurso agregado correctamente'
+            );
 
             this.resetForm();
 
@@ -302,5 +362,4 @@ export class AdminComponent implements OnInit {
     }
   }
 }
-
 

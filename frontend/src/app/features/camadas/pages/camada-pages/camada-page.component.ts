@@ -92,13 +92,11 @@ export class CamadasPageComponent implements OnInit {
     });
   }
 
-  openCamada(camadaId: number): void {
+openCamada(camadaId: number): void {
 
-    this.router.navigate(
-      ['/cachorros-por-camada'],
-      {
-        queryParams: { camadaId }
-      }
-    );
-  }
+  this.router.navigate([
+    '/cachorros-por-camada',
+    camadaId
+  ]);
+}
 }

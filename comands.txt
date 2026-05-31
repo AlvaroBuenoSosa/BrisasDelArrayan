@@ -1,0 +1,2 @@
+cd backend -> node server/ nodemon server
+cd frontend -> ng serve

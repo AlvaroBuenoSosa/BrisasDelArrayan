@@ -19,7 +19,19 @@ function getById(req, res) {
   res.json(item);
 }
 
+function create(req, res) {
+
+  const nuevaCamada = service.createCamada(
+    req.body
+  );
+
+  res.status(201).json(
+    nuevaCamada
+  );
+}
+
 module.exports = {
   getAll,
-  getById
+  getById,
+  create
 };

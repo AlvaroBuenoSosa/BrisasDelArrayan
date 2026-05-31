@@ -8,7 +8,15 @@ function getCamadaById(id) {
   return db.getById('camadas', id);
 }
 
+function createCamada(camada) {
+  return db.createItem(
+    'camadas',
+    camada
+  );
+}
+
 module.exports = {
   getCamadas,
-  getCamadaById
+  getCamadaById,
+  createCamada
 };

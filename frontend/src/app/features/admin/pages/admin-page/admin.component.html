@@ -4,8 +4,6 @@
 
     <h1>Panel de Administración</h1>
 
-    <!-- RESOURCE TYPE -->
-
     <div class="form-group">
 
       <label>Tipo de recurso</label>
@@ -35,11 +33,9 @@
 
     </div>
 
-    <!-- FORM -->
-
     <form (ngSubmit)="submit()">
 
-      <!-- EJEMPLARES -->
+      <!-- EJEMPLARES Y PEDIGREE -->
 
       <ng-container
         *ngIf="
@@ -49,7 +45,6 @@
 
         <div class="form-group">
           <label>Nombre</label>
-
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.name"
@@ -58,7 +53,6 @@
 
         <div class="form-group">
           <label>Títulos</label>
-
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.titles"
@@ -67,7 +61,6 @@
 
         <div class="form-group">
           <label>Raza</label>
-
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.breed"
@@ -76,7 +69,6 @@
 
         <div class="form-group">
           <label>Color</label>
-
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.color"
@@ -99,9 +91,11 @@
             </option>
 
           </select>
+
         </div>
 
         <div class="form-group">
+
           <label>Fotos</label>
 
           <input
@@ -109,6 +103,7 @@
             multiple
             accept="image/*"
             (change)="onMultipleFilesSelected($event)">
+
         </div>
 
       </ng-container>
@@ -119,11 +114,68 @@
 
         <div class="form-group">
           <label>Nombre</label>
-
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.nombre"
             name="nombre">
+        </div>
+
+        <div class="form-group">
+          <label>Raza</label>
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.raza"
+            name="raza">
+        </div>
+
+        <div class="form-group">
+          <label>Color</label>
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.color"
+            name="colorCachorro">
+        </div>
+
+        <div class="form-group">
+
+          <label>Sexo</label>
+
+          <select
+            [(ngModel)]="nuevoRecurso.sexo"
+            name="sexoCachorro">
+
+            <option value="Macho">
+              Macho
+            </option>
+
+            <option value="Hembra">
+              Hembra
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Fecha nacimiento</label>
+
+          <input
+            type="date"
+            [(ngModel)]="nuevoRecurso.fechaNacimiento"
+            name="fechaNacimiento">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Foto</label>
+
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onSingleFileSelected($event)">
+
         </div>
 
       </ng-container>
@@ -133,17 +185,30 @@
       <ng-container *ngIf="resourceType === 'camadas'">
 
         <div class="form-group">
-          <label>Nombre</label>
+
+          <label>Nombre camada</label>
 
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.nombre"
             name="camadaNombre">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>Fecha nacimiento</label>
+
+          <input
+            type="date"
+            [(ngModel)]="nuevoRecurso.fechaNacimiento"
+            name="fechaNacimientoCamada">
+
         </div>
 
       </ng-container>
 
-      <!-- PARENTS -->
+      <!-- PADRE -->
 
       <div class="form-group">
 
@@ -165,6 +230,8 @@
 
       </div>
 
+      <!-- MADRE -->
+
       <div class="form-group">
 
         <label>Madre</label>
@@ -185,7 +252,7 @@
 
       </div>
 
-      <!-- PREVIEWS -->
+      <!-- PREVISUALIZACIÓN -->
 
       <div
         class="preview-grid"
@@ -196,8 +263,6 @@
           [src]="image">
 
       </div>
-
-      <!-- SUBMIT -->
 
       <button
         class="submit-btn"
@@ -213,7 +278,6 @@
   </div>
 
 </section>
-
 
 
 

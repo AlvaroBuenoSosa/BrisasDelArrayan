@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
-import { map, switchMap } from 'rxjs';
+import { map, switchMap, of } from 'rxjs';
 
 import { CachorrosService } from '../../../../core/services/cachorros/cachorros.service';
+import { CamadasService } from '../../../../core/services/camadas/camadas.service';
 
 import { CachorroCardComponent } from '../../components/cachorro-card/cachorro-card.component';
 
@@ -24,12 +25,41 @@ export class CachorrosPorCamadaPageComponent {
 
   private cachorrosService = inject(CachorrosService);
 
-  cachorros$ = this.route.queryParamMap.pipe(
+  private camadasService = inject(CamadasService);
 
-    map(params => Number(params.get('camadaId'))),
+  cachorros$ = this.route.paramMap.pipe(
 
-    switchMap(id =>
-      this.cachorrosService.getCachorrosPorCamada(id)
+    map(params => Number(params.get('id'))),
+
+    switchMap(camadaId =>
+
+      this.camadasService.getCamadas().pipe(
+
+switchMap(camadas => {
+
+  const camada = camadas.find(
+    c => c.id === camadaId
+  );
+
+  if (!camada) {
+    return of([]);
+  }
+
+  return this.cachorrosService.getCachorros().pipe(
+
+            map(cachorros =>
+              cachorros.filter(
+                cachorro =>
+                  cachorro.padreId === camada.padreId &&
+                  cachorro.madreId === camada.madreId
+              )
+            )
+
+          );
+        })
+
+      )
+
     )
 
   );

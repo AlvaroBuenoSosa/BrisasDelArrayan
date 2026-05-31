@@ -3,10 +3,10 @@
     {
       "id": 1,
       "photo": [
-        "../img/Viking/principal.jpg",
-        "../img/Viking/11082009-DSC_3229.jpg",
-        "../img/Viking/11082009-DSC_3238.jpg",
-        "../img/Viking/11082009-DSC_3246.jpg"
+        "assets/img/Viking/principal.jpg",
+        "assets/img/Viking/11082009-DSC_3229.jpg",
+        "assets/img/Viking/11082009-DSC_3238.jpg",
+        "assets/img/Viking/11082009-DSC_3246.jpg"
       ],
       "titles": "INTCH(FCI),ESCH,GIBCH,PORCH,Super Champion ES, Grand Champion POR BEST MEMBER DOG ESP 2017, 2018, 2019",
       "url": "https://www.dachpedigrees.com/dog/viking-ii-iz-omskoi-kreposti-nid/423224",
@@ -20,10 +20,10 @@
     {
       "id": 2,
       "photo": [
-        "../img/venividivici/web/principal.JPG",
-        "../img/venividivici/web/01.JPG",
-        "../img/venividivici/web/02.JPG",
-        "../img/venividivici/web/03.JPG"
+        "assets/img/venividivici/web/principal.JPG",
+        "assets/img/venividivici/web/01.JPG",
+        "assets/img/venividivici/web/02.JPG",
+        "assets/img/venividivici/web/03.JPG"
       ],
       "titles": "INTCH(FCI), ESCH, GIBCH, PORCH",
       "name": "Veni Vidi Vici",
@@ -36,10 +36,10 @@
     {
       "id": 3,
       "photo": [
-        "../img/Fortuna/fortunaweb/20190703_190445.jpg",
-        "../img/Fortuna/fortunaweb/01.jpg",
-        "../img/Fortuna/fortunaweb/20190630_131414.jpg",
-        "../img/Fortuna/fortunaweb/20190703_190445.jpg"
+        "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
+        "assets/img/Fortuna/fortunaweb/01.jpg",
+        "assets/img/Fortuna/fortunaweb/20190630_131414.jpg",
+        "assets/img/Fortuna/fortunaweb/20190703_190445.jpg"
       ],
       "titles": "ESCH, GIBCH, PORCH, Grand Champion POR",
       "name": "Forrest Fortuna Aiuvat de Brisas Del Arrayan",
@@ -52,7 +52,7 @@
     {
       "id": 4,
       "photo": [
-        "../img/CARMELA/20221210_132804.jpg"
+        "assets/img/CARMELA/20221210_132804.jpg"
       ],
       "titles": "GIBCH,WW BABIES, ESJCH, GIBJCH, PORJCH",
       "name": "Carmela de Brisas Del Arrayan",
@@ -65,8 +65,8 @@
     {
       "id": 5,
       "photo": [
-        "../img/Oliver/inbound4851105564258399311.jpg",
-        "../img/Oliver/07.jpg"
+        "assets/img/Oliver/inbound4851105564258399311.jpg",
+        "assets/img/Oliver/07.jpg"
       ],
       "titles": "",
       "name": "Oliver",
@@ -79,10 +79,10 @@
     {
       "id": 6,
       "photo": [
-        "../img/Macarena/20191103_182812.jpg",
-        "../img/Macarena/20191103_181754.jpg",
-        "../img/Macarena/20191103_183149.jpg",
-        "../img/Macarena/20191104_222253.jpg"
+        "assets/img/Macarena/20191103_182812.jpg",
+        "assets/img/Macarena/20191103_181754.jpg",
+        "assets/img/Macarena/20191103_183149.jpg",
+        "assets/img/Macarena/20191104_222253.jpg"
       ],
       "titles": "GIBCH, PORCH, Grand Champion GIB",
       "name": "Macarena de Brisas Del Arrayan",
@@ -95,12 +95,12 @@
     {
       "id": 7,
       "photo": [
-        "../img/Victoria/victoria.jpeg"
+        "assets/img/Victoria/victoria.jpeg"
       ],
       "titles": "",
       "name": "Ubi Concordia Ibi Victoria de Brisas Del Arrayan",
       "breed": "Teckel Miniatura Pelo Corto",
-      "color": "Chocolate & Tan Dapple",
+      "color": "Arlequin Chocolate",
       "sexo": "Hembra",
       "padreId": 600,
       "madreId": 601
@@ -108,7 +108,7 @@
     {
       "id": 8,
       "photo": [
-        "../img/Natscha/Captura.PNG"
+        "assets/img/Natscha/Captura.PNG"
       ],
       "titles": "",
       "name": "Natscha de Brisas Del Arrayan",
@@ -121,7 +121,7 @@
     {
       "id": 9,
       "photo": [
-        "../img/Fabula/Captura.PNG"
+        "assets/img/Fabula/Captura.PNG"
       ],
       "titles": "GIB PUPPY WINNER",
       "name": "Acta Est Fabula de Brisas Del Arrayan",
@@ -136,8 +136,8 @@
     {
       "id": 1,
       "nombre": "Oliver X Macarena de Brisas Del Arrayan",
-      "imagenPadre": "../img/Oliver/07.jpg",
-      "imagenMadre": "../img/Macarena/20191103_182812.jpg",
+      "imagenPadre": "assets/img/Oliver/07.jpg",
+      "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
       "fechaNacimiento": "2023-05-15",
       "padreId": 5,
       "madreId": 4
@@ -145,8 +145,8 @@
     {
       "id": 2,
       "nombre": "Oliver X Lizbeth Vikinga de Brisas Del Arrayan",
-      "imagenPadre": "../img/Viking/principal.jpg",
-      "imagenMadre": "../img/Fortuna/fortunaweb/20190703_190445.jpg",
+      "imagenPadre": "assets/img/Viking/principal.jpg",
+      "imagenMadre": "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
       "fechaNacimiento": "2023-06-10",
       "padreId": 3,
       "madreId": 4
@@ -157,7 +157,7 @@
       "id": 1,
       "nombre": "Bruno",
       "raza": "Teckel Kaninchen Pelo Corto",
-      "photo": "../img/Viking/principal.jpg",
+      "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
@@ -169,7 +169,7 @@
       "id": 2,
       "nombre": "Daisy",
       "raza": "Teckel Kaninchen Pelo Corto",
-      "photo": "../img/Viking/principal.jpg",
+      "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
@@ -181,7 +181,7 @@
       "id": 3,
       "nombre": "Rocky",
       "raza": "Teckel Kaninchen Pelo Corto",
-      "photo": "../img/Viking/principal.jpg",
+      "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
@@ -193,7 +193,7 @@
       "id": 4,
       "nombre": "Molly",
       "raza": "Teckel Kaninchen Pelo Corto",
-      "photo": "../img/Viking/principal.jpg",
+      "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
@@ -205,7 +205,7 @@
       "id": 5,
       "nombre": "Charlie",
       "raza": "Teckel Kaninchen Pelo Corto",
-      "photo": "../img/Viking/principal.jpg",
+      "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",

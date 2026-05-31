@@ -1,66 +1,48 @@
-<h2 class="title">
-  Iniciar Sesión
-</h2>
+<div class="login-overlay">
 
-<form
-  class="login-form"
-  (ngSubmit)="login()"
-  #loginForm="ngForm"
->
+  <div class="login-card">
 
-  <mat-form-field appearance="outline">
+    <h2 class="title">
+      Iniciar Sesión
+    </h2>
 
-    <mat-label>Usuario</mat-label>
-
-    <input
-      matInput
-      name="username"
-      [(ngModel)]="username"
-      required
+    <form
+      class="login-form"
+      (ngSubmit)="login()"
+      #loginForm="ngForm"
     >
 
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Usuario</mat-label>
+        <input matInput name="username" [(ngModel)]="username" required>
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="password" required>
+      </mat-form-field>
 
-    <mat-label>Contraseña</mat-label>
+      <p *ngIf="errorMessage" class="error">
+        {{ errorMessage }}
+      </p>
 
-    <input
-      matInput
-      type="password"
-      name="password"
-      [(ngModel)]="password"
-      required
-    >
+      <div class="actions">
+        <button mat-button type="button" (click)="close()">
+          Cancelar
+        </button>
 
-  </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Entrar
+        </button>
+      </div>
 
-  <p
-    *ngIf="errorMessage"
-    class="error"
-  >
-    {{ errorMessage }}
-  </p>
-
-  <div class="actions">
-
-    <button
-      mat-button
-      type="button"
-      (click)="close()"
-    >
-      Cancelar
-    </button>
-
-    <button
-      mat-raised-button
-      color="primary"
-      type="submit"
-      [disabled]="loginForm.invalid"
-    >
-      Entrar
-    </button>
+    </form>
 
   </div>
 
-</form>
+</div>
