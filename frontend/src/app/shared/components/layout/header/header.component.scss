@@ -10,7 +10,6 @@
   text-align: center;
 }
 
-
 .logo-wrapper {
   display: flex;
   justify-content: center;
@@ -23,6 +22,7 @@
   height: auto;
 }
 
+/* SOCIAL DESKTOP */
 .social {
   position: absolute;
   top: 2rem;
@@ -70,25 +70,39 @@
   padding: 0;
 }
 
-@media (max-width: 768px) {
+/* 📱 TABLETS Y MÓVILES */
+@media (max-width: 900px) {
   .header {
     flex-direction: column;
     padding: 1rem;
+    gap: 1rem;
   }
 
   .logo {
-    width: 180px;
+    width: 200px;
   }
 
   .social {
-    position: static;
-    margin-top: 1rem;
+    position: static; 
+    right: auto;
+
     justify-content: center;
-    gap: 0.8rem;
+    width: 100%;
+  }
+}
+
+/* 📱 MÓVILES PEQUEÑOS */
+@media (max-width: 480px) {
+  .logo {
+    width: 160px;
+  }
+
+  .social {
+    gap: 0.6rem;
   }
 
   .social img {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 }
