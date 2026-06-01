@@ -69,3 +69,26 @@
 .settings-btn {
   padding: 0;
 }
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .social {
+    position: static;
+    margin-top: 1rem;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .social img {
+    width: 32px;
+    height: 32px;
+  }
+}
