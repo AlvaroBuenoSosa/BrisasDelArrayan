@@ -135,11 +135,11 @@
   "camadas": [
     {
       "id": 1000,
-      "nombre": "Oliver X Macarena de Brisas Del Arrayan",
-      "imagenPadre": "assets/img/Oliver/07.jpg",
+      "nombre": "Xulo del bacio di luna X Macarena de Brisas Del Arrayan",
+      "imagenPadre": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/FB_IMG_1778347575850.jpg",
       "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
       "fechaNacimiento": "2023-05-15",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4
     },
     {
@@ -161,7 +161,7 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4,
       "camadaId": 1000
     },
@@ -173,7 +173,7 @@
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4,
       "camadaId": 1000
     },
@@ -185,7 +185,7 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4,
       "camadaId": 1000
     },
@@ -197,7 +197,7 @@
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4,
       "camadaId": 1000
     },
@@ -209,7 +209,7 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 5,
+      "padreId": 900,
       "madreId": 4,
       "camadaId": 1000
     }
