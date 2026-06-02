@@ -97,32 +97,35 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  async loadEjemplaresNames(): Promise<void> {
+async loadEjemplaresNames(): Promise<void> {
 
-    try {
+  try {
 
-      const data: any = await firstValueFrom(
-        this.adminService.getAll()
+    const data: any = await firstValueFrom(
+      this.adminService.getAll()
+    );
+
+    const ejemplares = [
+      ...(data.ejemplares || []),
+      ...(data.ejemplarespedigree || []),
+      ...(data.cachorros || [])
+    ];
+
+    this.nombresEjemplares = ejemplares
+      .map((e: any) => e.name || e.nombre)
+      .filter(Boolean)
+      .sort((a: string, b: string) =>
+        a.localeCompare(b)
       );
 
-      const ejemplares = [
-        ...(data.ejemplares || []),
-        ...(data.ejemplarespedigree || [])
-      ];
+  } catch (error) {
 
-      this.nombresEjemplares = ejemplares
-        .map((e: any) => e.name || e.nombre)
-        .filter(Boolean)
-        .sort((a: string, b: string) => a.localeCompare(b));
-
-    } catch (error) {
-
-      console.error(
-        'Error loading ejemplares names:',
-        error
-      );
-    }
+    console.error(
+      'Error loading ejemplares names:',
+      error
+    );
   }
+}
 
   /*
   |--------------------------------------------------------------------------
@@ -239,31 +242,50 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  async generateAvailableId(): Promise<number> {
+async generateAvailableId(): Promise<number> {
 
-    const data: any = await firstValueFrom(
-      this.adminService.getAll()
-    );
+  const data: any = await firstValueFrom(
+    this.adminService.getAll()
+  );
 
-    const allItems = [
-      ...(data.ejemplares || []),
-      ...(data.ejemplarespedigree || []),
-      ...(data.cachorros || []),
-      ...(data.camadas || [])
-    ];
+  const allItems = [
+    ...(data.ejemplares || []),
+    ...(data.ejemplarespedigree || []),
+    ...(data.cachorros || []),
+    ...(data.camadas || [])
+  ];
 
-    const usedIds = allItems.map(
-      (i: any) => i.id
-    );
+  const usedIds = allItems.map(
+    (i: any) => i.id
+  );
 
-    let id = 10;
+  let id: number;
 
-    while (usedIds.includes(id)) {
-      id++;
-    }
+  switch (this.resourceType) {
 
-    return id;
+    case 'camadas':
+      id = 1000;
+      break;
+
+    case 'cachorros':
+      id = 2000;
+      break;
+
+    case 'ejemplarespedigree':
+      id = 100;
+      break;
+
+    default:
+      id = 1;
+      break;
   }
+
+  while (usedIds.includes(id)) {
+    id++;
+  }
+
+  return id;
+}
 
   /*
   |--------------------------------------------------------------------------

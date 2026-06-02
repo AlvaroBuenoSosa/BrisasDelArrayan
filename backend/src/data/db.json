@@ -134,7 +134,7 @@
   ],
   "camadas": [
     {
-      "id": 1,
+      "id": 1000,
       "nombre": "Oliver X Macarena de Brisas Del Arrayan",
       "imagenPadre": "assets/img/Oliver/07.jpg",
       "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
@@ -143,7 +143,7 @@
       "madreId": 4
     },
     {
-      "id": 2,
+      "id": 1001,
       "nombre": "Oliver X Lizbeth Vikinga de Brisas Del Arrayan",
       "imagenPadre": "assets/img/Viking/principal.jpg",
       "imagenMadre": "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
@@ -154,7 +154,7 @@
   ],
   "cachorros": [
     {
-      "id": 1,
+      "id": 2000,
       "nombre": "Bruno",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -163,22 +163,19 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 305,
       "madreId": 302,
-      "camadaId": 1
+      "camadaId": 1000
     },
     {
-      "id": 2,
+      "id": 2001,
       "nombre": "Daisy",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Hembra",
-      "fechaNacimiento": "2024-2-12",
-      "padreId": 1,
-      "madreId": 2,
-      "camadaId": 1
+      "fechaNacimiento": "2024-2-12"
     },
     {
-      "id": 3,
+      "id": 2002,
       "nombre": "Rocky",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -187,10 +184,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 1,
       "madreId": 2,
-      "camadaId": 1
+      "camadaId": 1004
     },
     {
-      "id": 4,
+      "id": 2003,
       "nombre": "Molly",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -199,10 +196,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 1,
       "madreId": 3,
-      "camadaId": 1
+      "camadaId": 1005
     },
     {
-      "id": 5,
+      "id": 2004,
       "nombre": "Charlie",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -211,7 +208,7 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 1,
       "madreId": 4,
-      "camadaId": 1
+      "camadaId": 1006
     }
   ],
   "ejemplarespedigree": [
