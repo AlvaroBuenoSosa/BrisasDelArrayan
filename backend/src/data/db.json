@@ -161,8 +161,8 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 305,
-      "madreId": 302,
+      "padreId": 5,
+      "madreId": 4,
       "camadaId": 1000
     },
     {
@@ -172,7 +172,10 @@
       "photo": "assets/img/Viking/principal.jpg",
       "color": "Negro y fuego",
       "sexo": "Hembra",
-      "fechaNacimiento": "2024-2-12"
+      "fechaNacimiento": "2024-2-12",
+      "padreId": 5,
+      "madreId": 4,
+      "camadaId": 1000
     },
     {
       "id": 2002,
@@ -182,9 +185,9 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 1,
-      "madreId": 2,
-      "camadaId": 1004
+      "padreId": 5,
+      "madreId": 4,
+      "camadaId": 1000
     },
     {
       "id": 2003,
@@ -194,9 +197,9 @@
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 1,
-      "madreId": 3,
-      "camadaId": 1005
+      "padreId": 5,
+      "madreId": 4,
+      "camadaId": 1000
     },
     {
       "id": 2004,
@@ -206,9 +209,9 @@
       "color": "Negro y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
-      "padreId": 1,
+      "padreId": 5,
       "madreId": 4,
-      "camadaId": 1006
+      "camadaId": 1000
     }
   ],
   "ejemplarespedigree": [
@@ -1795,6 +1798,271 @@
       "breed": "Kaninchen-dachshund (teckel) kurzhaar",
       "padreId": 314,
       "madreId": 313
+    },
+    {
+      "id": 900,
+      "name": "Xulo del bacio di luna",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/FB_IMG_1778347575850.jpg",
+      "url": "https://www.dachpedigrees.com/dog/xulo-del-bacio-di-luna-nid/483121",
+      "titles": "",
+      "color": "Chocolate & Tan Dapple",
+      "breed": "Kaninchen-dachshund (teckel) kurzhaar",
+      "padreId": 901,
+      "madreId": 902
+    },
+    {
+      "id": 901,
+      "name": "kinchville tiziano del bacio di luna",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-tiziano-del-bacio-di-luna-nid/483126",
+      "titles": "",
+      "color": "",
+      "breed": "",
+      "padreId": 903,
+      "madreId": 904
+    },
+    {
+      "id": 902,
+      "name": "MY VALENTINE DEL BACIO DI LUNA",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/my-valentine-del-bacio-di-luna-nid/483124",
+      "titles": "",
+      "color": "",
+      "breed": "",
+      "padreId": 905,
+      "madreId": 906
+    },
+    {
+      "id": 903,
+      "name": "Kinchville Choco Cookie",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-choco-cookie-nid/424670",
+      "titles": "",
+      "color": "",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": 907,
+      "madreId": 908
+    },
+    {
+      "id": 904,
+      "name": "LORIK'S BELLISIMA",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/loriks-bellisima-nid/483125",
+      "titles": "",
+      "color": "",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 909,
+      "madreId": 910
+    },
+    {
+      "id": 905,
+      "name": "ANYAKAS IL BACIO DI LUNA",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/anyakas-il-bacio-di-luna-nid/483123",
+      "titles": "",
+      "color": "",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 911,
+      "madreId": 912
+    },
+    {
+      "id": 906,
+      "name": "MARFA MASTERITSA IZ OMSKOI KREPOSTI",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/marfa-masteritsa-iz-omskoi-kreposti-nid/483122",
+      "titles": "",
+      "color": "",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 913,
+      "madreId": 914
+    },
+    {
+      "id": 907,
+      "name": "Kinchville Mad About Chocolate",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/IMG-20150519-WA0007.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-mad-about-chocolate-nid/391716",
+      "titles": "",
+      "color": "Brown & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": 103,
+      "madreId": 916
+    },
+    {
+      "id": 908,
+      "name": "Kinchville Tais",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/kinchville%20tais.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-tais-nid/422800",
+      "titles": "",
+      "color": "Brown & Tan",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 916,
+      "madreId": 917
+    },
+    {
+      "id": 909,
+      "name": "Kinchville Just cool guy",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/LaykB.png",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-just-cool-guy-nid/412956",
+      "titles": "",
+      "color": "Brown & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": 206,
+      "madreId": 918
+    },
+    {
+      "id": 910,
+      "name": "LORIK'S MILLITARY",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/loriks-millitary-nid/483127",
+      "titles": "",
+      "color": "Brown & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 911,
+      "name": "Magik Rainbow President",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/966151_10151736340981414_573408011_o_0.jpg",
+      "url": "https://www.dachpedigrees.com/dog/magik-rainbow-president-nid/323270",
+      "titles": "WW, ITACH",
+      "color": "Brown & Tan",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 514,
+      "madreId": 216
+    },
+    {
+      "id": 912,
+      "name": "Anyankas Etna",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/anyankas%20etna_0.jpg",
+      "url": "https://www.dachpedigrees.com/dog/anyankas-etna-nid/390948",
+      "titles": "ITACH",
+      "color": "Black & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": 919,
+      "madreId": 920
+    },
+    {
+      "id": 913,
+      "name": "Kurzebeine von The Black Decker",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/Kurzebeine%20MS%20von%20The%20Black%20Decker.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kurzebeine-von-black-decker-nid/413565",
+      "titles": "",
+      "color": "Black & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": 921,
+      "madreId": 922
+    },
+    {
+      "id": 914,
+      "name": "Morskaya Tsarevna iz Omskoi Kreposti",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/Morskaya%20Tsarevna%20izOK.jpg",
+      "url": "https://www.dachpedigrees.com/dog/morskaya-tsarevna-iz-omskoi-kreposti-nid/420607",
+      "titles": "",
+      "color": "Brown & Tan",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": 105,
+      "madreId": 923
+    },
+    {
+      "id": 915,
+      "name": "Kinchville Cincinnati",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/IMG_7521.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-cincinnati-nid/356047",
+      "titles": "RUSCH, RUSJCH",
+      "color": "Black & Tan",
+      "breed": "Kaninchen- dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 916,
+      "name": "Lisego Nosa Baileys Original",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/10450531_695784440477810_6313309726263319924_n.jpg",
+      "url": "https://www.dachpedigrees.com/dog/lisego-nosa-baileys-original-nid/385996",
+      "titles": "INTCH, INTCH(FCI), BALTCH, BLRCH, EECH, FINCH, LTCH, LVCH, RKFCH, RUSCH, RUSJCH",
+      "color": "Black & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 917,
+      "name": "Kinchville Limited Edition",
+      "photo": "",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-limited-edition-nid/391100",
+      "titles": "",
+      "color": "",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 918,
+      "name": "Kinchville Milkyway",
+      "photo": "https://www.dachpedigrees.com/dog/kinchville-milkyway-nid/233826",
+      "url": "https://www.dachpedigrees.com/dog/kinchville-milkyway-nid/233826",
+      "titles": "INTCH(FCI), BLRCH, RUSCH, RUSJCH",
+      "color": "Brown & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 919,
+      "name": "Anyankas Artu'",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/artu%20tavolo%20p.jpg",
+      "url": "https://www.dachpedigrees.com/dog/anyankas-artu-nid/67140",
+      "titles": "INTCH, ITACH",
+      "color": "Brown & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 920,
+      "name": "Margot",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/margot_1.jpg",
+      "url": "https://www.dachpedigrees.com/dog/margot-nid/390946",
+      "titles": "",
+      "color": "Black & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 921,
+      "name": "Criscross Little Clint",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/B07541FF-B961-483F-9B0B-D5FD780E248B.jpeg",
+      "url": "https://www.dachpedigrees.com/dog/criscross-little-clint-nid/374921",
+      "titles": "AMCH",
+      "color": "Red",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 922,
+      "name": "Criscross All The Rave",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/402335_284031411655650_100001463816376_748138_773812292_n.jpg",
+      "url": "https://www.dachpedigrees.com/dog/criscross-all-rave-nid/12729",
+      "titles": "AMCH",
+      "color": "Black & Tan",
+      "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 923,
+      "name": "Kudykinykh Gor Khozyayka iz Omskoi kreposti",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/Tess%20baza.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kudykinykh-gor-khozyayka-iz-omskoi-kreposti-nid/401643",
+      "titles": "INTCH(FCI),RKFCH, RUSCH, RUSJCH",
+      "color": "Brown & Tan",
+      "breed": "Kaninchen-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
     }
+
   ]
 }
