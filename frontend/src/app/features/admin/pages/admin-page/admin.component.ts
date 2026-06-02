@@ -264,11 +264,11 @@ async generateAvailableId(): Promise<number> {
   switch (this.resourceType) {
 
     case 'camadas':
-      id = 1000;
+      id = 10000;
       break;
 
     case 'cachorros':
-      id = 2000;
+      id = 20000;
       break;
 
     case 'ejemplarespedigree':

@@ -134,7 +134,7 @@
   ],
   "camadas": [
     {
-      "id": 1000,
+      "id": 10000,
       "nombre": "Xulo del bacio di luna X Macarena de Brisas Del Arrayan",
       "imagenPadre": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/FB_IMG_1778347575850.jpg",
       "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
@@ -143,7 +143,7 @@
       "madreId": 6
     },
     {
-      "id": 1001,
+      "id": 10001,
       "nombre": "Oliver X Lizbeth Vikinga de Brisas Del Arrayan",
       "imagenPadre": "assets/img/Viking/principal.jpg",
       "imagenMadre": "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
@@ -154,7 +154,7 @@
   ],
   "cachorros": [
     {
-      "id": 2000,
+      "id": 20000,
       "nombre": "Bruno",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -163,10 +163,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
       "madreId": 6,
-      "camadaId": 1000
+      "camadaId": 10000
     },
     {
-      "id": 2001,
+      "id": 20001,
       "nombre": "Daisy",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -175,10 +175,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
       "madreId": 6,
-      "camadaId": 1000
+      "camadaId": 10000
     },
     {
-      "id": 2002,
+      "id": 20002,
       "nombre": "Rocky",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -187,10 +187,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
       "madreId": 6,
-      "camadaId": 1000
+      "camadaId": 10000
     },
     {
-      "id": 2003,
+      "id": 20003,
       "nombre": "Molly",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -199,10 +199,10 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
       "madreId": 6,
-      "camadaId": 1000
+      "camadaId": 10000
     },
     {
-      "id": 2004,
+      "id": 20004,
       "nombre": "Charlie",
       "raza": "Teckel Kaninchen Pelo Corto",
       "photo": "assets/img/Viking/principal.jpg",
@@ -211,7 +211,7 @@
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
       "madreId": 6,
-      "camadaId": 1000
+      "camadaId": 10000
     }
   ],
   "ejemplarespedigree": [
@@ -2049,6 +2049,17 @@
       "titles": "AMCH",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
+      "padreId": "",
+      "madreId": ""
+    },
+    {
+      "id": 923,
+      "name": "Kudykinykh Gor Khozyayka iz Omskoi kreposti",
+      "photo": "https://www.dachpedigrees.com/sites/default/files/Tess%20baza.jpg",
+      "url": "https://www.dachpedigrees.com/dog/kudykinykh-gor-khozyayka-iz-omskoi-kreposti-nid/401643",
+      "titles": "INTCH(FCI),RKFCH, RUSCH, RUSJCH",
+      "color": "Brown & Tan",
+      "breed": "Kaninchen-dachshund (teckel) kurzhaar",
       "padreId": "",
       "madreId": ""
     },
