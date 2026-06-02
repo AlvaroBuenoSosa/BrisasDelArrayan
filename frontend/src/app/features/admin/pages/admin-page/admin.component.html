@@ -60,19 +60,46 @@
         </div>
 
         <div class="form-group">
-          <label>Raza</label>
-          <input
-            type="text"
+            <select
             [(ngModel)]="nuevoRecurso.breed"
             name="breed">
+
+            <option value="Zwerg-dachshund (teckel) kurzhaar">
+              Zwerg-dachshund (teckel) kurzhaar
+            </option>
+
+            <option value="Kaninchen-dachshund (teckel) kurzhaar">
+              Kaninchen-dachshund (teckel) kurzhaar
+            </option>
+          </select>
         </div>
 
         <div class="form-group">
-          <label>Color</label>
-          <input
-            type="text"
+            <select
             [(ngModel)]="nuevoRecurso.color"
             name="color">
+
+            <option value="Black & Tan">
+              Negro y Fuego
+            </option>
+
+            <option value="Brown & Tan">
+              Chocolate y Fuego
+            </option>
+
+            <option value="Brown & Tan Dapple">
+              Arlequin Chocolate
+            </option>
+
+            <option value="Black & Tan Dapple">
+              Arlequin Negro
+            </option> 
+
+            <option value="Red">
+              Rojo
+            </option> 
+
+          </select>
         </div>
 
         <div class="form-group">
