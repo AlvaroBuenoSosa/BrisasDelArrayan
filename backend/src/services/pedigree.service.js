@@ -4,7 +4,10 @@ function getPedigree(id) {
 
   const db = readDb();
 
-  const ejemplar = db.ejemplares.find(
+  const ejemplar = [
+    ...db.ejemplares,
+    ...db.cachorros
+  ].find(
     e => e.id === Number(id)
   );
 
@@ -18,7 +21,8 @@ function getPedigree(id) {
 
     const related = [
       ...db.ejemplares,
-      ...db.ejemplarespedigree
+      ...db.ejemplarespedigree,
+      ...db.cachorros
     ].filter(
       e =>
         e.id === padreId ||
@@ -31,7 +35,10 @@ function getPedigree(id) {
 
         pedigree.push(r);
 
-        recursive(r.padreId, r.madreId);
+        recursive(
+          r.padreId,
+          r.madreId
+        );
       }
     });
   }
