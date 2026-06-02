@@ -140,7 +140,7 @@
       "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
       "fechaNacimiento": "2023-05-15",
       "padreId": 900,
-      "madreId": 4
+      "madreId": 6
     },
     {
       "id": 1001,
@@ -162,7 +162,7 @@
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
-      "madreId": 4,
+      "madreId": 6,
       "camadaId": 1000
     },
     {
@@ -174,7 +174,7 @@
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
-      "madreId": 4,
+      "madreId": 6,
       "camadaId": 1000
     },
     {
@@ -186,7 +186,7 @@
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
-      "madreId": 4,
+      "madreId": 6,
       "camadaId": 1000
     },
     {
@@ -198,7 +198,7 @@
       "sexo": "Hembra",
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
-      "madreId": 4,
+      "madreId": 6,
       "camadaId": 1000
     },
     {
@@ -210,7 +210,7 @@
       "sexo": "Macho",
       "fechaNacimiento": "2024-2-12",
       "padreId": 900,
-      "madreId": 4,
+      "madreId": 6,
       "camadaId": 1000
     }
   ],
