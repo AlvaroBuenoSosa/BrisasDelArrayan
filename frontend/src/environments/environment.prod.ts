@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://brisasdelarrayan.onrender.com/ap'
+  apiUrl: 'https://brisasdelarrayan.onrender.com/api'
 };
