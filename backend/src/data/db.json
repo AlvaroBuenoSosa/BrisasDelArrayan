@@ -3,10 +3,10 @@
     {
       "id": 1,
       "photo": [
-        "assets/img/Viking/principal.jpg",
-        "assets/img/Viking/11082009-DSC_3229.jpg",
-        "assets/img/Viking/11082009-DSC_3238.jpg",
-        "assets/img/Viking/11082009-DSC_3246.jpg"
+        "assets/img/ejemplares/Viking/principal.jpg",
+        "assets/img/ejemplares/Viking/11082009-DSC_3229.jpg",
+        "assets/img/ejemplares/Viking/11082009-DSC_3238.jpg",
+        "assets/img/ejemplares/Viking/11082009-DSC_3246.jpg"
       ],
       "titles": "INTCH(FCI), ESCH, GIBCH, PORCH, Super Champion ES, Grand Champion POR, BEST MEMBER DOG ESP 2017, 2018, 2019",
       "url": "https://www.dachpedigrees.com/dog/viking-ii-iz-omskoi-kreposti-nid/423224",
@@ -20,10 +20,10 @@
     {
       "id": 2,
       "photo": [
-        "assets/img/venividivici/web/principal.JPG",
-        "assets/img/venividivici/web/01.JPG",
-        "assets/img/venividivici/web/02.JPG",
-        "assets/img/venividivici/web/03.JPG"
+        "assets/img/ejemplares/venividivici/web/principal.JPG",
+        "assets/img/ejemplares/venividivici/web/01.JPG",
+        "assets/img/ejemplares/venividivici/web/02.JPG",
+        "assets/img/ejemplares/venividivici/web/03.JPG"
       ],
       "titles": "INTCH(FCI), ESCH, GIBCH, PORCH",
       "name": "Veni Vidi Vici",
@@ -36,10 +36,10 @@
     {
       "id": 3,
       "photo": [
-        "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
-        "assets/img/Fortuna/fortunaweb/01.jpg",
-        "assets/img/Fortuna/fortunaweb/20190630_131414.jpg",
-        "assets/img/Fortuna/fortunaweb/20190703_190445.jpg"
+        "assets/img/ejemplares/Fortuna/fortunaweb/20190703_190445.jpg",
+        "assets/img/ejemplares/Fortuna/fortunaweb/01.jpg",
+        "assets/img/ejemplares/Fortuna/fortunaweb/20190630_131414.jpg",
+        "assets/img/ejemplares/Fortuna/fortunaweb/20190703_190445.jpg"
       ],
       "titles": "ESCH, GIBCH, PORCH, Grand Champion POR",
       "name": "Forrest Fortuna Aiuvat de Brisas Del Arrayan",
@@ -52,7 +52,7 @@
     {
       "id": 4,
       "photo": [
-        "assets/img/CARMELA/20221210_132804.jpg"
+        "assets/img/ejemplares/CARMELA/20221210_132804.jpg"
       ],
       "titles": "GIBCH, WW BABIES, ESJCH, GIBJCH, PORJCH",
       "name": "Carmela de Brisas Del Arrayan",
@@ -65,8 +65,8 @@
     {
       "id": 5,
       "photo": [
-        "assets/img/Oliver/inbound4851105564258399311.jpg",
-        "assets/img/Oliver/07.jpg"
+        "assets/img/ejemplares/Oliver/inbound4851105564258399311.jpg",
+        "assets/img/ejemplares/Oliver/07.jpg"
       ],
       "titles": "",
       "name": "Oliver",
@@ -79,10 +79,10 @@
     {
       "id": 6,
       "photo": [
-        "assets/img/Macarena/20191103_182812.jpg",
-        "assets/img/Macarena/20191103_181754.jpg",
-        "assets/img/Macarena/20191103_183149.jpg",
-        "assets/img/Macarena/20191104_222253.jpg"
+        "assets/img/ejemplares/Macarena/20191103_182812.jpg",
+        "assets/img/ejemplares/Macarena/20191103_181754.jpg",
+        "assets/img/ejemplares/Macarena/20191103_183149.jpg",
+        "assets/img/ejemplares/Macarena/20191104_222253.jpg"
       ],
       "titles": "GIBCH, PORCH, Grand Champion GIB",
       "name": "Macarena de Brisas Del Arrayan",
@@ -95,7 +95,7 @@
     {
       "id": 7,
       "photo": [
-        "assets/img/Victoria/victoria.jpeg"
+        "assets/img/ejemplares/Victoria/victoria.jpeg"
       ],
       "titles": "",
       "name": "Ubi Concordia Ibi Victoria de Brisas Del Arrayan",
@@ -108,7 +108,7 @@
     {
       "id": 8,
       "photo": [
-        "assets/img/Toblerone/Principal.jpeg"
+        "assets/img/ejemplares/Toblerone/Principal.jpeg"
       ],
       "titles": "CHJES",
       "name": "Toblerone de Brisas Del Arrayan",
@@ -121,7 +121,7 @@
     {
       "id": 9,
       "photo": [
-        "assets/img/Fabula/Captura.PNG"
+        "assets/img/ejemplares/Fabula/Captura.PNG"
       ],
       "titles": "GIB PUPPY WINNER",
       "name": "Acta Est Fabula de Brisas Del Arrayan",
@@ -137,19 +137,10 @@
       "id": 10000,
       "nombre": "Xulo del bacio di luna X Macarena de Brisas Del Arrayan",
       "imagenPadre": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/FB_IMG_1778347575850.jpg",
-      "imagenMadre": "assets/img/Macarena/20191103_182812.jpg",
+      "imagenMadre": "assets/img/ejemplares/Macarena/20191103_182812.jpg",
       "fechaNacimiento": "2023-05-15",
       "padreId": 900,
       "madreId": 6
-    },
-    {
-      "id": 10001,
-      "nombre": "Oliver X Lizbeth Vikinga de Brisas Del Arrayan",
-      "imagenPadre": "assets/img/Viking/principal.jpg",
-      "imagenMadre": "assets/img/Fortuna/fortunaweb/20190703_190445.jpg",
-      "fechaNacimiento": "2023-06-10",
-      "padreId": 3,
-      "madreId": 4
     }
   ],
   "cachorros": [
@@ -157,7 +148,7 @@
       "id": 20000,
       "nombre": "V1",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Arlequin Chocolate",
       "sexo": "Hembra",
       "fechaNacimiento": "2026-05-06",
@@ -169,7 +160,7 @@
       "id": 20001,
       "nombre": "V2",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Chocolate y fuego",
       "sexo": "Hembra",
       "fechaNacimiento": "2026-05-06",
@@ -181,7 +172,7 @@
       "id": 20002,
       "nombre": "V3",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Arlequin Chocolate",
       "sexo": "Macho",
       "fechaNacimiento": "2026-05-06",
@@ -193,9 +184,9 @@
       "id": 20003,
       "nombre": "V4",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Arlequin Chocolate",
-      "sexo": "Hembra",
+      "sexo": "Macho",
       "fechaNacimiento": "2026-05-06",
       "padreId": 900,
       "madreId": 6,
@@ -205,7 +196,7 @@
       "id": 20004,
       "nombre": "V5",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Chocolate y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2026-05-06",
@@ -217,7 +208,7 @@
       "id": 20004,
       "nombre": "V6",
       "raza": "Teckel Miniatura Pelo Corto",
-      "photo": "assets/img/Viking/principal.jpg",
+      "photo": "assets/img/cachorros/macarenaxxulo/principal.jpg",
       "color": "Chocolate y fuego",
       "sexo": "Macho",
       "fechaNacimiento": "2026-05-06",

@@ -316,12 +316,12 @@ async cargarImagenesPadres(): Promise<void> {
 
   this.nuevoRecurso.imagenPadre =
     padre?.photo?.[0]
-      ?.replace('../img/', '/assets/img/')
+      ?.replace('../img/', '/assets/img/ejemplares')
       || '';
 
   this.nuevoRecurso.imagenMadre =
     madre?.photo?.[0]
-      ?.replace('../img/', '/assets/img/')
+      ?.replace('../img/', '/assets/img/ejemplares')
       || '';
 }
 
