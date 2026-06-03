@@ -42,43 +42,37 @@ export class CamadasPageComponent implements OnInit {
   private loadCamadas(): void {
 
     forkJoin({
-      camadas:
-        this.camadasService.getCamadas(),
+  camadas: this.camadasService.getCamadas(),
+  ejemplares: this.ejemplaresService.getEjemplares(),
+  pedigree: this.ejemplaresService.getEjemplaresPedigree()
+})
+.subscribe({
+  next: ({ camadas, ejemplares, pedigree }) => {
 
-      ejemplares:
-        this.ejemplaresService.getEjemplares()
-    })
-    .subscribe({
+    const perros = [
+      ...ejemplares,
+      ...pedigree
+    ];
 
-      next: ({ camadas, ejemplares }) => {
+    this.camadas = camadas.map(camada => {
 
-        this.camadas = camadas.map(
-          camada => {
+      const padre = perros.find(
+        p => p.id === camada.padreId
+      );
 
-            const padre =
-              ejemplares.find(
-                e => e.id === camada.padreId
-              );
+      const madre = perros.find(
+        p => p.id === camada.madreId
+      );
 
-            const madre =
-              ejemplares.find(
-                e => e.id === camada.madreId
-              );
+      return {
+        ...camada,
+        padreNombre: padre?.name ?? 'Desconocido',
+        madreNombre: madre?.name ?? 'Desconocida'
+      };
+    });
 
-            return {
-              ...camada,
-
-              padreNombre:
-                padre?.name || 'Desconocido',
-
-              madreNombre:
-                madre?.name || 'Desconocida'
-            };
-          }
-        );
-
-        this.loading = false;
-      },
+    this.loading = false;
+  },
 
       error: (error) => {
 

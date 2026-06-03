@@ -2,10 +2,9 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
-import { map, switchMap, of } from 'rxjs';
+import { map, switchMap } from 'rxjs';
 
 import { CachorrosService } from '../../../../core/services/cachorros/cachorros.service';
-import { CamadasService } from '../../../../core/services/camadas/camadas.service';
 
 import { CachorroCardComponent } from '../../components/cachorro-card/cachorro-card.component';
 
@@ -23,54 +22,16 @@ export class CachorrosPorCamadaPageComponent {
 
   private route = inject(ActivatedRoute);
 
-  private cachorrosService =
-    inject(CachorrosService);
+  private cachorrosService = inject(CachorrosService);
 
-  private camadasService =
-    inject(CamadasService);
+  cachorros$ = this.route.paramMap.pipe(
 
-  cachorros$ =
-    this.route.queryParamMap.pipe(
+    map(params => Number(params.get('id'))),
 
-      map(params =>
-        Number(
-          params.get('camadaId')
-        )
-      ),
+    switchMap(id =>
+      this.cachorrosService.getCachorrosPorCamada(id)
+    )
 
-      switchMap(camadaId =>
-
-        this.camadasService.getCamadas().pipe(
-
-          switchMap(camadas => {
-
-            const camada = camadas.find(
-              c => c.id === camadaId
-            );
-
-            if (!camada) {
-              return of([]);
-            }
-
-            return this.cachorrosService
-              .getCachorros()
-              .pipe(
-
-                map(cachorros =>
-                  cachorros.filter(
-                    cachorro =>
-                      cachorro.padreId === camada.padreId &&
-                      cachorro.madreId === camada.madreId
-                  )
-                )
-
-              );
-          })
-
-        )
-
-      )
-
-    );
+  );
 
 }
