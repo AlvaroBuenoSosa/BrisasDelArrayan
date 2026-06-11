@@ -6,32 +6,17 @@
 
     <!-- ACCIÓN -->
     <div class="form-group">
-
       <label>Acción</label>
 
-      <select
-        [(ngModel)]="accion"
-        name="accion">
-
-        <option value="crear">
-          Crear
-        </option>
-
-        <option value="editar">
-          Modificar
-        </option>
-
-        <option value="eliminar">
-          Eliminar
-        </option>
-
+      <select [(ngModel)]="accion" name="accion">
+        <option value="crear">Crear</option>
+        <option value="editar">Modificar</option>
+        <option value="eliminar">Eliminar</option>
       </select>
-
     </div>
 
     <!-- TIPO -->
     <div class="form-group">
-
       <label>Tipo de recurso</label>
 
       <select
@@ -39,149 +24,97 @@
         name="resourceType"
         (change)="resetForm()">
 
-        <option value="ejemplares">
-          Ejemplares
-        </option>
-
-        <option value="ejemplarespedigree">
-          Pedigree
-        </option>
-
-        <option value="cachorros">
-          Cachorros
-        </option>
-
-        <option value="camadas">
-          Camadas
-        </option>
+        <option value="ejemplares">Ejemplares</option>
+        <option value="ejemplarespedigree">Pedigree</option>
+        <option value="cachorros">Cachorros</option>
+        <option value="camadas">Camadas</option>
 
       </select>
-
     </div>
 
     <!-- BUSCADOR -->
     <ng-container *ngIf="accion !== 'crear'">
 
       <div class="form-group">
-
-        <label>Buscar</label>
+        <label>Buscar por nombre</label>
 
         <input
           type="text"
           [(ngModel)]="nombreBusqueda"
           (input)="filtrarResultados()">
-
       </div>
 
       <div class="form-group">
-
-        <label>Resultados</label>
+        <label>Resultados de búsqueda</label>
 
         <select
           [(ngModel)]="idSeleccionado"
           (change)="seleccionarResultado()">
 
-          <option
-            *ngFor="let item of resultadosBusqueda"
-            [value]="item.id">
-
-            {{
-              item.name ||
-              item.nombre
-            }}
-
+          <option *ngFor="let item of resultadosBusqueda" [value]="item.id">
+            {{ item.name || item.nombre }}
           </option>
 
         </select>
-
       </div>
 
     </ng-container>
 
     <hr>
 
-
+    <!-- FORM -->
     <form
-  *ngIf="accion === 'crear' || accion === 'editar'"
-  (ngSubmit)="accion === 'editar' ? guardarCambios() : onSubmit()">
+      *ngIf="accion === 'crear' || accion === 'editar'"
+      (ngSubmit)="onSubmit()">
 
-      <!-- EJEMPLARES -->
+      <!-- ================= EJEMPLARES ================= -->
       <ng-container
-        *ngIf="
-          resourceType === 'ejemplares'
-          || resourceType === 'ejemplarespedigree'
-        ">
+        *ngIf="resourceType === 'ejemplares' || resourceType === 'ejemplarespedigree'">
 
         <div class="form-group">
           <label>Nombre</label>
-          <input
-            type="text"
-            [(ngModel)]="nuevoRecurso.name"
-            name="name">
+          <input type="text" [(ngModel)]="nuevoRecurso.name" name="name">
         </div>
 
         <div class="form-group">
           <label>Títulos</label>
-          <input
-            type="text"
-            [(ngModel)]="nuevoRecurso.titles"
-            name="titles">
+          <input type="text" [(ngModel)]="nuevoRecurso.titles" name="titles">
         </div>
 
         <div class="form-group">
           <label>Raza</label>
 
-          <select
-            [(ngModel)]="nuevoRecurso.breed"
-            name="breed">
-
-            <option>
-              Teckel Miniatura De Pelo Corto
-            </option>
-
-            <option>
-              Teckel Kaninchen De Pelo Corto
-            </option>
-
+          <select [(ngModel)]="nuevoRecurso.breed" name="breed">
+            <option>Teckel Miniatura De Pelo Corto</option>
+            <option>Teckel Kaninchen De Pelo Corto</option>
           </select>
 
         </div>
 
         <div class="form-group">
-
           <label>Color</label>
 
-          <select
-            [(ngModel)]="nuevoRecurso.color"
-            name="color">
-
+          <select [(ngModel)]="nuevoRecurso.color" name="color">
             <option>Negro Y Fuego</option>
             <option>Chocolate Y Fuego</option>
             <option>Arlequin Chocolate</option>
             <option>Arlequin Negro</option>
             <option>Rojo</option>
-
           </select>
 
         </div>
 
         <div class="form-group">
-
           <label>Sexo</label>
 
-          <select
-            [(ngModel)]="nuevoRecurso.sexo"
-            name="sexo">
-
+          <select [(ngModel)]="nuevoRecurso.sexo" name="sexo">
             <option>Macho</option>
             <option>Hembra</option>
-
           </select>
 
         </div>
 
         <div class="form-group">
-
           <label>Fotos</label>
 
           <input
@@ -189,75 +122,48 @@
             multiple
             accept="image/*"
             (change)="onMultipleFilesSelected($event)">
-
         </div>
 
       </ng-container>
 
-      <!-- CACHORROS -->
+      <!-- ================= CACHORROS ================= -->
       <ng-container *ngIf="resourceType === 'cachorros'">
 
         <div class="form-group">
-
           <label>Nombre</label>
-
-          <input
-            type="text"
-            [(ngModel)]="nuevoRecurso.nombre"
-            name="nombre">
-
+          <input type="text" [(ngModel)]="nuevoRecurso.nombre" name="nombre">
         </div>
 
         <div class="form-group">
-
           <label>Raza</label>
-
-          <input
-            type="text"
-            [(ngModel)]="nuevoRecurso.raza"
-            name="raza">
-
+          <input type="text" [(ngModel)]="nuevoRecurso.raza" name="raza">
         </div>
 
         <div class="form-group">
-
           <label>Color</label>
-
-          <input
-            type="text"
-            [(ngModel)]="nuevoRecurso.color"
-            name="colorCachorro">
-
+          <input type="text" [(ngModel)]="nuevoRecurso.color" name="colorCachorro">
         </div>
 
         <div class="form-group">
-
           <label>Sexo</label>
 
-          <select
-            [(ngModel)]="nuevoRecurso.sexo"
-            name="sexoCachorro">
-
+          <select [(ngModel)]="nuevoRecurso.sexo" name="sexoCachorro">
             <option>Macho</option>
             <option>Hembra</option>
-
           </select>
 
         </div>
 
         <div class="form-group">
-
           <label>Fecha nacimiento</label>
 
           <input
             type="date"
             [(ngModel)]="nuevoRecurso.fechaNacimiento"
             name="fechaNacimiento">
-
         </div>
 
         <div class="form-group">
-
           <label>Fotos</label>
 
           <input
@@ -265,121 +171,74 @@
             multiple
             accept="image/*"
             (change)="onMultipleFilesSelected($event)">
-
         </div>
 
       </ng-container>
 
-      <!-- CAMADAS -->
+      <!-- ================= CAMADAS ================= -->
       <ng-container *ngIf="resourceType === 'camadas'">
 
         <div class="form-group">
-
           <label>Nombre camada</label>
 
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.nombre"
             name="camadaNombre">
-
         </div>
 
         <div class="form-group">
-
           <label>Fecha nacimiento</label>
 
           <input
             type="date"
             [(ngModel)]="nuevoRecurso.fechaNacimiento"
             name="fechaNacimientoCamada">
-
         </div>
 
       </ng-container>
 
-      <!-- PADRES -->
+      <!-- ================= PADRES ================= -->
       <div class="form-group">
-
         <label>Padre</label>
 
-        <select
-          [(ngModel)]="nuevoRecurso.padreNombre"
-          name="padreNombre">
-
-          <option
-            *ngFor="let nombre of nombresEjemplares"
-            [value]="nombre">
-
+        <select [(ngModel)]="nuevoRecurso.padreNombre" name="padreNombre">
+          <option *ngFor="let nombre of nombresEjemplares" [value]="nombre">
             {{ nombre }}
-
           </option>
-
         </select>
-
       </div>
 
       <div class="form-group">
-
         <label>Madre</label>
 
-        <select
-          [(ngModel)]="nuevoRecurso.madreNombre"
-          name="madreNombre">
-
-          <option
-            *ngFor="let nombre of nombresEjemplares"
-            [value]="nombre">
-
+        <select [(ngModel)]="nuevoRecurso.madreNombre" name="madreNombre">
+          <option *ngFor="let nombre of nombresEjemplares" [value]="nombre">
             {{ nombre }}
-
           </option>
-
         </select>
-
       </div>
 
-      <!-- PREVIEW -->
-      <div
-        class="preview-grid"
-        *ngIf="imagePreviews.length">
-
-        <img
-          *ngFor="let image of imagePreviews"
-          [src]="image">
-
+      <!-- ================= PREVIEW ================= -->
+      <div class="preview-grid" *ngIf="imagePreviews.length">
+        <img *ngFor="let image of imagePreviews" [src]="image">
       </div>
 
-      <button
-        class="submit-btn"
-        type="submit">
-
-        {{
-          accion === 'crear'
-            ? 'Crear'
-            : 'Guardar cambios'
-        }}
-
+      <button class="submit-btn" type="submit">
+        {{ accion === 'crear' ? 'Crear' : 'Guardar cambios' }}
       </button>
 
     </form>
 
-    <!-- ELIMINAR (FIX) -->
-    <div *ngIf="accion === 'eliminar'">
+    <!-- ================= ELIMINAR ================= -->
+    <div *ngIf="accion === 'eliminar' && recursoSeleccionado">
 
       <h3>
-        {{
-          recursoSeleccionado?.name ||
-          recursoSeleccionado?.nombre
-        }}
+        {{ recursoSeleccionado?.name || recursoSeleccionado?.nombre }}
       </h3>
 
-      <button
-        class="delete-btn"
-        (click)="eliminarActual()"
-        [disabled]="!recursoSeleccionado">
-
+      <button class="delete-btn" (click)="eliminarActual()">
         Eliminar
-
       </button>
 
     </div>
