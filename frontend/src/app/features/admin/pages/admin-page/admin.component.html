@@ -4,6 +4,32 @@
 
     <h1>Panel de Administración</h1>
 
+    <!-- ACCIÓN -->
+    <div class="form-group">
+
+      <label>Acción</label>
+
+      <select
+        [(ngModel)]="accion"
+        name="accion">
+
+        <option value="crear">
+          Crear
+        </option>
+
+        <option value="editar">
+          Modificar
+        </option>
+
+        <option value="eliminar">
+          Eliminar
+        </option>
+
+      </select>
+
+    </div>
+
+    <!-- TIPO -->
     <div class="form-group">
 
       <label>Tipo de recurso</label>
@@ -33,10 +59,53 @@
 
     </div>
 
-    <form (ngSubmit)="submit()">
+    <!-- BUSCADOR -->
+    <ng-container *ngIf="accion !== 'crear'">
 
-      <!-- EJEMPLARES Y PEDIGREE -->
+      <div class="form-group">
 
+        <label>Buscar</label>
+
+        <input
+          type="text"
+          [(ngModel)]="nombreBusqueda"
+          (input)="filtrarResultados()">
+
+      </div>
+
+      <div class="form-group">
+
+        <label>Resultados</label>
+
+        <select
+          [(ngModel)]="idSeleccionado"
+          (change)="seleccionarResultado()">
+
+          <option
+            *ngFor="let item of resultadosBusqueda"
+            [value]="item.id">
+
+            {{
+              item.name ||
+              item.nombre
+            }}
+
+          </option>
+
+        </select>
+
+      </div>
+
+    </ng-container>
+
+    <hr>
+
+
+    <form
+  *ngIf="accion === 'crear' || accion === 'editar'"
+  (ngSubmit)="accion === 'editar' ? guardarCambios() : onSubmit()">
+
+      <!-- EJEMPLARES -->
       <ng-container
         *ngIf="
           resourceType === 'ejemplares'
@@ -61,63 +130,51 @@
 
         <div class="form-group">
           <label>Raza</label>
-            <select
+
+          <select
             [(ngModel)]="nuevoRecurso.breed"
             name="breed">
 
-            <option value="Zwerg-dachshund (teckel) kurzhaar">
-              Zwerg-dachshund (teckel) kurzhaar
+            <option>
+              Teckel Miniatura De Pelo Corto
             </option>
 
-            <option value="Kaninchen-dachshund (teckel) kurzhaar">
-              Kaninchen-dachshund (teckel) kurzhaar
+            <option>
+              Teckel Kaninchen De Pelo Corto
             </option>
+
           </select>
+
         </div>
 
         <div class="form-group">
+
           <label>Color</label>
-            <select
+
+          <select
             [(ngModel)]="nuevoRecurso.color"
             name="color">
 
-            <option value="Black & Tan">
-              Negro y Fuego
-            </option>
-
-            <option value="Brown & Tan">
-              Chocolate y Fuego
-            </option>
-
-            <option value="Brown & Tan Dapple">
-              Arlequin Chocolate
-            </option>
-
-            <option value="Black & Tan Dapple">
-              Arlequin Negro
-            </option> 
-
-            <option value="Red">
-              Rojo
-            </option> 
+            <option>Negro Y Fuego</option>
+            <option>Chocolate Y Fuego</option>
+            <option>Arlequin Chocolate</option>
+            <option>Arlequin Negro</option>
+            <option>Rojo</option>
 
           </select>
+
         </div>
 
         <div class="form-group">
+
           <label>Sexo</label>
 
           <select
             [(ngModel)]="nuevoRecurso.sexo"
             name="sexo">
 
-            <option value="Macho">
-              Macho
-            </option>
-
-            <option value="Hembra">
-              Hembra
-            </option>
+            <option>Macho</option>
+            <option>Hembra</option>
 
           </select>
 
@@ -138,31 +195,39 @@
       </ng-container>
 
       <!-- CACHORROS -->
-
       <ng-container *ngIf="resourceType === 'cachorros'">
 
         <div class="form-group">
+
           <label>Nombre</label>
+
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.nombre"
             name="nombre">
+
         </div>
 
         <div class="form-group">
+
           <label>Raza</label>
+
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.raza"
             name="raza">
+
         </div>
 
         <div class="form-group">
+
           <label>Color</label>
+
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.color"
             name="colorCachorro">
+
         </div>
 
         <div class="form-group">
@@ -173,13 +238,8 @@
             [(ngModel)]="nuevoRecurso.sexo"
             name="sexoCachorro">
 
-            <option value="Macho">
-              Macho
-            </option>
-
-            <option value="Hembra">
-              Hembra
-            </option>
+            <option>Macho</option>
+            <option>Hembra</option>
 
           </select>
 
@@ -198,19 +258,19 @@
 
         <div class="form-group">
 
-          <label>Foto</label>
+          <label>Fotos</label>
 
           <input
             type="file"
+            multiple
             accept="image/*"
-            (change)="onSingleFileSelected($event)">
+            (change)="onMultipleFilesSelected($event)">
 
         </div>
 
       </ng-container>
 
       <!-- CAMADAS -->
-
       <ng-container *ngIf="resourceType === 'camadas'">
 
         <div class="form-group">
@@ -237,8 +297,7 @@
 
       </ng-container>
 
-      <!-- PADRE -->
-
+      <!-- PADRES -->
       <div class="form-group">
 
         <label>Padre</label>
@@ -258,8 +317,6 @@
         </select>
 
       </div>
-
-      <!-- MADRE -->
 
       <div class="form-group">
 
@@ -281,8 +338,7 @@
 
       </div>
 
-      <!-- PREVISUALIZACIÓN -->
-
+      <!-- PREVIEW -->
       <div
         class="preview-grid"
         *ngIf="imagePreviews.length">
@@ -295,18 +351,39 @@
 
       <button
         class="submit-btn"
-        type="submit"
-        [disabled]="loading">
+        type="submit">
 
-        {{ loading ? 'Guardando...' : 'Guardar' }}
+        {{
+          accion === 'crear'
+            ? 'Crear'
+            : 'Guardar cambios'
+        }}
 
       </button>
 
     </form>
 
+    <!-- ELIMINAR (FIX) -->
+    <div *ngIf="accion === 'eliminar'">
+
+      <h3>
+        {{
+          recursoSeleccionado?.name ||
+          recursoSeleccionado?.nombre
+        }}
+      </h3>
+
+      <button
+        class="delete-btn"
+        (click)="eliminarActual()"
+        [disabled]="!recursoSeleccionado">
+
+        Eliminar
+
+      </button>
+
+    </div>
+
   </div>
 
 </section>
-
-
-

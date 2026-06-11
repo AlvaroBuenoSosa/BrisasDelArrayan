@@ -1,7 +1,11 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 
-import { catchError, Observable, throwError } from 'rxjs';
+import {
+  catchError,
+  Observable,
+  throwError
+} from 'rxjs';
 
 import { environment } from '../../../../environments/environment';
 
@@ -15,6 +19,7 @@ export class AdminService {
   private baseUrl = environment.apiUrl;
 
   getAll(): Observable<any> {
+
     return this.http.get<any>(
       `${this.baseUrl}/all`
     );
@@ -26,30 +31,62 @@ export class AdminService {
   ): Observable<any> {
 
     return this.http.post<any>(
-      `${this.baseUrl}/${tipoRecurso}`,
+      `${this.baseUrl}/admin/${tipoRecurso}`,
       nuevoRecurso
     ).pipe(
       catchError(this.handleError)
     );
   }
 
-  buscarPorNombre(
+  actualizarRecurso(
     tipo: string,
-    nombre: string
-  ): Observable<any[]> {
+    id: number,
+    data: any
+  ): Observable<any> {
 
-    return this.http.get<any[]>(
-      `${this.baseUrl}/${tipo}?nombre=${encodeURIComponent(nombre)}`
+    return this.http.put<any>(
+      `${this.baseUrl}/admin/${tipo}/${id}`,
+      data
+    ).pipe(
+      catchError(this.handleError)
     );
   }
 
-  private handleError(error: HttpErrorResponse) {
+  eliminarPorId(
+    tipo: string,
+    id: number
+  ): Observable<any> {
 
-    console.error('Error:', error);
+    return this.http.delete<any>(
+      `${this.baseUrl}/admin/${tipo}/${id}`
+    ).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  eliminarPorNombre(
+    tipo: string,
+    nombre: string
+  ): Observable<any> {
+
+    return this.http.delete<any>(
+      `${this.baseUrl}/admin/${tipo}/name/${encodeURIComponent(nombre)}`
+    ).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(
+    error: HttpErrorResponse
+  ) {
+
+    console.error(error);
 
     return throwError(
       () => new Error('Algo salió mal')
     );
   }
 }
+
+
 

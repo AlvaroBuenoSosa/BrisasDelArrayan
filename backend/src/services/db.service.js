@@ -1,25 +1,39 @@
-const readDb = require('../utils/readDb');
-const writeDb = require('../utils/writeDb');
+const readDb =
+  require('../utils/readDb');
+
+const writeDb =
+  require('../utils/writeDb');
 
 function getCollection(name) {
+
   const db = readDb();
+
   return db[name] || [];
 }
 
-function getById(collection, id) {
+function getById(
+  collection,
+  id
+) {
+
   const db = readDb();
 
   return db[collection]?.find(
-    item => item.id === Number(id)
+    item =>
+      Number(item.id) === Number(id)
   );
 }
 
-function createItem(collection, item) {
+function createItem(
+  collection,
+  item
+) {
+
   const db = readDb();
 
   const newItem = {
-    id: Date.now(),
-    ...item
+    ...item,
+    id: item.id || Date.now()
   };
 
   db[collection].push(newItem);
@@ -29,19 +43,90 @@ function createItem(collection, item) {
   return newItem;
 }
 
-function deleteItem(collection, id) {
+function updateItem(
+  collection,
+  id,
+  updatedData
+) {
+
   const db = readDb();
 
-  db[collection] = db[collection].filter(
-    item => item.id !== Number(id)
-  );
+  const index =
+    db[collection].findIndex(
+      item =>
+        Number(item.id) === Number(id)
+    );
+
+  if (index === -1) {
+    return null;
+  }
+
+  db[collection][index] = {
+    ...db[collection][index],
+    ...updatedData,
+    id: Number(id)
+  };
 
   writeDb(db);
+
+  return db[collection][index];
+}
+
+function deleteItem(
+  collection,
+  id
+) {
+
+  const db = readDb();
+
+  db[collection] =
+    db[collection].filter(
+      item =>
+        Number(item.id) !== Number(id)
+    );
+
+  writeDb(db);
+}
+
+function deleteByName(
+  collection,
+  name
+) {
+
+  const db = readDb();
+
+  const before =
+    db[collection].length;
+
+  db[collection] =
+    db[collection].filter(
+      item => {
+
+        const itemName =
+          item.name ||
+          item.nombre ||
+          '';
+
+        return (
+          itemName.toLowerCase() !==
+          name.toLowerCase()
+        );
+      }
+    );
+
+  writeDb(db);
+
+  return (
+    before -
+    db[collection].length
+  );
 }
 
 module.exports = {
   getCollection,
   getById,
   createItem,
-  deleteItem
+  updateItem,
+  deleteItem,
+  deleteByName
 };

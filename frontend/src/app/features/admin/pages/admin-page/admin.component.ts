@@ -20,24 +20,43 @@ type ResourceType =
 })
 export class AdminComponent implements OnInit {
 
-  resourceType: ResourceType = 'ejemplares';
+resourceType: ResourceType = 'ejemplares';
+
+  accion: 'crear' | 'editar' | 'eliminar' =
+    'crear';
+
+  loading = false;
 
   imagePreviews: string[] = [];
 
   nombresEjemplares: string[] = [];
 
+  todosLosRecursos: any[] = [];
+
+  resultadosBusqueda: any[] = [];
+
+  idSeleccionado: number | null = null;
+
+  nombreBusqueda = '';
+
   nuevoRecurso: any = {};
 
-  loading = false;
+  recursoSeleccionado: any = null;
+
+  modoEdicion = false;
 
   constructor(
     private adminService: AdminService
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    this.resetForm();
-    await this.loadEjemplaresNames();
-  }
+async ngOnInit(): Promise<void> {
+
+  this.resetForm();
+
+  await this.loadEjemplaresNames();
+
+  await this.cargarTodosLosRecursos();
+}
 
   /*
   |--------------------------------------------------------------------------
@@ -45,57 +64,63 @@ export class AdminComponent implements OnInit {
   |--------------------------------------------------------------------------
   */
 
-  resetForm(): void {
+resetForm(): void {
 
-    this.imagePreviews = [];
+  this.recursoSeleccionado = null;
 
-    switch (this.resourceType) {
+  this.imagePreviews = [];
 
-      case 'camadas':
-        this.nuevoRecurso = {
-          nombre: '',
-          fechaNacimiento: '',
-          imagenPadre: '',
-          imagenMadre: '',
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null
-        };
-        break;
+  this.recursoSeleccionado = null;
 
-      case 'cachorros':
-        this.nuevoRecurso = {
-          nombre: '',
-          raza: '',
-          color: '',
-          sexo: '',
-          fechaNacimiento: '',
-          photo: '',
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null,
-          camadaId: null
-        };
-        break;
+  this.imagePreviews = [];
 
-      default:
-        this.nuevoRecurso = {
-          titles: '',
-          name: '',
-          breed: '',
-          color: '',
-          sexo: '',
-          photo: [],
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null,
-          descripcion: ''
-        };
-    }
+  switch (this.resourceType) {
+
+    case 'camadas':
+      this.nuevoRecurso = {
+        nombre: '',
+        fechaNacimiento: '',
+        imagenPadre: '',
+        imagenMadre: '',
+        padreNombre: '',
+        madreNombre: '',
+        padreId: null,
+        madreId: null
+      };
+      break;
+
+    case 'cachorros':
+      this.nuevoRecurso = {
+        nombre: '',
+        raza: '',
+        color: '',
+        sexo: '',
+        fechaNacimiento: '',
+        photo: [],
+        padreNombre: '',
+        madreNombre: '',
+        padreId: null,
+        madreId: null,
+        camadaId: null
+      };
+      break;
+
+    default:
+      this.nuevoRecurso = {
+        titles: '',
+        name: '',
+        breed: '',
+        color: '',
+        sexo: '',
+        photo: [],
+        padreNombre: '',
+        madreNombre: '',
+        padreId: null,
+        madreId: null,
+        descripcion: ''
+      };
   }
+}
 
 async loadEjemplaresNames(): Promise<void> {
 
@@ -327,11 +352,41 @@ async cargarImagenesPadres(): Promise<void> {
 
   /*
   |--------------------------------------------------------------------------
+  | Resolve Camada ID for Cachorros
+  |--------------------------------------------------------------------------
+  */
+
+async resolveCamadaId(): Promise<void> {
+
+  if (this.resourceType !== 'cachorros') {
+    return;
+  }
+
+  const data: any = await firstValueFrom(
+    this.adminService.getAll()
+  );
+
+  const camadas = data.camadas || [];
+
+  const camada = camadas.find(
+    (c: any) =>
+      Number(c.padreId) === Number(this.nuevoRecurso.padreId) &&
+      Number(c.madreId) === Number(this.nuevoRecurso.madreId)
+  );
+
+  console.log('Camada encontrada:', camada);
+
+  this.nuevoRecurso.camadaId =
+    camada?.id ?? null;
+}
+
+  /*
+  |--------------------------------------------------------------------------
   | SUBMIT
   |--------------------------------------------------------------------------
   */
 
-  async submit(): Promise<void> {
+  async onSubmit(): Promise<void> {
 
     try {
 
@@ -342,11 +397,13 @@ async cargarImagenesPadres(): Promise<void> {
 
       await this.resolveParentIds();
 
-      if (
-        this.resourceType === 'camadas'
-      ) {
-        await this.cargarImagenesPadres();
-      }
+if (this.resourceType === 'cachorros') {
+  await this.resolveCamadaId();
+}
+
+if (this.resourceType === 'camadas') {
+  await this.cargarImagenesPadres();
+}
 
       this.adminService
         .agregarRecurso(
@@ -383,5 +440,225 @@ async cargarImagenesPadres(): Promise<void> {
       this.loading = false;
     }
   }
+
+  async cargarPorNombre() {
+
+  const data: any =
+    await firstValueFrom(
+      this.adminService.getAll()
+    );
+
+  const lista =
+    data[this.resourceType];
+
+  const encontrado = lista.find(
+    (item: any) =>
+      (
+        item.name ||
+        item.nombre
+      )?.toLowerCase() ===
+      this.nombreBusqueda.toLowerCase()
+  );
+
+  if (!encontrado) {
+
+    alert('No encontrado');
+
+    return;
+  }
+
+  this.modoEdicion = true;
+
+  this.recursoSeleccionado =
+    encontrado;
+
+  this.nuevoRecurso = {
+    ...encontrado,
+    id: encontrado.id
+  };
+
+  this.imagePreviews =
+    Array.isArray(encontrado.photo)
+      ? encontrado.photo
+      : [encontrado.photo];
+}
+
+guardarCambios(): void {
+
+  if (!this.recursoSeleccionado?.id) {
+    alert('No hay recurso seleccionado');
+    return;
+  }
+
+  const payload = {
+    ...this.nuevoRecurso,
+    id: this.recursoSeleccionado.id
+  };
+
+  this.adminService
+    .actualizarRecurso(
+      this.resourceType,
+      this.recursoSeleccionado.id,
+      payload
+    )
+    .subscribe({
+
+      next: () => {
+
+        alert('Actualizado correctamente');
+
+        this.resetForm();
+
+        this.recursoSeleccionado = null;
+
+        this.accion = 'crear';
+      },
+
+      error: err => {
+
+        console.error(err);
+
+        alert('Error actualizando');
+      }
+    });
+}
+
+eliminarActual(): void {
+
+  if (!this.recursoSeleccionado) {
+    return;
+  }
+
+  const nombre =
+    this.recursoSeleccionado.name ||
+    this.recursoSeleccionado.nombre;
+
+  if (
+    !confirm(
+      `Eliminar ${nombre}?`
+    )
+  ) {
+    return;
+  }
+
+  this.adminService
+    .eliminarPorId(
+      this.resourceType,
+      this.recursoSeleccionado.id
+    )
+    .subscribe({
+
+      next: () => {
+
+        alert('Eliminado');
+
+        this.resetForm();
+
+        this.recursoSeleccionado =
+          null;
+
+        this.resultadosBusqueda = [];
+
+        this.nombreBusqueda = '';
+      },
+
+      error: err => {
+
+        console.error(err);
+
+        alert(
+          'Error eliminando'
+        );
+      }
+    });
+}
+
+filtrarResultados(): void {
+
+  const texto =
+    this.nombreBusqueda.toLowerCase();
+
+  this.resultadosBusqueda =
+    this.todosLosRecursos.filter((item: any) => {
+
+      if (item.tipo !== this.resourceType) {
+        return false;
+      }
+
+      const nombre =
+        (
+          item.name ||
+          item.nombre ||
+          ''
+        ).toLowerCase();
+
+      return nombre.includes(texto);
+    });
+}
+
+seleccionarResultado(): void {
+
+  const seleccionado =
+    this.resultadosBusqueda.find(
+      item =>
+        item.id === Number(this.idSeleccionado)
+    );
+
+  if (!seleccionado) return;
+
+  this.recursoSeleccionado = seleccionado;
+
+  this.nuevoRecurso = {
+    ...seleccionado,
+    id: seleccionado.id
+  };
+
+  this.imagePreviews =
+    seleccionado.photo
+      ? (Array.isArray(seleccionado.photo)
+          ? seleccionado.photo
+          : [seleccionado.photo])
+      : [];
+
+  this.accion = 'editar';
+}
+
+async cargarTodosLosRecursos(): Promise<void> {
+
+  const data: any = await firstValueFrom(
+    this.adminService.getAll()
+  );
+
+  this.todosLosRecursos = [
+    ...(data.ejemplares || []).map((i: any) => ({
+      ...i,
+      tipo: 'ejemplares'
+    })),
+
+    ...(data.ejemplarespedigree || []).map((i: any) => ({
+      ...i,
+      tipo: 'ejemplarespedigree'
+    })),
+
+    ...(data.cachorros || []).map((i: any) => ({
+      ...i,
+      tipo: 'cachorros'
+    })),
+
+    ...(data.camadas || []).map((i: any) => ({
+      ...i,
+      tipo: 'camadas'
+    }))
+  ];
+
+  this.filtrarResultados();
+}
+
+async recargarBusqueda(): Promise<void> {
+
+  await this.cargarTodosLosRecursos();
+
+  this.filtrarResultados();
+}
 }
 

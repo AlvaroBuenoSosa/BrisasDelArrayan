@@ -60,7 +60,7 @@
       "color": "Negro y fuego",
       "sexo": "Hembra",
       "padreId": 1,
-      "madreId": 2
+      "madreId": 400
     },
     {
       "id": 5,
@@ -70,11 +70,12 @@
       ],
       "titles": "",
       "name": "Oliver",
-      "breed": "Teckel Miniatura Pelo Corto",
+      "breed": "Teckel Miniatura De Pelo Corto",
       "color": "Arlequin Chocolate",
       "sexo": "Macho",
       "padreId": 500,
-      "madreId": 501
+      "madreId": 501,
+      "tipo": "ejemplares"
     },
     {
       "id": 6,
@@ -138,7 +139,7 @@
       "nombre": "Xulo del bacio di luna X Macarena de Brisas Del Arrayan",
       "imagenPadre": "https://www.dachpedigrees.com/sites/default/files/imagecache/dog_small/FB_IMG_1778347575850.jpg",
       "imagenMadre": "assets/img/ejemplares/Macarena/20191103_182812.jpg",
-      "fechaNacimiento": "2023-05-15",
+      "fechaNacimiento": "2026-05-06",
       "padreId": 900,
       "madreId": 6
     }
@@ -1532,7 +1533,7 @@
     {
       "id": 601,
       "name": "Xenia de brisas del arrayan",
-      "photo": "https://www.dachpedigrees.com/sites/default/files/18222539_403096960072924_2402946195955717485_n.jpg",
+      "photo": "",
       "url": "https://www.dachpedigrees.com/dog/xenia-de-brisas-del-arrayan-nid/477412",
       "titles": "",
       "color": "Brown & Tan",
@@ -1785,7 +1786,7 @@
       "name": "Alea Jacta Est de Brisas Del Arrayan",
       "photo": "https://www.dachpedigrees.com/sites/default/files/08.JPG",
       "url": "https://www.dachpedigrees.com/dog/alea-jacta-est-de-brisas-del-arrayan-nid/474710",
-      "titles": "GBCH",
+      "titles": "GIBCH",
       "color": "Red",
       "breed": "Kaninchen-dachshund (teckel) kurzhaar",
       "padreId": 305,
@@ -2220,6 +2221,5 @@
       "padreId": "",
       "madreId": ""
     }
-
   ]
 }

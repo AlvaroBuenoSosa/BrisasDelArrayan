@@ -28,4 +28,13 @@ export class CachorroCardComponent {
 
   }
 
+  getPhoto(): string {
+
+  if (Array.isArray(this.cachorro.photo)) {
+    return this.cachorro.photo[0];
+  }
+
+  return this.cachorro.photo;
+}
+
 }

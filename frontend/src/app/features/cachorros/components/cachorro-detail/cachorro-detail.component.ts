@@ -20,4 +20,14 @@ export class CachorroDetailComponent {
   @Input({ required: true })
   cachorro!: Cachorro;
 
+  getPhotos(): string[] {
+
+    if (!this.cachorro?.photo) {
+      return [];
+    }
+
+    return Array.isArray(this.cachorro.photo)
+      ? this.cachorro.photo
+      : [this.cachorro.photo];
+  }
 }

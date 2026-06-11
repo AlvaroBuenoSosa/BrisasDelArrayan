@@ -10,7 +10,7 @@ export interface Cachorro {
 
   raza: string;
 
-  photo: string;
+  photo: string | string[];
 
   color: string;
 

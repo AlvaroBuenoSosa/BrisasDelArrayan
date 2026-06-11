@@ -2,10 +2,10 @@
   class="card"
   [routerLink]="['/cachorros', formatNombre(cachorro.nombre)]">
 
-  <img
-    class="card-image"
-    [src]="cachorro.photo"
-    [alt]="cachorro.nombre">
+<img
+  class="card-image"
+  [src]="getPhoto()"
+  [alt]="cachorro.nombre">
 
   <div class="card-content">
 
