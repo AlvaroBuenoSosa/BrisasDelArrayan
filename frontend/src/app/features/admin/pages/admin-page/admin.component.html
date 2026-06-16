@@ -22,7 +22,7 @@
       <select
         [(ngModel)]="resourceType"
         name="resourceType"
-        (change)="resetForm()">
+        (ngModelChange)="resetForm()">
 
         <option value="ejemplares">Ejemplares</option>
         <option value="ejemplarespedigree">Pedigree</option>
@@ -40,6 +40,7 @@
 
         <input
           type="text"
+          name="nombreBusqueda"
           [(ngModel)]="nombreBusqueda"
           (input)="filtrarResultados()">
       </div>
@@ -49,9 +50,11 @@
 
         <select
           [(ngModel)]="idSeleccionado"
-          (change)="seleccionarResultado()">
+          name="idSeleccionado"
+          (ngModelChange)="seleccionarResultado()">
 
-          <option *ngFor="let item of resultadosBusqueda" [value]="item.id">
+          <option [ngValue]="null">-- Seleccionar resultado --</option>
+          <option *ngFor="let item of resultadosBusqueda" [ngValue]="item.id">
             {{ item.name || item.nombre }}
           </option>
 
@@ -103,16 +106,15 @@
           </select>
 
         </div>
+<div class="form-group">
+  <label>Sexo</label>
 
-        <div class="form-group">
-          <label>Sexo</label>
+  <select [(ngModel)]="nuevoRecurso.gender" name="gender">
+    <option value="Male">Macho</option>
+    <option value="Female">Hembra</option>
+  </select>
 
-          <select [(ngModel)]="nuevoRecurso.sexo" name="sexo">
-            <option>Macho</option>
-            <option>Hembra</option>
-          </select>
-
-        </div>
+</div>
 
         <div class="form-group">
           <label>Fotos</label>
@@ -202,20 +204,40 @@
       <div class="form-group">
         <label>Padre</label>
 
-        <select [(ngModel)]="nuevoRecurso.padreNombre" name="padreNombre">
-          <option *ngFor="let nombre of nombresEjemplares" [value]="nombre">
-            {{ nombre }}
+        <select
+          [(ngModel)]="nuevoRecurso.padreNombre"
+          name="padreNombre">
+
+          <option [ngValue]="''">-- Seleccionar Padre --</option>
+
+          <option
+            *ngFor="let perro of machos"
+            [ngValue]="perro.name || perro.nombre">
+
+            {{ perro.name || perro.nombre }}
+
           </option>
+
         </select>
       </div>
 
       <div class="form-group">
         <label>Madre</label>
 
-        <select [(ngModel)]="nuevoRecurso.madreNombre" name="madreNombre">
-          <option *ngFor="let nombre of nombresEjemplares" [value]="nombre">
-            {{ nombre }}
+        <select
+          [(ngModel)]="nuevoRecurso.madreNombre"
+          name="madreNombre">
+
+          <option [ngValue]="''">-- Seleccionar Madre --</option>
+
+          <option
+            *ngFor="let perro of hembras"
+            [ngValue]="perro.name || perro.nombre">
+
+            {{ perro.name || perro.nombre }}
+
           </option>
+
         </select>
       </div>
 

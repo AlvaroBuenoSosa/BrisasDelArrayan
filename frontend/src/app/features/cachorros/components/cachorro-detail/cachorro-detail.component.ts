@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { normalizeImageUrl } from '../../../../shared/utils/image-url.util';
 import { Cachorro } from '../../interfaces/cachorro.interface';
 
 import { PedigreeComponent } from '../../../../shared/components/pedigree/pedigree.component';
@@ -26,8 +27,10 @@ export class CachorroDetailComponent {
       return [];
     }
 
-    return Array.isArray(this.cachorro.photo)
+    const photos = Array.isArray(this.cachorro.photo)
       ? this.cachorro.photo
       : [this.cachorro.photo];
+
+    return photos.map(normalizeImageUrl);
   }
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 import { AdminService } from '../../../../core/services/admin/admin.service';
+import { environment } from '../../../../../environments/environment';
+import { normalizeImageUrl } from '../../../../shared/utils/image-url.util';
 
 type ResourceType =
   | 'ejemplares'
@@ -29,9 +31,15 @@ export class AdminComponent implements OnInit {
 
   nombresEjemplares: string[] = [];
 
+  machos: any[] = [];
+
+  hembras: any[] = [];
+
   todosLosRecursos: any[] = [];
 
   resultadosBusqueda: any[] = [];
+
+  selectedFiles: File[] = [];
 
   idSeleccionado: number | null = null;
 
@@ -57,6 +65,9 @@ export class AdminComponent implements OnInit {
   resetForm(): void {
     this.recursoSeleccionado = null;
     this.imagePreviews = [];
+    this.nombreBusqueda = '';
+    this.idSeleccionado = null;
+    this.resultadosBusqueda = [];
 
     switch (this.resourceType) {
       case 'camadas':
@@ -100,40 +111,72 @@ export class AdminComponent implements OnInit {
           madreNombre: '',
           padreId: null,
           madreId: null,
-          descripcion: ''
         };
+    }
+
+    if (this.todosLosRecursos.length) {
+      this.filtrarResultados();
     }
   }
 
   // =========================
   // LOAD NAMES
   // =========================
-  async loadEjemplaresNames(): Promise<void> {
-    const data: any = await firstValueFrom(this.adminService.getAll());
+async loadEjemplaresNames(): Promise<void> {
 
-    const ejemplares = [
-      ...(data.ejemplares || []),
-      ...(data.ejemplarespedigree || []),
-      ...(data.cachorros || [])
-    ];
+  const data: any =
+    await firstValueFrom(
+      this.adminService.getAll()
+    );
 
-    this.nombresEjemplares = ejemplares
-      .map((e: any) => e.name || e.nombre)
-      .filter(Boolean)
-      .sort((a: string, b: string) => a.localeCompare(b));
-  }
+  const ejemplares = [
+
+    ...(data.ejemplares || []),
+
+    ...(data.ejemplarespedigree || []),
+
+    ...(data.cachorros || [])
+
+  ];
+
+  this.machos = ejemplares
+    .filter((e: any) =>
+      e.gender === 'Male' ||
+      e.sexo === 'Macho'
+    )
+    .sort((a: any, b: any) => {
+      const aName = (a.name || a.nombre || '').toString();
+      const bName = (b.name || b.nombre || '').toString();
+      return aName.localeCompare(bName);
+    });
+
+  this.hembras = ejemplares
+    .filter((e: any) =>
+      e.gender === 'Female' ||
+      e.sexo === 'Hembra'
+    )
+    .sort((a: any, b: any) => {
+      const aName = (a.name || a.nombre || '').toString();
+      const bName = (b.name || b.nombre || '').toString();
+      return aName.localeCompare(bName);
+    });
+}
 
   // =========================
   // FILES
   // =========================
-  async onMultipleFilesSelected(event: Event): Promise<void> {
-    const input = event.target as HTMLInputElement;
-    if (!input.files?.length) return;
+async onMultipleFilesSelected(event: Event): Promise<void> {
 
-    const files = Array.from(input.files);
-    this.imagePreviews = await Promise.all(files.map(f => this.readFile(f)));
-    this.nuevoRecurso.photo = this.imagePreviews;
-  }
+  const input = event.target as HTMLInputElement;
+
+  if (!input.files?.length) return;
+
+  this.selectedFiles = Array.from(input.files);
+
+  this.imagePreviews = await Promise.all(
+    this.selectedFiles.map(f => this.readFile(f))
+  );
+}
 
   private readFile(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
@@ -196,72 +239,161 @@ export class AdminComponent implements OnInit {
   // =========================
   // SEARCH
   // =========================
-  async cargarPorNombre() {
-    const data: any = await firstValueFrom(this.adminService.getAll());
-    const lista = data[this.resourceType];
+async cargarPorNombre() {
 
-    const encontrado = lista.find((i: any) =>
-      (i.name || i.nombre)?.toLowerCase() === this.nombreBusqueda.toLowerCase()
+  const data: any =
+    await firstValueFrom(
+      this.adminService.getAll()
     );
 
-    if (!encontrado) return alert('No encontrado');
+  const lista = data[this.resourceType];
 
-    this.recursoSeleccionado = encontrado;
-    this.nuevoRecurso = { ...encontrado };
-    this.imagePreviews = Array.isArray(encontrado.photo)
-      ? encontrado.photo
-      : [encontrado.photo];
+  const encontrado = lista.find(
+    (i: any) =>
+      (i.name || i.nombre)
+        ?.toLowerCase() ===
+      this.nombreBusqueda.toLowerCase()
+  );
 
-    this.accion = 'editar';
+  if (!encontrado) {
+    return alert('No encontrado');
   }
 
-  seleccionarResultado(): void {
-    const sel = this.resultadosBusqueda.find(
-      i => i.id === Number(this.idSeleccionado)
-    );
+  this.recursoSeleccionado = encontrado;
 
-    if (!sel) return;
+  this.nuevoRecurso = {
+    ...encontrado
+  };
 
-    this.recursoSeleccionado = sel;
-    this.nuevoRecurso = { ...sel };
-    this.imagePreviews = Array.isArray(sel.photo)
-      ? sel.photo
-      : [sel.photo];
+  // Convertir gender -> sexo para el formulario
+  if (
+    !this.nuevoRecurso.sexo &&
+    this.nuevoRecurso.gender
+  ) {
 
-    this.accion = 'editar';
+    this.nuevoRecurso.sexo =
+      this.nuevoRecurso.gender === 'Female'
+        ? 'Hembra'
+        : 'Macho';
   }
+
+  this.imagePreviews = Array.isArray(encontrado.photo)
+    ? (encontrado.photo as string[]).map((image: string) => this.getImageUrl(image))
+    : [this.getImageUrl(encontrado.photo)];
+
+  this.accion = 'editar';
+}
+
+seleccionarResultado(): void {
+
+  const sel = this.resultadosBusqueda.find(
+    i => i.id === Number(this.idSeleccionado)
+  );
+
+  if (!sel) return;
+
+  this.recursoSeleccionado = sel;
+
+  this.nuevoRecurso = { ...sel };
+
+  if (!this.nuevoRecurso.gender) {
+
+    if (this.nuevoRecurso.sexo === 'Macho') {
+      this.nuevoRecurso.gender = 'Male';
+    }
+
+    if (this.nuevoRecurso.sexo === 'Hembra') {
+      this.nuevoRecurso.gender = 'Female';
+    }
+
+  }
+
+  this.imagePreviews = Array.isArray(sel.photo)
+    ? (sel.photo as string[]).map((image: string) => this.getImageUrl(image))
+    : [this.getImageUrl(sel.photo)];
+
+}
+
+  private getImageUrl(image: string | undefined | null): string {
+    return normalizeImageUrl(image);
+  }
+
 
   // =========================
   // CREATE / UPDATE CONTROL
   // =========================
-  async onSubmit(): Promise<void> {
-    this.loading = true;
+async onSubmit(): Promise<void> {
 
-    try {
-      await this.resolveParentIds();
+  this.loading = true;
 
-      if (this.accion === 'crear') {
-        this.nuevoRecurso.id = await this.generateAvailableId();
+  try {
 
-        this.adminService.agregarRecurso(this.resourceType, this.nuevoRecurso)
-          .subscribe({
-            next: () => {
-              alert('Creado correctamente');
-              this.resetForm();
-              this.loading = false;
-            },
-            error: () => this.loading = false
-          });
+    await this.resolveParentIds();
 
-      } else if (this.accion === 'editar') {
-        this.guardarCambios();
-      }
+     // =========================
+    // SUBIR IMÁGENES AL BACKEND
+    // =========================
 
-    } catch (e) {
-      console.error(e);
-      this.loading = false;
+    if (this.selectedFiles?.length) {
+
+      const uploadedImages =
+        await firstValueFrom(
+          this.adminService.uploadImages(
+            this.selectedFiles
+          )
+        );
+
+        console.log(this.selectedFiles);
+
+      this.nuevoRecurso.photo = uploadedImages;
     }
+
+    // ==================================
+    // CONVERTIR SEXO SEGÚN TIPO
+    // ==================================
+
+    if (this.resourceType === 'ejemplarespedigree') {
+
+      this.nuevoRecurso.gender =
+        this.nuevoRecurso.gender || 'Male';
+
+      delete this.nuevoRecurso.sexo;
+
+    } else {
+
+      this.nuevoRecurso.sexo =
+        this.nuevoRecurso.gender === 'Female'
+          ? 'Hembra'
+          : 'Macho';
+
+      delete this.nuevoRecurso.gender;
+    }
+
+    if (this.accion === 'crear') {
+
+      this.nuevoRecurso.id =
+        await this.generateAvailableId();
+
+      this.adminService
+        .agregarRecurso(
+          this.resourceType,
+          this.nuevoRecurso
+        )
+        .subscribe({
+          next: () => {
+            alert('Creado correctamente');
+            this.resetForm();
+            this.loading = false;
+          },
+          error: () => this.loading = false
+        });
+    }
+
+  } catch (e) {
+    console.error(e);
+    this.loading = false;
   }
+}
 
   guardarCambios(): void {
     if (!this.recursoSeleccionado?.id) return;
@@ -320,5 +452,7 @@ export class AdminComponent implements OnInit {
       return n.includes(t);
     });
   }
+
+  
 }
 

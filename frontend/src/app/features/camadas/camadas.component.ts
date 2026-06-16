@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
+import { normalizeImageUrl } from '../../shared/utils/image-url.util';
 import { CamadasService } from '../../core/services/camadas/camadas.service';
 import { EjemplaresService } from '../../core/services/ejemplares/ejemplares.service';
 
@@ -54,6 +55,9 @@ export class CamadasComponent implements OnInit {
         ];
 
         this.camadas.forEach(camada => {
+
+          camada.imagenPadre = normalizeImageUrl(camada.imagenPadre);
+          camada.imagenMadre = normalizeImageUrl(camada.imagenMadre);
 
           const padre = this.perros.find(
             perro => perro.id === camada.padreId

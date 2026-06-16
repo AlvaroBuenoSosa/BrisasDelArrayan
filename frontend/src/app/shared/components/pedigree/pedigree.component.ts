@@ -2,6 +2,8 @@ import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PedigreeService } from '../../../core/services/pedigree/pedigree.service';
 
+import { normalizeImageUrl } from '../../utils/image-url.util';
+
 interface Ejemplar {
   id: number;
   name: string;
@@ -70,10 +72,12 @@ export class PedigreeComponent implements OnInit {
   // Nueva función para obtener la foto principal
   getPrimaryPhoto(photo: string | string[]): string {
     if (!photo) return '';
-    if (Array.isArray(photo)) {
-      return photo.length > 0 ? photo[0] : '';
-    }
-    return photo;
+
+    const primaryPhoto = Array.isArray(photo)
+      ? photo.length > 0 ? photo[0] : ''
+      : photo;
+
+    return normalizeImageUrl(primaryPhoto);
   }
 
   sortAndFillPedigrees(pedigrees: EjemplarPedigree[]): EjemplarPedigree[] {

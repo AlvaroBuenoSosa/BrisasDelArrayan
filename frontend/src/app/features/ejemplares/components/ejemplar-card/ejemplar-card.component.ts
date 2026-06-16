@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { normalizeImageUrl } from '../../../../shared/utils/image-url.util';
 import { Ejemplar } from '../../interfaces/ejemplar.interface';
 
 @Component({
@@ -31,12 +32,12 @@ export class EjemplarCardComponent {
   }
 
   getPhoto(): string {
-  if (Array.isArray(this.ejemplar.photo)) {
-    return this.ejemplar.photo[0];
-  }
+    const photo = Array.isArray(this.ejemplar.photo)
+      ? this.ejemplar.photo[0]
+      : this.ejemplar.photo;
 
-  return this.ejemplar.photo;
-}
+    return normalizeImageUrl(photo);
+  }
 
   private slugify(value: string): string {
 

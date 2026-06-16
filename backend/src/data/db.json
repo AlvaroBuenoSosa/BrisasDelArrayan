@@ -260,7 +260,7 @@
       "id": 103,
       "name": "Criscross For The Defense ms",
       "photo": "https://www.dachpedigrees.com/sites/default/files/Criscross%20For%20The%20Defense%20ms.jpg",
-      "url": "https://www.dachpedigrees.com/dog/criscross-defense-ms-nid/13450", 
+      "url": "https://www.dachpedigrees.com/dog/criscross-defense-ms-nid/13450",
       "gender": "Male",
       "titles": "AMCH",
       "color": "Brown & Tan",
@@ -273,7 +273,7 @@
       "name": "Lisego Nosa Brogan Arish Cream",
       "photo": "https://www.dachpedigrees.com/sites/default/files/3.jpg",
       "url": "https://www.dachpedigrees.com/dog/lisego-nosa-brogan-arish-cream-nid/390772",
-      "titles": "RUSCH, RUSJCH, FT-BL. TR.", 
+      "titles": "RUSCH, RUSJCH, FT-BL. TR.",
       "gender": "Female",
       "color": "Chocolate & Tan Dapple",
       "breed": "Kaninchen-dachshund (teckel) kurzhaar",
@@ -734,7 +734,7 @@
       "photo": "https://dachpedigrees.com/sites/default/files/1_143.jpg",
       "url": "https://dachpedigrees.com/dog/criscross-smooth-malt-ms-nid/10766",
       "titles": "RKFCH",
-      "gender": "Male", 
+      "gender": "Male",
       "color": "Brown & Tan",
       "breed": "Zwerg- dachshund (teckel) kurzhaar"
     },
@@ -823,7 +823,7 @@
       "name": "Kaladium-Vizavi Jacqueline",
       "photo": "https://dachpedigrees.com/sites/default/files/jaklin.jpg",
       "url": "https://dachpedigrees.com/dog/kaladium-vizavi-jacqueline-nid/22",
-      "titles": "INTCH(FCI), RUSCH, FT-FOX", 
+      "titles": "INTCH(FCI), RUSCH, FT-FOX",
       "gender": "Female",
       "color": "Red",
       "breed": "Kaninchen-dachshund (teckel) kurzhaar"
@@ -1038,7 +1038,7 @@
       "photo": "https://www.dachpedigrees.com/sites/default/files/principal.jpg",
       "url": "https://www.dachpedigrees.com/dog/patita-de-golage-nid/474629",
       "titles": "",
-      "gender": "Male",
+      "gender": "Female",
       "color": "Red",
       "breed": "Kaninchen-dachshund (teckel) kurzhaar",
       "padreId": 324,
@@ -2439,8 +2439,8 @@
       "gender": "Male",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1",
-      "madreId": "1101"
+      "padreId": 1,
+      "madreId": 1101
     },
     {
       "id": 1101,
@@ -2451,8 +2451,8 @@
       "gender": "Female",
       "color": "Black & Tan",
       "breed": "Kaninchen-dachshund (teckel) kurzhaar",
-      "padreId": "305",
-      "madreId": "801"
+      "padreId": 305,
+      "madreId": 801
     },
     {
       "id": 1102,
@@ -2463,8 +2463,8 @@
       "gender": "Female",
       "color": "Brown & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1",
-      "madreId": "302"
+      "padreId": 1,
+      "madreId": 302
     },
     {
       "id": 1103,
@@ -2475,8 +2475,8 @@
       "gender": "Female",
       "color": "Brown & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1104",
-      "madreId": "1105"
+      "padreId": 1104,
+      "madreId": 1105
     },
     {
       "id": 1104,
@@ -2487,8 +2487,8 @@
       "gender": "Male",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1106",
-      "madreId": "1107"
+      "padreId": 1106,
+      "madreId": 1107
     },
     {
       "id": 1105,
@@ -2499,8 +2499,8 @@
       "gender": "Female",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1108",
-      "madreId": "1109"
+      "padreId": 1108,
+      "madreId": 1109
     },
     {
       "id": 1106,
@@ -2511,8 +2511,8 @@
       "gender": "Male",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "107",
-      "madreId": "1110"
+      "padreId": 107,
+      "madreId": 1110
     },
     {
       "id": 1107,
@@ -2523,8 +2523,8 @@
       "gender": "Male",
       "color": "Red",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1111",
-      "madreId": "1112"
+      "padreId": 1111,
+      "madreId": 1112
     },
     {
       "id": 1108,
@@ -2535,8 +2535,8 @@
       "gender": "Male",
       "color": "Brown & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1113",
-      "madreId": "1114"
+      "padreId": 1113,
+      "madreId": 1114
     },
     {
       "id": 1109,
@@ -2559,8 +2559,8 @@
       "gender": "Female",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1115",
-      "madreId": "1116"
+      "padreId": 1115,
+      "madreId": 1116
     },
     {
       "id": 1111,
@@ -2571,8 +2571,8 @@
       "gender": "Male",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1117",
-      "madreId": "1118"
+      "padreId": 1117,
+      "madreId": 1118
     },
     {
       "id": 1112,
@@ -2583,8 +2583,8 @@
       "gender": "Female",
       "color": "Red Brindle Piebald",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1119",
-      "madreId": "1120"
+      "padreId": 1119,
+      "madreId": 1120
     },
     {
       "id": 1113,
@@ -2595,8 +2595,8 @@
       "gender": "Male",
       "color": "Black & Tan",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1121",
-      "madreId": "1122"
+      "padreId": 1121,
+      "madreId": 1122
     },
     {
       "id": 1114,
@@ -2607,8 +2607,8 @@
       "gender": "Female",
       "color": "Red",
       "breed": "Zwerg-dachshund (teckel) kurzhaar",
-      "padreId": "1123",
-      "madreId": "1124"
+      "padreId": 1123,
+      "madreId": 1124
     },
     {
       "id": 1115,

@@ -76,6 +76,20 @@ export class AdminService {
     );
   }
 
+  uploadImages(files: File[]) {
+
+  const formData = new FormData();
+
+  files.forEach(file =>
+    formData.append('files', file)
+  );
+
+  return this.http.post<string[]>(
+    `${this.baseUrl}/upload`,
+    formData
+  );
+}
+
   private handleError(
     error: HttpErrorResponse
   ) {

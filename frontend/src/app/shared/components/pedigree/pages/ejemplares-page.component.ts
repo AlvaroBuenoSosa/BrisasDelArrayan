@@ -20,6 +20,7 @@ import {
   countRepeatedNames,
   getPedigreeMemberById
 } from '../utils/pedigree.utils';
+import { normalizeImageUrl } from '../../../utils/image-url.util';
 
 @Component({
   selector: 'app-pedigree-table',
@@ -115,7 +116,7 @@ export class PedigreeTableComponent implements OnChanges {
   }
 
   getPhoto(photo: string | string[]): string {
-    return getPrimaryPhoto(photo);
+    return normalizeImageUrl(getPrimaryPhoto(photo));
   }
 
   getRepeatedClass(member: PedigreeMember | null): string {

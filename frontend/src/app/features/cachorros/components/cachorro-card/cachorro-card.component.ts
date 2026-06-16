@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+import { normalizeImageUrl } from '../../../../shared/utils/image-url.util';
 import { Cachorro } from '../../interfaces/cachorro.interface';
 
 @Component({
@@ -29,12 +30,11 @@ export class CachorroCardComponent {
   }
 
   getPhoto(): string {
+    const photo = Array.isArray(this.cachorro.photo)
+      ? this.cachorro.photo[0]
+      : this.cachorro.photo;
 
-  if (Array.isArray(this.cachorro.photo)) {
-    return this.cachorro.photo[0];
+    return normalizeImageUrl(photo);
   }
-
-  return this.cachorro.photo;
-}
 
 }
