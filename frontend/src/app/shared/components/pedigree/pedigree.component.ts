@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, Renderer2, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PedigreeService } from '../../../core/services/pedigree/pedigree.service';
 
@@ -32,6 +32,7 @@ interface EjemplarPedigree {
 @Component({
   selector: 'app-pedigree',
   standalone: true,
+  encapsulation: ViewEncapsulation.None,
   imports: [CommonModule],
   templateUrl: './pedigree.component.html',
   styleUrls: ['./pedigree.component.scss']
@@ -117,19 +118,19 @@ export class PedigreeComponent implements OnInit {
 
   getIdCounts(): { [id: number]: number } {
     const counts: { [id: number]: number } = {};
-    this.pedigreeArray.forEach(ej => {
-      if (ej && ej.id) {
-        counts[ej.id] = (counts[ej.id] || 0) + 1;
-      }
+    const levelIds = this.generatePedigreeLevels().flat().filter(Boolean).map(e => e!.id);
+    levelIds.forEach(id => {
+      counts[id] = (counts[id] || 0) + 1;
     });
     return counts;
   }
 
   getNameCounts(): { [name: string]: number } {
     const counts: { [name: string]: number } = {};
-    this.pedigreeArray.forEach(ej => {
-      if (ej && ej.name) {
-        counts[ej.name] = (counts[ej.name] || 0) + 1;
+    const levelNames = this.generatePedigreeLevels().flat().filter(Boolean).map(e => e!.name);
+    levelNames.forEach(name => {
+      if (name) {
+        counts[name] = (counts[name] || 0) + 1;
       }
     });
     return counts;
@@ -138,11 +139,25 @@ export class PedigreeComponent implements OnInit {
   getSexualRepetitionClass(member: EjemplarPedigree): string {
     if (!member || !member.name) return '';
 
-    const count = this.nameCounts[member.name] || 0;
+    const idCount = this.idCounts[member.id] || 0;
+    const nameCount = this.nameCounts[member.name] || 0;
+    const count = Math.max(idCount, nameCount);
     if (count < 2) return '';
 
     const isMale = this.pedigreeArray.some(p => p.padreId === member.id);
     const isFemale = this.pedigreeArray.some(p => p.madreId === member.id);
+
+    if (isMale && !isFemale) {
+      if (count === 2) return 'maletwice';
+      if (count === 3) return 'malethree';
+      if (count >= 4) return 'malefour';
+    }
+
+    if (isFemale && !isMale) {
+      if (count === 2) return 'femaletwise';
+      if (count === 3) return 'femalethree';
+      if (count >= 4) return 'femalefour';
+    }
 
     if (isMale) {
       if (count === 2) return 'maletwice';
@@ -159,10 +174,21 @@ export class PedigreeComponent implements OnInit {
     return '';
   }
 
-  generatePedigreeTable() {
-    const container = this.elRef.nativeElement.querySelector('#pedigreeTable');
-    this.renderer.setProperty(container, 'innerHTML', '');
-    if (!this.ejemplar) return;
+  getRepetitionStyles(className: string): { [key: string]: string } {
+    const styleMap: { [key: string]: { [key: string]: string } } = {
+      maletwice: { backgroundColor: '#d0eaff', borderColor: '#3498db' },
+      malethree: { backgroundColor: '#b3d7ff', borderColor: '#2980b9' },
+      malefour: { backgroundColor: '#93c3ff', borderColor: '#1c638d' },
+      femaletwise: { backgroundColor: '#fce4ec', borderColor: '#e91e63' },
+      femalethree: { backgroundColor: '#f8bdd7', borderColor: '#c2185b' },
+      femalefour: { backgroundColor: '#f497c5', borderColor: '#880e4f' }
+    };
+
+    return styleMap[className] || {};
+  }
+
+  private generatePedigreeLevels(): (EjemplarPedigree | null)[][] {
+    if (!this.ejemplar) return [];
 
     const father = this.getEjemplarById(this.ejemplar.padreId);
     const mother = this.getEjemplarById(this.ejemplar.madreId);
@@ -191,7 +217,15 @@ export class PedigreeComponent implements OnInit {
       level4.push(...getParents(ej));
     }
 
-    const pedigreeLevels = [level1, level2, level3, level4];
+    return [level1, level2, level3, level4];
+  }
+
+  generatePedigreeTable() {
+    const container = this.elRef.nativeElement.querySelector('#pedigreeTable');
+    this.renderer.setProperty(container, 'innerHTML', '');
+    if (!this.ejemplar) return;
+
+    const pedigreeLevels = this.generatePedigreeLevels();
 
     const flexContainer = this.renderer.createElement('div');
     this.renderer.setStyle(flexContainer, 'display', 'flex');
@@ -208,20 +242,20 @@ export class PedigreeComponent implements OnInit {
       level.forEach(member => {
         const cellDiv = this.renderer.createElement('div');
         this.renderer.setStyle(cellDiv, 'flex', '1 1 0');
-        this.renderer.setStyle(cellDiv, 'border', '1px solid #333');
-        this.renderer.setStyle(cellDiv, 'padding', '5px');
-        this.renderer.setStyle(cellDiv, 'textAlign', 'center');
-        this.renderer.setStyle(cellDiv, 'overflow', 'hidden');
+        this.renderer.addClass(cellDiv, 'pedigree-cell');
 
-        this.renderer.setStyle(cellDiv, 'display', 'flex');
-        this.renderer.setStyle(cellDiv, 'flexDirection', 'column');
-        this.renderer.setStyle(cellDiv, 'alignItems', 'center');
-        this.renderer.setStyle(cellDiv, 'justifyContent', 'center');
+        if (!member) {
+          this.renderer.setStyle(cellDiv, 'minHeight', '120px');
+        }
 
         if (member) {
           const repetitionClass = this.getSexualRepetitionClass(member);
           if (repetitionClass) {
             this.renderer.addClass(cellDiv, repetitionClass);
+            const repetitionStyles = this.getRepetitionStyles(repetitionClass);
+            Object.entries(repetitionStyles).forEach(([styleName, styleValue]) => {
+              this.renderer.setStyle(cellDiv, styleName, styleValue);
+            });
           }
 
           cellDiv.innerHTML = `

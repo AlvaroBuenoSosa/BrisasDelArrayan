@@ -34,10 +34,75 @@ $female-color: #fce4ec;
   border: 2px solid #880e4f;
 }
 
+.pedigree-legend .femaletwise,
+.pedigree-legend .maletwice,
+.pedigree-legend .femalethree,
+.pedigree-legend .malethree,
+.pedigree-legend .femalefour,
+.pedigree-legend .malefour {
+  display: block;
+}
+
 /* Estilo general para la tabla */
 #pedigreeTable {
   padding: 16px;
   overflow-x: auto;
+}
+
+.pedigree-cell {
+  border: 1px solid #333;
+  padding: 5px;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.pedigree-cell.maletwice {
+  background-color: lighten($male-color, 5%);
+  border-color: #3498db;
+}
+
+.pedigree-cell.malethree {
+  background-color: lighten($male-color, 15%);
+  border-color: #2980b9;
+}
+
+.pedigree-cell.malefour {
+  background-color: lighten($male-color, 25%);
+  border-color: #1c638d;
+}
+
+.pedigree-cell.femaletwise {
+  background-color: lighten($female-color, 5%);
+  border-color: #e91e63;
+}
+
+.pedigree-cell.femalethree {
+  background-color: lighten($female-color, 15%);
+  border-color: #c2185b;
+}
+
+.pedigree-cell.femalefour {
+  background-color: lighten($female-color, 25%);
+  border-color: #880e4f;
+}
+
+.pedigree-legend {
+  margin-top: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.legend-item {
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 img {
