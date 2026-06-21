@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
+
 import { AdminService } from '../../../../core/services/admin/admin.service';
-import { environment } from '../../../../../environments/environment';
 import { normalizeImageUrl } from '../../../../shared/utils/image-url.util';
 
 type ResourceType =
@@ -11,6 +11,8 @@ type ResourceType =
   | 'ejemplarespedigree'
   | 'cachorros'
   | 'camadas';
+
+type Accion = 'crear' | 'editar' | 'eliminar';
 
 @Component({
   selector: 'app-admin',
@@ -20,178 +22,194 @@ type ResourceType =
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-
   resourceType: ResourceType = 'ejemplares';
-
-  accion: 'crear' | 'editar' | 'eliminar' = 'crear';
+  accion: Accion = 'crear';
 
   loading = false;
 
   imagePreviews: string[] = [];
-
-  nombresEjemplares: string[] = [];
+  selectedFiles: File[] = [];
 
   machos: any[] = [];
-
   hembras: any[] = [];
 
   todosLosRecursos: any[] = [];
-
   resultadosBusqueda: any[] = [];
 
-  selectedFiles: File[] = [];
-
   idSeleccionado: number | null = null;
-
   nombreBusqueda = '';
 
   nuevoRecurso: any = {};
-
   recursoSeleccionado: any = null;
-
-  modoEdicion = false;
 
   constructor(private adminService: AdminService) {}
 
   async ngOnInit(): Promise<void> {
     this.resetForm();
-    await this.loadEjemplaresNames();
-    await this.cargarTodosLosRecursos();
+
+    try {
+      await Promise.all([
+        this.loadEjemplaresNames(),
+        this.cargarTodosLosRecursos()
+      ]);
+    } catch (error) {
+      console.error(error);
+      alert('No se pudieron cargar los datos del administrador');
+    }
   }
 
-  // =========================
-  // RESET
-  // =========================
   resetForm(): void {
     this.recursoSeleccionado = null;
     this.imagePreviews = [];
+    this.selectedFiles = [];
     this.nombreBusqueda = '';
     this.idSeleccionado = null;
     this.resultadosBusqueda = [];
 
-    switch (this.resourceType) {
-      case 'camadas':
-        this.nuevoRecurso = {
-          nombre: '',
-          fechaNacimiento: '',
-          imagenPadre: '',
-          imagenMadre: '',
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null
-        };
-        break;
+switch (this.resourceType) {
+  case 'camadas':
+    this.nuevoRecurso = {
+      nombre: '',
+      fechaNacimiento: '',
+      imagenPadre: '',
+      imagenMadre: '',
+      padreNombre: '',
+      madreNombre: '',
+      padreId: null,
+      madreId: null
+    };
+    break;
 
-      case 'cachorros':
-        this.nuevoRecurso = {
-          nombre: '',
-          raza: '',
-          color: '',
-          sexo: '',
-          fechaNacimiento: '',
-          photo: [],
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null,
-          camadaId: null
-        };
-        break;
+  case 'cachorros':
+    this.nuevoRecurso = {
+      nombre: '',
+      raza: '',
+      color: '',
+      sexo: '',
+      fechaNacimiento: '',
+      photo: [],
+      padreNombre: '',
+      madreNombre: '',
+      padreId: null,
+      madreId: null,
+      camadaId: null
+    };
+    break;
 
-      default:
-        this.nuevoRecurso = {
-          titles: '',
-          name: '',
-          breed: '',
-          color: '',
-          sexo: '',
-          photo: [],
-          padreNombre: '',
-          madreNombre: '',
-          padreId: null,
-          madreId: null,
-        };
-    }
+  case 'ejemplares':
+    this.nuevoRecurso = {
+      titles: '',
+      name: '',
+      breed: '',
+      color: '',
+      sexo: '',
+      photo: [],
+      padreNombre: '',
+      madreNombre: '',
+      padreId: null,
+      madreId: null
+    };
+    break;
 
-    if (this.todosLosRecursos.length) {
-      this.filtrarResultados();
-    }
+  case 'ejemplarespedigree':
+    this.nuevoRecurso = {
+      titles: '',
+      name: '',
+      breed: '',
+      color: '',
+      gender: '',
+      photo: [],
+      padreNombre: '',
+      madreNombre: '',
+      padreId: null,
+      madreId: null
+    };
+    break;
+}
+
+    this.filtrarResultados();
   }
 
-  // =========================
-  // LOAD NAMES
-  // =========================
-async loadEjemplaresNames(): Promise<void> {
+  async loadEjemplaresNames(): Promise<void> {
+    const data: any = await firstValueFrom(this.adminService.getAll());
 
-  const data: any =
-    await firstValueFrom(
-      this.adminService.getAll()
+    const ejemplares = [
+      ...(data.ejemplares || []),
+      ...(data.ejemplarespedigree || []),
+      ...(data.cachorros || [])
+    ];
+
+this.machos = ejemplares
+  .filter((e: any) => e.sexo === 'Macho' || e.gender === 'Male')
+  .sort((a: any, b: any) =>
+    this.getNombre(a).localeCompare(this.getNombre(b))
+  );
+
+this.hembras = ejemplares
+  .filter((e: any) => e.sexo === 'Hembra' || e.gender === 'Female')
+  .sort((a: any, b: any) =>
+    this.getNombre(a).localeCompare(this.getNombre(b))
+  );
+  }
+
+  private async asegurarPadresCargados(): Promise<void> {
+  if (this.machos.length && this.hembras.length) {
+    return;
+  }
+
+  await this.loadEjemplaresNames();
+}
+
+  async onMultipleFilesSelected(event: Event): Promise<void> {
+    const input = event.target as HTMLInputElement;
+
+    if (!input.files?.length) {
+      return;
+    }
+
+    const nuevosArchivos = Array.from(input.files);
+    const nuevosPreviews = await Promise.all(
+      nuevosArchivos.map(file => this.readFile(file))
     );
 
-  const ejemplares = [
+    this.selectedFiles = [...this.selectedFiles, ...nuevosArchivos];
+    this.imagePreviews = [...this.imagePreviews, ...nuevosPreviews];
 
-    ...(data.ejemplares || []),
+    input.value = '';
+  }
 
-    ...(data.ejemplarespedigree || []),
+  deleteImage(index: number): void {
+    const fotosActuales = Array.isArray(this.nuevoRecurso.photo)
+      ? this.nuevoRecurso.photo
+      : [];
 
-    ...(data.cachorros || [])
+    const fotosExistentes = fotosActuales.length;
 
-  ];
+    if (index < fotosExistentes) {
+      this.nuevoRecurso.photo.splice(index, 1);
+    } else {
+      const archivoIndex = index - fotosExistentes;
+      this.selectedFiles.splice(archivoIndex, 1);
+    }
 
-  this.machos = ejemplares
-    .filter((e: any) =>
-      e.gender === 'Male' ||
-      e.sexo === 'Macho'
-    )
-    .sort((a: any, b: any) => {
-      const aName = (a.name || a.nombre || '').toString();
-      const bName = (b.name || b.nombre || '').toString();
-      return aName.localeCompare(bName);
-    });
-
-  this.hembras = ejemplares
-    .filter((e: any) =>
-      e.gender === 'Female' ||
-      e.sexo === 'Hembra'
-    )
-    .sort((a: any, b: any) => {
-      const aName = (a.name || a.nombre || '').toString();
-      const bName = (b.name || b.nombre || '').toString();
-      return aName.localeCompare(bName);
-    });
-}
-
-  // =========================
-  // FILES
-  // =========================
-async onMultipleFilesSelected(event: Event): Promise<void> {
-
-  const input = event.target as HTMLInputElement;
-
-  if (!input.files?.length) return;
-
-  this.selectedFiles = Array.from(input.files);
-
-  this.imagePreviews = await Promise.all(
-    this.selectedFiles.map(f => this.readFile(f))
-  );
-}
+    this.imagePreviews.splice(index, 1);
+  }
 
   private readFile(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
+
       reader.onload = () => resolve(reader.result as string);
       reader.onerror = reject;
+
       reader.readAsDataURL(file);
     });
   }
 
-  // =========================
-  // IDS
-  // =========================
   async findIdByName(nombre: string): Promise<number | null> {
-    if (!nombre) return null;
+    if (!nombre?.trim()) {
+      return null;
+    }
 
     const data: any = await firstValueFrom(this.adminService.getAll());
 
@@ -201,258 +219,338 @@ async onMultipleFilesSelected(event: Event): Promise<void> {
       ...(data.cachorros || [])
     ];
 
-    const found = lista.find(
-      (i: any) => (i.name || i.nombre)?.toLowerCase() === nombre.toLowerCase()
+    const encontrado = lista.find(
+      (item: any) =>
+        this.getNombre(item).toLowerCase() === nombre.trim().toLowerCase()
     );
 
-    return found?.id || null;
+    return encontrado?.id ?? null;
   }
 
   async resolveParentIds(): Promise<void> {
-    this.nuevoRecurso.padreId = await this.findIdByName(this.nuevoRecurso.padreNombre);
-    this.nuevoRecurso.madreId = await this.findIdByName(this.nuevoRecurso.madreNombre);
+    this.nuevoRecurso.padreId = await this.findIdByName(
+      this.nuevoRecurso.padreNombre
+    );
+
+    this.nuevoRecurso.madreId = await this.findIdByName(
+      this.nuevoRecurso.madreNombre
+    );
   }
 
   async generateAvailableId(): Promise<number> {
     const data: any = await firstValueFrom(this.adminService.getAll());
 
-    const used = [
+    const usados = [
       ...(data.ejemplares || []),
       ...(data.ejemplarespedigree || []),
       ...(data.cachorros || []),
       ...(data.camadas || [])
-    ].map((i: any) => i.id);
+    ]
+      .map((item: any) => Number(item.id))
+      .filter((id: number) => !Number.isNaN(id));
 
-    let id = this.resourceType === 'camadas'
-      ? 10000
-      : this.resourceType === 'cachorros'
-        ? 20000
-        : this.resourceType === 'ejemplarespedigree'
-          ? 100
-          : 1;
+    let id = 1;
 
-    while (used.includes(id)) id++;
+    if (this.resourceType === 'ejemplarespedigree') {
+      id = 100;
+    } else if (this.resourceType === 'camadas') {
+      id = 10000;
+    } else if (this.resourceType === 'cachorros') {
+      id = 20000;
+    }
+
+    while (usados.includes(id)) {
+      id++;
+    }
 
     return id;
   }
 
-  // =========================
-  // SEARCH
-  // =========================
-async cargarPorNombre() {
-
-  const data: any =
-    await firstValueFrom(
-      this.adminService.getAll()
-    );
-
-  const lista = data[this.resourceType];
-
-  const encontrado = lista.find(
-    (i: any) =>
-      (i.name || i.nombre)
-        ?.toLowerCase() ===
-      this.nombreBusqueda.toLowerCase()
+async seleccionarResultado(): Promise<void> {
+  const seleccionado = this.resultadosBusqueda.find(
+    item => item.id === Number(this.idSeleccionado)
   );
 
-  if (!encontrado) {
-    return alert('No encontrado');
+  if (!seleccionado) {
+    this.recursoSeleccionado = null;
+    return;
   }
 
-  this.recursoSeleccionado = encontrado;
+  await this.asegurarPadresCargados();
 
-  this.nuevoRecurso = {
-    ...encontrado
-  };
-
-  // Convertir gender -> sexo para el formulario
-  if (
-    !this.nuevoRecurso.sexo &&
-    this.nuevoRecurso.gender
-  ) {
-
-    this.nuevoRecurso.sexo =
-      this.nuevoRecurso.gender === 'Female'
-        ? 'Hembra'
-        : 'Macho';
-  }
-
-  this.imagePreviews = Array.isArray(encontrado.photo)
-    ? (encontrado.photo as string[]).map((image: string) => this.getImageUrl(image))
-    : [this.getImageUrl(encontrado.photo)];
-
-  this.accion = 'editar';
+  this.cargarRecursoEnFormulario(seleccionado);
 }
 
-seleccionarResultado(): void {
+private cargarRecursoEnFormulario(recurso: any): void {
+  this.recursoSeleccionado = recurso;
 
-  const sel = this.resultadosBusqueda.find(
-    i => i.id === Number(this.idSeleccionado)
+  const padre = this.machos.find(
+    perro => Number(perro.id) === Number(recurso.padreId)
   );
 
-  if (!sel) return;
+  const madre = this.hembras.find(
+    perra => Number(perra.id) === Number(recurso.madreId)
+  );
 
-  this.recursoSeleccionado = sel;
+  this.nuevoRecurso = {
+    ...recurso,
+    photo: this.normalizarFotos(recurso.photo),
 
-  this.nuevoRecurso = { ...sel };
+    padreNombre:
+      recurso.padreNombre ||
+      recurso.padre ||
+      (padre ? this.getNombre(padre) : ''),
 
-  if (!this.nuevoRecurso.gender) {
+    madreNombre:
+      recurso.madreNombre ||
+      recurso.madre ||
+      (madre ? this.getNombre(madre) : '')
+  };
 
-    if (this.nuevoRecurso.sexo === 'Macho') {
-      this.nuevoRecurso.gender = 'Male';
-    }
-
-    if (this.nuevoRecurso.sexo === 'Hembra') {
-      this.nuevoRecurso.gender = 'Female';
-    }
-
+  // EJEMPLARES: la base de datos usa sexo
+  if (this.resourceType === 'ejemplares' && !this.nuevoRecurso.sexo) {
+    this.nuevoRecurso.sexo =
+      this.nuevoRecurso.gender === 'Female' ? 'Hembra' : 'Macho';
   }
 
-  this.imagePreviews = Array.isArray(sel.photo)
-    ? (sel.photo as string[]).map((image: string) => this.getImageUrl(image))
-    : [this.getImageUrl(sel.photo)];
+  // CACHORROS: la base de datos usa sexo
+  if (this.resourceType === 'cachorros' && !this.nuevoRecurso.sexo) {
+    this.nuevoRecurso.sexo =
+      this.nuevoRecurso.gender === 'Female' ? 'Hembra' : 'Macho';
+  }
 
+  // PEDIGREE: la base de datos usa gender
+  if (
+    this.resourceType === 'ejemplarespedigree' &&
+    !this.nuevoRecurso.gender
+  ) {
+    this.nuevoRecurso.gender =
+      this.nuevoRecurso.sexo === 'Hembra' ? 'Female' : 'Male';
+  }
+
+  this.selectedFiles = [];
+
+  this.imagePreviews = this.nuevoRecurso.photo.map((imagen: string) =>
+    this.getImageUrl(imagen)
+  );
 }
 
   private getImageUrl(image: string | undefined | null): string {
     return normalizeImageUrl(image);
   }
 
-
-  // =========================
-  // CREATE / UPDATE CONTROL
-  // =========================
-async onSubmit(): Promise<void> {
-
-  this.loading = true;
-
-  try {
-
-    await this.resolveParentIds();
-
-     // =========================
-    // SUBIR IMÁGENES AL BACKEND
-    // =========================
-
-    if (this.selectedFiles?.length) {
-
-      const uploadedImages =
-        await firstValueFrom(
-          this.adminService.uploadImages(
-            this.selectedFiles
-          )
-        );
-
-        console.log(this.selectedFiles);
-
-      this.nuevoRecurso.photo = uploadedImages;
+  private normalizarFotos(photo: unknown): string[] {
+    if (Array.isArray(photo)) {
+      return photo.filter(Boolean);
     }
 
-    // ==================================
-    // CONVERTIR SEXO SEGÚN TIPO
-    // ==================================
-
-    if (this.resourceType === 'ejemplarespedigree') {
-
-      this.nuevoRecurso.gender =
-        this.nuevoRecurso.gender || 'Male';
-
-      delete this.nuevoRecurso.sexo;
-
-    } else {
-
-      this.nuevoRecurso.sexo =
-        this.nuevoRecurso.gender === 'Female'
-          ? 'Hembra'
-          : 'Macho';
-
-      delete this.nuevoRecurso.gender;
-    }
-
-    if (this.accion === 'crear') {
-
-      this.nuevoRecurso.id =
-        await this.generateAvailableId();
-
-      this.adminService
-        .agregarRecurso(
-          this.resourceType,
-          this.nuevoRecurso
-        )
-        .subscribe({
-          next: () => {
-            alert('Creado correctamente');
-            this.resetForm();
-            this.loading = false;
-          },
-          error: () => this.loading = false
-        });
-    }
-
-  } catch (e) {
-    console.error(e);
-    this.loading = false;
+    return photo ? [String(photo)] : [];
   }
+
+  private getNombre(item: any): string {
+    return String(item?.name || item?.nombre || '');
+  }
+
+  async onSubmit(): Promise<void> {
+    if (this.accion === 'editar') {
+      await this.guardarCambios();
+      return;
+    }
+
+    if (this.accion !== 'crear') {
+      return;
+    }
+
+    this.loading = true;
+
+    try {
+      await this.resolveParentIds();
+
+      const payload = await this.prepararPayload(true);
+
+      payload.id = await this.generateAvailableId();
+
+      await firstValueFrom(
+        this.adminService.agregarRecurso(this.resourceType, payload)
+      );
+
+      alert('Creado correctamente');
+
+      await this.recargarDatos();
+      this.accion = 'crear';
+      this.resetForm();
+    } catch (error) {
+      console.error(error);
+      alert('Error al crear el recurso');
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  async guardarCambios(): Promise<void> {
+    if (!this.recursoSeleccionado?.id) {
+      return;
+    }
+
+    this.loading = true;
+
+    try {
+      await this.resolveParentIds();
+
+      const payload = await this.prepararPayload(false);
+      payload.id = this.recursoSeleccionado.id;
+
+      await firstValueFrom(
+        this.adminService.actualizarRecurso(
+          this.resourceType,
+          this.recursoSeleccionado.id,
+          payload
+        )
+      );
+
+      alert('Actualizado correctamente');
+
+      await this.recargarDatos();
+      this.accion = 'crear';
+      this.resetForm();
+    } catch (error) {
+      console.error(error);
+      alert('Error al actualizar el recurso');
+    } finally {
+      this.loading = false;
+    }
+  }
+
+private async prepararPayload(esCreacion: boolean): Promise<any> {
+  const payload = {
+    ...this.nuevoRecurso,
+    photo: this.normalizarFotos(this.nuevoRecurso.photo)
+  };
+
+  if (this.selectedFiles.length) {
+    const nuevasFotos = await firstValueFrom(
+      this.adminService.uploadImages(this.selectedFiles)
+    );
+
+    payload.photo = esCreacion
+      ? nuevasFotos
+      : [...payload.photo, ...nuevasFotos];
+  }
+
+  // CAMADAS: no tienen fotos, sexo ni gender
+  if (this.resourceType === 'camadas') {
+    delete payload.photo;
+    delete payload.sexo;
+    delete payload.gender;
+
+    return payload;
+  }
+
+  // CACHORROS: usan sexo, nunca gender
+  if (this.resourceType === 'cachorros') {
+    payload.sexo = payload.sexo || 'Macho';
+    delete payload.gender;
+
+    return payload;
+  }
+
+  // EJEMPLARES: usan sexo, nunca gender
+  if (this.resourceType === 'ejemplares') {
+    payload.sexo = payload.sexo || 'Macho';
+    delete payload.gender;
+
+    return payload;
+  }
+
+  // PEDIGREE: usa gender, nunca sexo
+  if (this.resourceType === 'ejemplarespedigree') {
+    payload.gender = payload.gender || 'Male';
+    delete payload.sexo;
+
+    return payload;
+  }
+
+  return payload;
 }
 
-  guardarCambios(): void {
-    if (!this.recursoSeleccionado?.id) return;
+  async eliminarActual(): Promise<void> {
+    if (!this.recursoSeleccionado?.id) {
+      return;
+    }
 
-    const payload = {
-      ...this.nuevoRecurso,
-      id: this.recursoSeleccionado.id
-    };
+    const confirmar = confirm(
+      `¿Seguro que quieres eliminar "${this.getNombre(this.recursoSeleccionado)}"?`
+    );
 
-    this.adminService
-      .actualizarRecurso(this.resourceType, this.recursoSeleccionado.id, payload)
-      .subscribe({
-        next: () => {
-          alert('Actualizado correctamente');
-          this.resetForm();
-          this.accion = 'crear';
-        },
-        error: err => console.error(err)
-      });
-  }
+    if (!confirmar) {
+      return;
+    }
 
-  eliminarActual(): void {
-    if (!this.recursoSeleccionado) return;
+    this.loading = true;
 
-    this.adminService
-      .eliminarPorId(this.resourceType, this.recursoSeleccionado.id)
-      .subscribe({
-        next: () => {
-          alert('Eliminado');
-          this.resetForm();
-          this.accion = 'crear';
-        }
-      });
+    try {
+      await firstValueFrom(
+        this.adminService.eliminarPorId(
+          this.resourceType,
+          this.recursoSeleccionado.id
+        )
+      );
+
+      alert('Eliminado correctamente');
+
+      await this.recargarDatos();
+      this.accion = 'crear';
+      this.resetForm();
+    } catch (error) {
+      console.error(error);
+      alert('Error al eliminar el recurso');
+    } finally {
+      this.loading = false;
+    }
   }
 
   async cargarTodosLosRecursos(): Promise<void> {
     const data: any = await firstValueFrom(this.adminService.getAll());
 
     this.todosLosRecursos = [
-      ...(data.ejemplares || []).map((i: any) => ({ ...i, tipo: 'ejemplares' })),
-      ...(data.ejemplarespedigree || []).map((i: any) => ({ ...i, tipo: 'ejemplarespedigree' })),
-      ...(data.cachorros || []).map((i: any) => ({ ...i, tipo: 'cachorros' })),
-      ...(data.camadas || []).map((i: any) => ({ ...i, tipo: 'camadas' }))
+      ...(data.ejemplares || []).map((item: any) => ({
+        ...item,
+        tipo: 'ejemplares'
+      })),
+      ...(data.ejemplarespedigree || []).map((item: any) => ({
+        ...item,
+        tipo: 'ejemplarespedigree'
+      })),
+      ...(data.cachorros || []).map((item: any) => ({
+        ...item,
+        tipo: 'cachorros'
+      })),
+      ...(data.camadas || []).map((item: any) => ({
+        ...item,
+        tipo: 'camadas'
+      }))
     ];
 
     this.filtrarResultados();
   }
 
   filtrarResultados(): void {
-    const t = this.nombreBusqueda.toLowerCase();
+    const termino = this.nombreBusqueda.trim().toLowerCase();
 
-    this.resultadosBusqueda = this.todosLosRecursos.filter(i => {
-      if (i.tipo !== this.resourceType) return false;
+    this.resultadosBusqueda = this.todosLosRecursos.filter(item => {
+      if (item.tipo !== this.resourceType) {
+        return false;
+      }
 
-      const n = (i.name || i.nombre || '').toLowerCase();
-      return n.includes(t);
+      return this.getNombre(item).toLowerCase().includes(termino);
     });
   }
 
-  
+  private async recargarDatos(): Promise<void> {
+    await Promise.all([
+      this.cargarTodosLosRecursos(),
+      this.loadEjemplaresNames()
+    ]);
+  }
 }
 

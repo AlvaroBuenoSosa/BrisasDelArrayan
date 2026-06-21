@@ -52,15 +52,19 @@
     {
       "id": 4,
       "photo": [
-        "assets/img/ejemplares/CARMELA/20221210_132804.jpg"
+        "/api/uploads/1781999658151-405531535.jpeg"
       ],
       "titles": "GIBCH, WW BABIES, ESJCH, GIBJCH, PORJCH",
       "name": "Carmela de Brisas Del Arrayan",
-      "breed": "Teckel Miniatura Pelo Corto",
-      "color": "Negro y fuego",
+      "breed": "Teckel Miniatura De Pelo Corto",
+      "color": "Negro Y Fuego",
       "sexo": "Hembra",
       "padreId": 1,
-      "madreId": 400
+      "madreId": 400,
+      "tipo": "ejemplares",
+      "gender": "Female",
+      "padreNombre": "Viking II Iz Omskoi Kreposti",
+      "madreNombre": "Electra de Brisas Del Arrayan"
     },
     {
       "id": 5,
@@ -131,6 +135,23 @@
       "sexo": "Hembra",
       "padreId": 301,
       "madreId": 800
+    },
+    {
+      "titles": "",
+      "name": "Triana De Brisas Del Arrayan",
+      "breed": "Teckel Kaninchen De Pelo Corto",
+      "color": "Chocolate Y Fuego",
+      "sexo": "Hembra",
+      "photo": [
+        "/api/uploads/1782000309980-676934800.jpeg",
+        "/api/uploads/1782000309996-604564868.jpeg"
+      ],
+      "padreNombre": "Augusto de Brisas Del Arrayan",
+      "madreNombre": "Forrest Fortuna Aiuvat de Brisas Del Arrayan",
+      "padreId": 1100,
+      "madreId": 3,
+      "id": 10,
+      "tipo": "ejemplares"
     }
   ],
   "camadas": [

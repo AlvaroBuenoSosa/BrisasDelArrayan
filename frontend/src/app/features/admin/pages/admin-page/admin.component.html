@@ -8,7 +8,11 @@
     <div class="form-group">
       <label>Acción</label>
 
-      <select [(ngModel)]="accion" name="accion">
+      <select
+        [(ngModel)]="accion"
+        name="accion"
+        (ngModelChange)="resetForm()">
+
         <option value="crear">Crear</option>
         <option value="editar">Modificar</option>
         <option value="eliminar">Eliminar</option>
@@ -28,11 +32,10 @@
         <option value="ejemplarespedigree">Pedigree</option>
         <option value="cachorros">Cachorros</option>
         <option value="camadas">Camadas</option>
-
       </select>
     </div>
 
-    <!-- BUSCADOR -->
+    <!-- BUSCADOR: MODIFICAR / ELIMINAR -->
     <ng-container *ngIf="accion !== 'crear'">
 
       <div class="form-group">
@@ -42,7 +45,8 @@
           type="text"
           name="nombreBusqueda"
           [(ngModel)]="nombreBusqueda"
-          (input)="filtrarResultados()">
+          (input)="filtrarResultados()"
+          placeholder="Escribe un nombre">
       </div>
 
       <div class="form-group">
@@ -53,11 +57,16 @@
           name="idSeleccionado"
           (ngModelChange)="seleccionarResultado()">
 
-          <option [ngValue]="null">-- Seleccionar resultado --</option>
-          <option *ngFor="let item of resultadosBusqueda" [ngValue]="item.id">
-            {{ item.name || item.nombre }}
+          <option [ngValue]="null">
+            -- Seleccionar resultado --
           </option>
 
+          <option
+            *ngFor="let item of resultadosBusqueda"
+            [ngValue]="item.id">
+
+            {{ item.name || item.nombre }}
+          </option>
         </select>
       </div>
 
@@ -65,55 +74,99 @@
 
     <hr>
 
-    <!-- FORM -->
+    <!-- FORMULARIO: CREAR / EDITAR -->
     <form
       *ngIf="accion === 'crear' || accion === 'editar'"
       (ngSubmit)="onSubmit()">
 
-      <!-- ================= EJEMPLARES ================= -->
+      <!-- ================= EJEMPLARES / PEDIGREE ================= -->
       <ng-container
         *ngIf="resourceType === 'ejemplares' || resourceType === 'ejemplarespedigree'">
 
         <div class="form-group">
           <label>Nombre</label>
-          <input type="text" [(ngModel)]="nuevoRecurso.name" name="name">
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.name"
+            name="name"
+            required>
         </div>
 
         <div class="form-group">
           <label>Títulos</label>
-          <input type="text" [(ngModel)]="nuevoRecurso.titles" name="titles">
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.titles"
+            name="titles">
         </div>
 
         <div class="form-group">
           <label>Raza</label>
 
-          <select [(ngModel)]="nuevoRecurso.breed" name="breed">
-            <option>Teckel Miniatura De Pelo Corto</option>
-            <option>Teckel Kaninchen De Pelo Corto</option>
-          </select>
+          <select
+            [(ngModel)]="nuevoRecurso.breed"
+            name="breed">
 
+            <option value="">-- Seleccionar raza --</option>
+            <option value="Teckel Miniatura De Pelo Corto">
+              Teckel Miniatura De Pelo Corto
+            </option>
+            <option value="Teckel Kaninchen De Pelo Corto">
+              Teckel Kaninchen De Pelo Corto
+            </option>
+          </select>
         </div>
 
         <div class="form-group">
           <label>Color</label>
 
-          <select [(ngModel)]="nuevoRecurso.color" name="color">
-            <option>Negro Y Fuego</option>
-            <option>Chocolate Y Fuego</option>
-            <option>Arlequin Chocolate</option>
-            <option>Arlequin Negro</option>
-            <option>Rojo</option>
-          </select>
+          <select
+            [(ngModel)]="nuevoRecurso.color"
+            name="color">
 
+            <option value="">-- Seleccionar color --</option>
+            <option value="Negro Y Fuego">Negro Y Fuego</option>
+            <option value="Chocolate Y Fuego">Chocolate Y Fuego</option>
+            <option value="Arlequin Chocolate">Arlequin Chocolate</option>
+            <option value="Arlequin Negro">Arlequin Negro</option>
+            <option value="Rojo">Rojo</option>
+          </select>
         </div>
-<div class="form-group">
+
+       <!-- EJEMPLARES: sexo -->
+<div
+  class="form-group"
+  *ngIf="resourceType === 'ejemplares'">
+
   <label>Sexo</label>
 
-  <select [(ngModel)]="nuevoRecurso.gender" name="gender">
+  <select
+    [(ngModel)]="nuevoRecurso.sexo"
+    name="sexoEjemplar">
+
+    <option value="">-- Seleccionar sexo --</option>
+    <option value="Macho">Macho</option>
+    <option value="Hembra">Hembra</option>
+  </select>
+</div>
+
+<!-- PEDIGREE: gender -->
+<div
+  class="form-group"
+  *ngIf="resourceType === 'ejemplarespedigree'">
+
+  <label>Sexo</label>
+
+  <select
+    [(ngModel)]="nuevoRecurso.gender"
+    name="gender">
+
+    <option value="">-- Seleccionar sexo --</option>
     <option value="Male">Macho</option>
     <option value="Female">Hembra</option>
   </select>
-
 </div>
 
         <div class="form-group">
@@ -133,27 +186,43 @@
 
         <div class="form-group">
           <label>Nombre</label>
-          <input type="text" [(ngModel)]="nuevoRecurso.nombre" name="nombre">
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.nombre"
+            name="nombre"
+            required>
         </div>
 
         <div class="form-group">
           <label>Raza</label>
-          <input type="text" [(ngModel)]="nuevoRecurso.raza" name="raza">
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.raza"
+            name="raza">
         </div>
 
         <div class="form-group">
           <label>Color</label>
-          <input type="text" [(ngModel)]="nuevoRecurso.color" name="colorCachorro">
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.color"
+            name="colorCachorro">
         </div>
 
         <div class="form-group">
           <label>Sexo</label>
 
-          <select [(ngModel)]="nuevoRecurso.sexo" name="sexoCachorro">
-            <option>Macho</option>
-            <option>Hembra</option>
-          </select>
+          <select
+            [(ngModel)]="nuevoRecurso.sexo"
+            name="sexoCachorro">
 
+            <option value="">-- Seleccionar sexo --</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
         </div>
 
         <div class="form-group">
@@ -181,12 +250,13 @@
       <ng-container *ngIf="resourceType === 'camadas'">
 
         <div class="form-group">
-          <label>Nombre camada</label>
+          <label>Nombre de la camada</label>
 
           <input
             type="text"
             [(ngModel)]="nuevoRecurso.nombre"
-            name="camadaNombre">
+            name="camadaNombre"
+            required>
         </div>
 
         <div class="form-group">
@@ -196,6 +266,27 @@
             type="date"
             [(ngModel)]="nuevoRecurso.fechaNacimiento"
             name="fechaNacimientoCamada">
+        </div>
+
+        <!-- Quita estos dos campos si el backend crea las imágenes automáticamente -->
+        <div class="form-group">
+          <label>Imagen del padre</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.imagenPadre"
+            name="imagenPadre"
+            placeholder="Ruta o URL de imagen">
+        </div>
+
+        <div class="form-group">
+          <label>Imagen de la madre</label>
+
+          <input
+            type="text"
+            [(ngModel)]="nuevoRecurso.imagenMadre"
+            name="imagenMadre"
+            placeholder="Ruta o URL de imagen">
         </div>
 
       </ng-container>
@@ -208,16 +299,14 @@
           [(ngModel)]="nuevoRecurso.padreNombre"
           name="padreNombre">
 
-          <option [ngValue]="''">-- Seleccionar Padre --</option>
+          <option [ngValue]="''">-- Seleccionar padre --</option>
 
           <option
             *ngFor="let perro of machos"
             [ngValue]="perro.name || perro.nombre">
 
             {{ perro.name || perro.nombre }}
-
           </option>
-
         </select>
       </div>
 
@@ -228,40 +317,78 @@
           [(ngModel)]="nuevoRecurso.madreNombre"
           name="madreNombre">
 
-          <option [ngValue]="''">-- Seleccionar Madre --</option>
+          <option [ngValue]="''">-- Seleccionar madre --</option>
 
           <option
             *ngFor="let perro of hembras"
             [ngValue]="perro.name || perro.nombre">
 
             {{ perro.name || perro.nombre }}
-
           </option>
-
         </select>
       </div>
 
-      <!-- ================= PREVIEW ================= -->
+      <!-- ================= PREVISUALIZACIÓN DE FOTOS ================= -->
       <div class="preview-grid" *ngIf="imagePreviews.length">
-        <img *ngFor="let image of imagePreviews" [src]="image">
+
+        <div
+          class="preview-item"
+          *ngFor="let image of imagePreviews; let i = index">
+
+          <img
+            [src]="image"
+            [alt]="'Foto ' + (i + 1)">
+
+          <button
+            type="button"
+            class="remove-image-btn"
+            (click)="deleteImage(i)"
+            aria-label="Eliminar imagen">
+
+            ×
+          </button>
+        </div>
       </div>
 
-      <button class="submit-btn" type="submit">
-        {{ accion === 'crear' ? 'Crear' : 'Guardar cambios' }}
+      <button
+        class="submit-btn"
+        type="submit"
+        [disabled]="loading">
+
+        {{
+          loading
+            ? 'Guardando...'
+            : accion === 'crear'
+              ? 'Crear'
+              : 'Guardar cambios'
+        }}
       </button>
 
     </form>
 
     <!-- ================= ELIMINAR ================= -->
-    <div *ngIf="accion === 'eliminar' && recursoSeleccionado">
+    <div *ngIf="accion === 'eliminar'">
 
-      <h3>
-        {{ recursoSeleccionado?.name || recursoSeleccionado?.nombre }}
-      </h3>
+      <ng-container *ngIf="recursoSeleccionado; else seleccionarAntesDeEliminar">
 
-      <button class="delete-btn" (click)="eliminarActual()">
-        Eliminar
-      </button>
+        <h3>
+          {{ recursoSeleccionado.name || recursoSeleccionado.nombre }}
+        </h3>
+
+        <button
+          class="delete-btn"
+          type="button"
+          [disabled]="loading"
+          (click)="eliminarActual()">
+
+          {{ loading ? 'Eliminando...' : 'Eliminar' }}
+        </button>
+
+      </ng-container>
+
+      <ng-template #seleccionarAntesDeEliminar>
+        <p>Selecciona un recurso para eliminarlo.</p>
+      </ng-template>
 
     </div>
 
