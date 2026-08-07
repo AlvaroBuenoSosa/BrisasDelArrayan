@@ -220,6 +220,46 @@ export class PedigreeComponent implements OnInit {
     return [level1, level2, level3, level4];
   }
 
+  private getRelationshipLabel(level: number, index: number): string {
+    const isFemale = index % 2 === 1;
+    const side = this.getRelationshipSide(level, index);
+    const sideLabel = side ? ` ${side}` : '';
+
+    if (level === 0) {
+      return index === 0 ? 'Padre' : 'Madre';
+    }
+
+    if (level === 1) {
+      return `${isFemale ? 'Abuela' : 'Abuelo'}${sideLabel}`;
+    }
+
+    if (level === 2) {
+      return `${isFemale ? 'Bisabuela' : 'Bisabuelo'}${sideLabel}`;
+    }
+
+    if (level === 3) {
+      return `${isFemale ? 'Tatarabuela' : 'Tatarabuelo'}${sideLabel}`;
+    }
+
+    return `${isFemale ? 'Antepasada' : 'Antepasado'}${sideLabel}`;
+  }
+
+  private getRelationshipSide(level: number, index: number): string {
+    if (level === 1) {
+      return index < 2 ? 'paterno' : 'materno';
+    }
+
+    if (level === 2) {
+      return index < 4 ? 'paterno' : 'materno';
+    }
+
+    if (level === 3) {
+      return index < 8 ? 'paterno' : 'materno';
+    }
+
+    return '';
+  }
+
   generatePedigreeTable() {
     const container = this.elRef.nativeElement.querySelector('#pedigreeTable');
     this.renderer.setProperty(container, 'innerHTML', '');
@@ -232,14 +272,14 @@ export class PedigreeComponent implements OnInit {
     this.renderer.setStyle(flexContainer, 'height', `${30 * 100}px`);
     this.renderer.setStyle(flexContainer, 'gap', '8px');
 
-    pedigreeLevels.forEach((level) => {
+    pedigreeLevels.forEach((level, levelIndex) => {
       const colDiv = this.renderer.createElement('div');
       this.renderer.setStyle(colDiv, 'display', 'flex');
       this.renderer.setStyle(colDiv, 'flexDirection', 'column');
       this.renderer.setStyle(colDiv, 'flex', '1');
       this.renderer.setStyle(colDiv, 'gap', '8px');
 
-      level.forEach(member => {
+      level.forEach((member, memberIndex) => {
         const cellDiv = this.renderer.createElement('div');
         this.renderer.setStyle(cellDiv, 'flex', '1 1 0');
         this.renderer.addClass(cellDiv, 'pedigree-cell');
@@ -247,6 +287,8 @@ export class PedigreeComponent implements OnInit {
         if (!member) {
           this.renderer.setStyle(cellDiv, 'minHeight', '120px');
         }
+
+        const relationshipLabel = this.getRelationshipLabel(levelIndex, memberIndex);
 
         if (member) {
           const repetitionClass = this.getSexualRepetitionClass(member);
@@ -259,13 +301,17 @@ export class PedigreeComponent implements OnInit {
           }
 
           cellDiv.innerHTML = `
+            <div class="relationship-label">${relationshipLabel}</div>
             <div class="name"><a href="${member.url}">${member.name}</a></div>
             <div class="photo"><a href="${member.url}"><img width="120" src="${this.getPrimaryPhoto(member.photo)}" alt="${member.name}"></a></div>
             <div class="titles"><b>${member.titles}</b></div>
             <div class="name" style="font-size: x-small;"><i>${member.color}<br>${member.breed}</i></div>
           `;
         } else {
-          cellDiv.innerHTML = '&nbsp;';
+          cellDiv.innerHTML = `
+            <div class="relationship-label">${relationshipLabel}</div>
+            &nbsp;
+          `;
         }
 
         this.renderer.appendChild(colDiv, cellDiv);

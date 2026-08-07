@@ -10,10 +10,12 @@
       class="carousel-item"
       [class.active]="i === 0">
 
-      <img
-        [src]="getPhotoUrl(photo)"
-        class="carousel-image"
-        alt="Ejemplar">
+      <div class="carousel-image-frame">
+        <img
+          [src]="getPhotoUrl(photo)"
+          class="carousel-image"
+          alt="Ejemplar">
+      </div>
 
     </div>
 

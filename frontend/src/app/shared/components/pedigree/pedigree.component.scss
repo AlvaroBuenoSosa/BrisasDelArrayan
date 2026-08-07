@@ -121,6 +121,138 @@ img {
   color: #555;
 }
 
+.relationship-label {
+  display: none;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 992px) {
+
+  #pedigreeTable {
+
+    overflow-x: auto;
+
+    padding: 10px;
+
+  }
+
+  .pedigree-cell {
+
+    min-height: 100px;
+
+    padding: 10px;
+
+  }
+
+  .pedigree-cell img {
+
+    max-width: 140px;
+
+  }
+
+  .name {
+
+    font-size: .95rem;
+
+  }
+
+  .titles {
+
+    font-size: .8rem;
+
+  }
+
+}
+
+@media (max-width: 768px) {
+  #pedigreeTable {
+    transform: none;
+    transform-origin: initial;
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+    overflow-x: visible;
+    height: auto;
+  }
+
+  #pedigreeTable > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto !important;
+  }
+
+  #pedigreeTable > div > div {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    min-width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .pedigree-cell {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 10px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .pedigree-cell .photo {
+    width: 100%;
+  }
+
+  .pedigree-cell img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  .name,
+  .titles {
+    text-align: left;
+  }
+
+  .relationship-label {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  #pedigreeTable {
+    padding: 10px;
+  }
+
+  #pedigreeTable > div > div {
+    flex: 1 1 100% !important;
+    min-width: 100%;
+  }
+
+  .pedigree-cell {
+    padding: 8px;
+  }
+
+  .pedigree-cell img {
+    max-width: 100%;
+  }
+}
+
+
+
 
 
 
